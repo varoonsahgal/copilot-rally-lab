@@ -1,0 +1,169 @@
+<!--meta {"kind": "lab", "session": 2, "n": 2} -->
+<section id="mission" data-toc="Mission">
+  <h2><span class="base"></span>The mission</h2>
+  <div class="mission">
+    <h3>One dugout for every fact.</h3>
+    <p>Right now the Rally Weekend story lives in a dozen places: an event plan, sponsor terms, an ops playbook, a checklist, yesterday's
+      findings, this morning's memo and a budget workbook. Every new question means attaching the same files again.</p>
+    <p class="mb0">Build the <b>Promotional Weekend Command Center</b>: a Copilot Notebook that holds the project's approved sources, follows
+      your instructions every time, and grows as the situation changes. Then find out where its knowledge stops.</p>
+  </div>
+</section>
+
+<section id="game-plan" data-toc="Game plan">
+  <h2><span class="base"></span>Game plan</h2>
+  <ul class="objectives">
+    <li>Explain what a Copilot Notebook is for and how it differs from a chat and an agent.</li>
+    <li>Curate references so answers stay grounded in project content.</li>
+    <li>Use notebook instructions to control format and purpose.</li>
+    <li>Generate a briefing, a risk list and a "then vs. now" comparison.</li>
+    <li>Add new information as the project changes.</li>
+    <li>Find a question the notebook <em>can't</em> answer, and name the missing source.</li>
+  </ul>
+</section>
+
+<section id="files" data-toc="Before you start">
+  <h2><span class="base"></span>Before you start</h2>
+  <p>You'll add these seven files as notebook references. They should already be in your OneDrive <code>Rally Weekend Task Force</code> folder.</p>
+  <div class="files">
+    <file href="{{root}}data/session-1/03_Event_Plan_v3_Riverfront_Rally_Weekend.docx" ext="docx" title="Event Plan v3" desc="Locked June 4"/>
+    <file href="{{root}}data/session-1/04_Sponsor_Requirements_Summary.docx" ext="docx" title="Sponsor Requirements" desc="Guarantees & make-goods"/>
+    <file href="{{root}}data/session-1/05_Operations_Playbook_Giveaway_Rules.docx" ext="docx" title="Ops Playbook" desc="Approval & reconciliation rules"/>
+    <file href="{{root}}data/session-2/07_Promotional_Readiness_Checklist.docx" ext="docx" title="Readiness Checklist" desc="Rating standard A-F"/>
+    <file href="{{root}}data/session-2/09_Task_Force_Findings_Session1.docx" ext="docx" title="Session 1 Findings" desc="Yesterday's assessment"/>
+    <file href="{{root}}data/session-2/06_Plot_Twist_Memo_June17.docx" ext="docx" title="Plot Twist Memo" desc="Today's changes"/>
+    <file href="{{root}}data/session-2/Rally_Weekend_Budget_Model.xlsx" ext="xlsx" title="Budget Model" desc="Scenarios & costs"/>
+  </div>
+  <div class="callout warn"><b class="t">Rain delay · availability</b>
+    <p>Copilot Notebooks appear in the Microsoft 365 Copilot app (and in OneNote) for licensed users, subject to admin settings. The kinds of references you can add (files, pages, links, meeting notes) vary by release. <b>No Notebooks?</b> Start one long Copilot Chat, attach all seven files in the first message, paste the notebook instructions from step 2 as your opening prompt, then run the same questions. You lose persistence, but you keep the lesson.</p></div>
+</section>
+
+<section id="play" data-toc="Play-by-play">
+  <h2><span class="base"></span>Play-by-play</h2>
+  <ol class="steps">
+    <li class="step"><h3>Create the notebook and add references</h3>
+      <ul><li>In the Microsoft 365 Copilot app, open <b>Notebooks</b> and create a new notebook named <code>Rally Weekend Command Center</code>.</li>
+        <li>Add the seven files above as <b>references</b>. Add only approved, current sources. Anything you add becomes part of what Copilot treats as true.</li>
+        <li>Leave the Session 1 email export <em>out</em> on purpose. You'll see why in the challenge.</li></ul>
+      <div class="callout scout"><b class="t">Scouting report · curation is the skill</b>
+        <p>A notebook is only as trustworthy as its reference list. Ten carefully chosen sources beat fifty "just in case" files: fewer contradictions, sharper answers, easier citations.</p></div>
+    </li>
+
+    <li class="step"><h3>Write the notebook instructions</h3>
+      <p>Instructions set the purpose and format for every answer in this notebook. Paste these into the notebook's instructions or description field. If your version has no such field, send them as the first message.</p>
+      <prompt where="Copilot Notebook · instructions">You are the knowledge hub for the Riverfront Rally Weekend Task Force (fictional, June 18-20, 2027).
+Purpose: help the team answer readiness, sponsor, operations and budget questions using ONLY the references in this notebook.
+Rules:
+1. Cite the reference file for every fact and number.
+2. Label every statement as CONFIRMED (in a signed or locked document), ESTIMATE (forecast or projection), or UNRESOLVED (conflicting or missing evidence).
+3. When two references disagree, show both and say which is newer. Do not pick a winner silently.
+4. If the references do not contain the answer, say "Not in the notebook references" and name the source that would be needed.
+5. Prefer the Plot Twist memo (June 17) over older documents for anything it explicitly updates.
+Format: start with a 1-sentence bottom line, then bullets or a table. Keep answers under 250 words unless asked for more.</prompt>
+    </li>
+
+    <li class="step"><h3>Generate the project briefing</h3>
+      <prompt where="Copilot Notebook">Create a one-page readiness briefing for Elena Ortiz as of Thursday June 17, 10:00 AM.
+Sections: Bottom line | Game-by-game status (Fri / Sat / Sun) with a GREEN / YELLOW / RED rating | Decisions needed today | Key numbers (attendance, promo cost, sponsorship, net vs the $2.4M objective).
+Use the Readiness Checklist rating definitions.</prompt>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>Friday GREEN with a cost note (+$6,500 fireworks surcharge).</li>
+          <li>Saturday YELLOW or RED: 600-bobblehead gap, now with a priced fix, and attendance pacing to 41,000.</li>
+          <li>Sunday YELLOW: weather (28,500 expected), plus the BRE scope decision and the Right Field pallet.</li>
+          <li>Citations to the memo, findings, sponsor summary and budget model.</li></ul></div>
+    </li>
+
+    <li class="step"><h3>Ask focused, grounded questions</h3>
+      <p>Run at least two. Notice how short prompts work now: the notebook already knows the project.</p>
+      <prompt where="Copilot Notebook">List every outstanding risk for the weekend. For each: risk | likelihood (H/M/L) | business impact in dollars or fans | owner role | the reference that supports it. Sort by impact.</prompt>
+      <prompt where="Copilot Notebook">Compare the latest information with our earlier assumptions. Table: Assumption | Earlier value and source | Latest value and source | Change | Does it alter a recommendation? Include Sunday and Saturday attendance, bucket hat quantity and fee, bobblehead shortfall and fix cost, and promo cost total.</prompt>
+      <prompt where="Copilot Notebook">Under the Ops Playbook approval rule, is the Big River Energy bucket hat now approved? Walk through each of the three requirements and label each MET, NOT MET, or UNKNOWN with a citation.</prompt>
+      <div class="expect"><b class="t">What you should see in the approval answer</b>
+        <ul><li>Signed amendment: <b>MET</b> (memo), but the scope changed to 10,000 hats.</li>
+          <li>VP Marketing approval: <b>UNKNOWN / NOT MET</b>. The 5/24 approval was conditional and covered 5,000 hats.</li>
+          <li>Ops capacity sign-off: <b>NOT MET / UNKNOWN</b>. Nine more staff are needed, with no confirmation in the references.</li></ul></div>
+    </li>
+
+    <li class="step"><h3>Add new information as the project moves</h3>
+      <p>Projects change. Simulate a new update: create a short Word doc or notebook page called <code>Update - Ops 11AM</code> with the text below and add it as a reference.</p>
+      <prompt where="New reference note">Update - Thursday June 17, 11:00 AM (Marcus Bell, Ballpark Operations)
+Staffing agency confirmed 6 additional gate staff for Sunday, not 9.
+Right Field mini bat pallet DLV-2234 has been rescheduled from 6/21 to 6/18.
+Magnet schedules have been pulled back to the Central Warehouse.</prompt>
+      <prompt where="Copilot Notebook">What changed with the 11:00 AM Ops update? Which risks can we close, which got worse, and does it change the bucket hat decision?</prompt>
+      <div class="expect"><b class="t">What you should see</b><p>Mini bat and magnet risks close. Ops can staff 6, not the 9 needed for hats at all five gates, so the signed 10,000-hat scope still fails Ops capacity.</p></div>
+    </li>
+
+    <li class="step"><h3>Optional: audio overview</h3>
+      <p>If your notebook offers an <b>audio overview</b>, generate one for the briefing. It's a podcast-style summary for executives listening between meetings. Listen to the first minute: does it keep the CONFIRMED / ESTIMATE distinction?</p>
+    </li>
+  </ol>
+</section>
+
+<section id="compare" data-toc="Chat vs notebook vs agent">
+  <h2><span class="base"></span>Chat vs. notebook vs. agent</h2>
+  <div class="table-wrap"><table class="data">
+    <thead><tr><th></th><th>Copilot Chat</th><th>Copilot Notebook</th><th>Copilot Agent (Inning 3)</th></tr></thead>
+    <tbody>
+      <tr><td><b>Scope</b></td><td>One conversation</td><td>One project</td><td>One repeatable job</td></tr>
+      <tr><td><b>Sources</b></td><td>Whatever you attach or reference each time</td><td>A curated reference list you keep current</td><td>Fixed knowledge sources set by the builder</td></tr>
+      <tr><td><b>Who uses it</b></td><td>You</td><td>You and project collaborators</td><td>Anyone it's shared with, across projects</td></tr>
+      <tr><td><b>Lifespan</b></td><td>Minutes</td><td>Weeks (life of the project)</td><td>Months (life of the process)</td></tr>
+      <tr><td><b>Rally Weekend example</b></td><td>"Summarize this memo"</td><td>Command Center for this weekend</td><td>Readiness Coach for <em>every</em> promotion</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="challenge" data-toc="Bottom of the 9th">
+  <h2><span class="base"></span>Bottom of the 9th</h2>
+  <div class="challenge">
+    <span class="kick">Audience challenge · 4 minutes</span>
+    <h3>Stump the Notebook</h3>
+    <p>Ask the Command Center a question it <b>cannot answer reliably</b> from its references. Then name the exact missing source that would fix it.
+      Points for questions that get a confident-sounding answer anyway.</p>
+    <p><label><input type="checkbox" class="track" data-key="catch:s2-l2-stump"> The notebook gave a confident answer it couldn't support, and I caught it</label></p>
+    <div class="count"><span>Solo or pairs</span><span>1 question each</span><span>Name the missing source</span></div>
+  </div>
+  <details class="reveal"><summary>Need ideas? Questions that should stump it</summary><div class="inner">
+    <ul><li>"How many Saturday tickets have we sold as of right now?" → needs a live ticketing report.</li>
+      <li>"What exactly does the fan email draft say about bucket hats?" → needs the email draft (Fan Experience).</li>
+      <li>"Did Elena approve the 10,000-hat version?" → needs Elena's email (the email export isn't a reference, on purpose).</li>
+      <li>"Which make-good does Riverbend prefer?" → needs sponsor correspondence; the contract says "sponsor's choice".</li>
+      <li>"Will it actually rain Sunday?" → needs a live forecast; the memo only gives a 60% chance.</li></ul></div></details>
+</section>
+
+<section id="ump" data-toc="Umpire review">
+  <h2><span class="base"></span>Umpire review</h2>
+  <div class="callout ump"><b class="t">Check the Command Center before you share it</b>
+    <ul><li>Open two citations at random. Does the cited file actually say that?</li>
+      <li>Are the attendance figures labeled <b>ESTIMATE</b>, not fact?</li>
+      <li>After the 11 AM update, does the notebook still mention the 6/21 pallet as an open risk? (If so, it's mixing old and new.)</li>
+      <li>Who can see this notebook? Share it only with the Task Force.</li></ul></div>
+</section>
+
+<section id="box" data-toc="Box score">
+  <h2><span class="base"></span>Box score</h2>
+  <div class="boxscore"><div class="bs-head"><span>Inning 2 deliverables</span><span>20 min</span></div>
+    <table><tr><th>Output</th><th>Done when…</th></tr>
+      <tr><td><b>Rally Weekend Command Center</b> notebook</td><td>7 curated references + instructions, plus the 11 AM update</td></tr>
+      <tr><td>Readiness briefing</td><td>One page, game-by-game ratings, every number cited</td></tr>
+      <tr><td>Risk register + then-vs-now table</td><td>Sorted by impact, with CONFIRMED / ESTIMATE / UNRESOLVED labels</td></tr>
+      <tr><td>Missing-source log</td><td>At least one "stump" question with the source that would answer it</td></tr></table></div>
+</section>
+
+<section id="dugout" data-toc="Dugout notes">
+  <h2><span class="base"></span>Dugout notes</h2>
+  <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
+    <p><b>Timing (20 min):</b> 3 min demo creating the notebook · 3 min instructions · 5 min briefing and questions · 3 min update · 4 min challenge · 2 min debrief.</p>
+    <p><b>Reference risk register (top 5 by impact):</b></p>
+    <ol>
+      <li>Weekend net drops below $2.4M once optional costs are added: plot twist base is $2,408,000, only $8,000 of headroom (budget model + memo).</li>
+      <li>BRE deal as signed loses $30,900 and fails Ops capacity: 10,000 hats need 9 staff, with 6 confirmed after the update.</li>
+      <li>Bobblehead shortfall of 600 against the guarantee: $8,100 to fix, or a $4,800 credit, or a replacement night (sponsor's choice).</li>
+      <li>Fan email (180,000 recipients) mentions an item that isn't fully approved: reputational risk.</li>
+      <li>Sunday weather: 4,500 fewer fans than plan, about $121,500 of net contribution.</li>
+    </ol>
+    <p><b>Common miss:</b> participants add the email export "for completeness." Then the notebook happily repeats Jordan's "it's approved" claims. Use that as a teaching moment on curation.</p>
+    <p><b>Staffing catch:</b> the 11 AM update says the agency confirmed 6 staff, "not 9." But the Ops Playbook rule (+3 per dual-item gate × 5 gates) implies 15 for the redlined scope. Ask the notebook to check the memo against the playbook. A good answer flags the gap.</p>
+    <p><b>Mini bat conflict preview:</b> if anyone asks how mini bats are distributed, the Event Plan says <em>gate entry</em> but Event Standards (not a notebook reference) says bat-style items go out at <em>exit</em>. Save the reveal for Inning 3.</p>
+  </div></details>
+</section>

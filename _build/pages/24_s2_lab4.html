@@ -1,0 +1,197 @@
+<!--meta {"kind": "lab", "session": 2, "n": 4} -->
+<section id="mission" data-toc="Mission">
+  <h2><span class="base"></span>The mission</h2>
+  <div class="mission">
+    <h3>Stop emailing spreadsheets. Build the tool.</h3>
+    <p>Every "what if" question from leadership (what if Sunday rains, what if we air-freight bobbleheads, what if we take the BRE deal) has meant
+      another round of spreadsheet edits and another email. Elena wants to <b>move the sliders herself</b> in the 3:00 PM meeting.</p>
+    <p class="mb0">Use natural language to build a <b>Game-Day Promotion Simulator</b> in Copilot Pages: adjustable assumptions, visible formulas, scenario
+      comparisons, and math you have personally verified. Then survive the <b>Budget Surprise</b>.</p>
+  </div>
+</section>
+
+<section id="game-plan" data-toc="Game plan">
+  <h2><span class="base"></span>Game plan</h2>
+  <ul class="objectives">
+    <li>Translate a business question into inputs, rules and outputs.</li>
+    <li>Prompt Copilot to build an interactive prototype and preview it in Pages.</li>
+    <li>Refine the interface and behavior through conversation.</li>
+    <li>Compare conservative, expected and optimistic scenarios.</li>
+    <li>Test edge cases, bad inputs and the math itself.</li>
+    <li>Know what separates a prototype from a production app.</li>
+  </ul>
+</section>
+
+<section id="files" data-toc="Before you start">
+  <h2><span class="base"></span>Before you start</h2>
+  <div class="files">
+    <file href="{{root}}data/session-2/Rally_Weekend_Budget_Model.xlsx" ext="xlsx" title="Rally Weekend Budget Model" desc="Scenarios, unit economics, costs, sponsorship"/>
+    <file href="{{root}}data/session-2/06_Plot_Twist_Memo_June17.docx" ext="docx" title="Plot Twist Memo" desc="For the Budget Surprise"/>
+  </div>
+  <div class="callout warn"><b class="t">Rain delay · availability</b>
+    <p>Building interactive content and previewing it in Copilot Pages depends on your license, tenant settings and release. Copilot may show the result as code with a preview, or as a page you can open and edit.
+      <b>No interactive preview?</b> (1) Ask Copilot Chat for the same tool as a <b>single HTML file</b>, save it as <code>simulator.html</code> and open it in your browser, (2) ask <b>Analyst</b> to build the scenario table and chart, or (3) use our <a href="simulator.html">reference simulator</a> to run the challenge.</p></div>
+</section>
+
+<section id="design" data-toc="Design the tool">
+  <h2><span class="base"></span>Design before you prompt</h2>
+  <p class="lead">Two minutes of design saves twenty minutes of re-prompting. Here's the spec the build prompt encodes.</p>
+  <div class="grid three">
+    <div class="card"><span class="tag blue">Inputs</span><h3 style="margin-top:10px">What can change</h3>
+      <ul><li>Attendance per game (Fri / Sat / Sun)</li><li>Margin per attendee: <b>$34</b></li><li>Variable opex per attendee: <b>$7</b></li><li>Fixed opex: <b>$135,000/game</b></li><li>Promo costs: <b>$257,500</b></li><li>Sponsorship: <b>$215,000</b></li></ul></div>
+    <div class="card"><span class="tag blue">Rules</span><h3 style="margin-top:10px">How it calculates</h3>
+      <p><b>Net</b> = A × (Margin − Var) + Sponsorship − Promo − Fixed</p>
+      <p><b>Break-even A</b> = (Promo + Fixed − Spons.) ÷ (Margin − Var)</p>
+      <p class="mb0"><b>Objective A</b> = ($2.4M + Promo + Fixed − Spons.) ÷ (Margin − Var)</p></div>
+    <div class="card"><span class="tag blue">Outputs</span><h3 style="margin-top:10px">What leadership sees</h3>
+      <ul><li>Weekend net contribution</li><li>Gap vs. the <b>$2,400,000</b> objective</li><li>Break-even and objective attendance</li><li>Scenario comparison chart</li><li>The assumptions, always visible</li></ul></div>
+  </div>
+</section>
+
+<section id="play" data-toc="Play-by-play">
+  <h2><span class="base"></span>Play-by-play</h2>
+  <ol class="steps">
+    <li class="step"><h3>Build the first version</h3>
+      <p>In Copilot Chat, paste the build prompt. It's long on purpose: specific inputs, formulas and defaults are what make the math trustworthy.</p>
+      <prompt where="Copilot Chat → Pages">Build an interactive web app called "Game-Day Promotion Simulator" for the fictional Riverfront Rally Weekend (3 home games, June 18-20, 2027). I want to preview and edit it in Copilot Pages.
+
+INPUTS (each with a slider and a number box, and a default value):
+- Attendance Friday (default 36,500), Saturday (39,800), Sunday (33,000). Range 0 to 42,000 per game (ballpark capacity).
+- Margin per attendee: $34.00 (ticket + concessions + merch, blended net margin)
+- Variable operating cost per attendee: $7.00
+- Fixed operating cost per game: $135,000 (x 3 games)
+- Promotional costs, as editable line items: Rally Towels $23,000; Retro Bobbleheads $96,000; Kids Mini Bats $28,500; Fireworks $65,000; Entertainment & marketing $45,000 (total $257,500)
+- Sponsorship contributions, as editable line items: Harbor City Mutual $60,000; Riverbend Health Partners $110,000; Lakeside Fresh Market $45,000 (total $215,000)
+- Financial objective: $2,400,000 weekend net contribution
+
+CALCULATIONS (show these formulas on screen in plain English):
+- Weekend attendance A = Fri + Sat + Sun
+- Net contribution = A x (Margin - Variable cost) + Sponsorship - Promotional costs - (Fixed cost per game x 3)
+- Break-even attendance = (Promotional costs + Fixed costs - Sponsorship) / (Margin - Variable cost), rounded up
+- Attendance needed for objective = (Objective + Promotional costs + Fixed costs - Sponsorship) / (Margin - Variable cost), rounded up
+- Gap vs objective = Net contribution - Objective
+
+SCENARIOS: buttons that load attendance presets: Conservative (33,500 / 36,500 / 30,000), Expected (36,500 / 39,800 / 33,000), Optimistic (39,500 / 42,000 / 36,000).
+
+OUTPUTS: summary tiles for weekend attendance, net contribution, gap vs objective (green "meets objective" or red "below objective", with an icon and text, not color alone), break-even attendance and attendance needed for objective. Add a bar chart comparing net contribution for all three scenarios, with a reference line at $2,400,000.
+
+VALIDATION: if margin <= variable cost, show "Break-even undefined" instead of a number. Warn if any game exceeds 42,000 or is negative. Treat blank inputs as an error, not as zero.
+
+Style: clean, readable, navy and gold. Format money as $#,### and attendance with thousands separators.</prompt>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>A working calculator. With the defaults: <b>109,300</b> fans, net <b>$2,503,600</b>, <b>+$103,600</b> vs. objective.</li>
+          <li>Break-even attendance <b>16,575</b>. Attendance needed for the objective <b>105,463</b>.</li>
+          <li>If your tenant supports interactive preview, the result opens (or can be opened) in Copilot Pages, where you can keep editing and share it. If not, see the Rain delay fallback above.</li></ul></div>
+    </li>
+
+    <li class="step"><h3>Verify the math before you trust a single slider</h3>
+      <p>Prototypes look finished long before they're correct. Check all three scenarios against the table below, by hand or in the budget workbook.</p>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>Scenario</th><th class="num">Attendance</th><th class="num">× $27</th><th class="num">+ Spons.</th><th class="num">− Promo</th><th class="num">− Fixed</th><th class="num">Net</th><th class="num">vs $2.4M</th></tr></thead>
+        <tbody>
+          <tr><td>Conservative</td><td class="num">100,000</td><td class="num">2,700,000</td><td class="num">215,000</td><td class="num">257,500</td><td class="num">405,000</td><td class="num"><b>2,252,500</b></td><td class="num"><span class="tag red">−147,500</span></td></tr>
+          <tr><td>Expected</td><td class="num">109,300</td><td class="num">2,951,100</td><td class="num">215,000</td><td class="num">257,500</td><td class="num">405,000</td><td class="num"><b>2,503,600</b></td><td class="num"><span class="tag green">+103,600</span></td></tr>
+          <tr><td>Optimistic</td><td class="num">117,500</td><td class="num">3,172,500</td><td class="num">215,000</td><td class="num">257,500</td><td class="num">405,000</td><td class="num"><b>2,725,000</b></td><td class="num"><span class="tag green">+325,000</span></td></tr>
+        </tbody></table></div>
+      <prompt where="Copilot Chat">Show me the step-by-step calculation behind the Expected scenario's net contribution, with every intermediate number. Then confirm the app's code uses exactly this formula: Net = A x (Margin - Variable) + Sponsorship - Promo - Fixed x 3.</prompt>
+      <div class="callout ump"><b class="t">Umpire review · common prototype bugs</b>
+        <ul><li>Fixed cost counted once instead of × 3 games (net off by $270,000).</li>
+          <li>Variable cost subtracted per game instead of per attendee.</li>
+          <li>Sponsorship subtracted instead of added.</li>
+          <li>Break-even rounded down (16,574 fans doesn't quite break even).</li></ul>
+        <p class="mb0"><label><input type="checkbox" class="track" data-key="catch:s2-l4-math"> I caught a math bug in my generated simulator</label></p></div>
+    </li>
+
+    <li class="step"><h3>Refine through conversation</h3>
+      <p>Iterate one change at a time, and re-test after each.</p>
+      <prompt where="Copilot Chat → Pages">Add a "Plot Twist (June 17)" scenario: Friday 36,500, Saturday 41,000, Sunday 28,500.
+Add three optional toggles, off by default, each shown as its own line in the results:
+1. Fireworks fuel and permit surcharge: +$6,500 promotional cost.
+2. Bobblehead fix: choose "None", "Air-freight 600 replacements (+$8,100 promo cost)" or "Riverbend make-good credit (-$4,800 sponsorship)".
+3. Big River Energy bucket hats as signed: +$25,000 sponsorship, +$53,500 hat cost, +$2,400 extra staffing.
+Add the Plot Twist to the scenario comparison chart.</prompt>
+      <prompt where="Copilot Chat → Pages">Add a "What it takes" panel: how many more fans, OR how much more margin per attendee, would close the gap to $2,400,000 for the current inputs. If we already meet the objective, show the cushion instead.</prompt>
+    </li>
+
+    <li class="step"><h3>Break it on purpose: edge cases</h3>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>Try this</th><th>Correct behavior</th></tr></thead>
+        <tbody>
+          <tr><td>Sunday attendance <b>−500</b></td><td>Error message. Never a "better" result.</td></tr>
+          <tr><td>Saturday <b>45,000</b></td><td>Capacity warning (42,000 max)</td></tr>
+          <tr><td>Margin <b>$7</b> with variable cost <b>$7</b></td><td>"Break-even undefined" (no division by zero, no "Infinity")</td></tr>
+          <tr><td>Clear the margin box</td><td>A blank-input error, not a silent $0</td></tr>
+          <tr><td>All three toggles on, Plot Twist</td><td>Net <b>$2,369,000</b> with air freight (see the challenge key)</td></tr>
+        </tbody></table></div>
+      <prompt where="Copilot Chat → Pages">Write 6 test cases for this simulator (inputs and the exact expected outputs), including the edge cases above. Then tell me which ones the current app fails, and fix them.</prompt>
+    </li>
+
+    <li class="step"><h3>Prototype vs. production</h3>
+      <p>Your page is a <b>thinking tool</b> for a meeting, not a system of record. Before it becomes something people rely on, it needs:</p>
+      <ul><li>A data owner (Finance) and a live connection, not typed-in numbers.</li><li>Version control, review and testing.</li><li>Access control and a support plan.</li><li>A clear label on the page: <i>"Prototype · fictional data · validated on June 17 by [[name]]"</i>.</li></ul>
+    </li>
+  </ol>
+</section>
+
+<section id="challenge" data-toc="Budget Surprise">
+  <h2><span class="base"></span>Bottom of the 9th: The Budget Surprise</h2>
+  <div class="challenge">
+    <span class="kick">Audience challenge · 6 minutes</span>
+    <h3>The Budget Surprise</h3>
+    <p>Load the <b>Plot Twist</b> scenario and turn on the fireworks surcharge. You clear $2.4M by a hair. Now Sponsorship wants the bobbleheads air-freighted,
+      and Jordan wants the BRE deal as signed. <b>Find a revised plan that meets the $2.4M objective</b>, and be ready to say what risk you're accepting.</p>
+    <div class="count"><span>Pairs</span><span>One plan each</span><span>Show the net</span></div>
+  </div>
+  <div class="stats">
+    <div class="stat good"><small>Plot Twist + surcharge</small><b>$2,408,000</b><span>▲ +$8,000 vs objective</span></div>
+    <div class="stat bad"><small>+ air-freight</small><b>$2,399,900</b><span>▼ −$100: four fans short</span></div>
+    <div class="stat bad"><small>+ BRE as signed</small><b>$2,377,100</b><span>▼ −$22,900</span></div>
+    <div class="stat bad"><small>+ both</small><b>$2,369,000</b><span>▼ −$31,000</span></div>
+  </div>
+  <p class="center"><a class="btn gold" href="simulator.html">⚾ Open the reference simulator</a></p>
+</section>
+
+<section id="ump" data-toc="Umpire review">
+  <h2><span class="base"></span>Umpire review</h2>
+  <div class="callout ump"><b class="t">Before the simulator goes in front of Elena</b>
+    <ul><li><b>Source:</b> do the default values match <code>Rally_Weekend_Budget_Model.xlsx</code>?</li>
+      <li><b>Status:</b> attendance figures are <b>forecasts</b>. Label them that way on the page.</li>
+      <li><b>Math:</b> hand-check one scenario (use the table in step 2).</li>
+      <li><b>Gaps:</b> the model ignores weather refunds, sponsor relationship value and extra concessions on hot days. Say so.</li></ul></div>
+</section>
+
+<section id="box" data-toc="Box score">
+  <h2><span class="base"></span>Box score</h2>
+  <div class="boxscore"><div class="bs-head"><span>Inning 4 deliverables</span><span>30 min</span></div>
+    <table><tr><th>Output</th><th>Done when…</th></tr>
+      <tr><td><b>Game-Day Promotion Simulator</b> (Copilot Pages)</td><td>Inputs, visible formulas, 4 scenarios, chart, validation</td></tr>
+      <tr><td>Validated calculations</td><td>3 scenarios hand-checked + 6 test cases passing</td></tr>
+      <tr><td>Revised scenario</td><td>A Budget Surprise plan that meets $2.4M, with its risk stated</td></tr></table></div>
+</section>
+
+<section id="dugout" data-toc="Dugout notes">
+  <h2><span class="base"></span>Dugout notes</h2>
+  <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
+    <p><b>Timing (30 min):</b> 3 min design · 6 min build · 5 min verify · 5 min refine · 3 min edge cases · 6 min Budget Surprise · 2 min prototype vs production.</p>
+    <p><b>Plot Twist math</b> (A = 36,500 + 41,000 + 28,500 = 106,000; 106,000 × $27 = $2,862,000; fixed $405,000; sponsorship $215,000):</p>
+    <div class="table-wrap"><table class="data">
+      <thead><tr><th>Plan</th><th class="num">Promo</th><th class="num">Spons.</th><th class="num">Net</th><th class="num">vs $2.4M</th></tr></thead>
+      <tbody>
+        <tr><td>Plot Twist, no surcharge</td><td class="num">257,500</td><td class="num">215,000</td><td class="num">2,414,500</td><td class="num">+14,500</td></tr>
+        <tr><td>+ fireworks surcharge</td><td class="num">264,000</td><td class="num">215,000</td><td class="num">2,408,000</td><td class="num">+8,000</td></tr>
+        <tr><td>+ air-freight bobbleheads</td><td class="num">272,100</td><td class="num">215,000</td><td class="num">2,399,900</td><td class="num">−100</td></tr>
+        <tr><td>+ make-good credit instead</td><td class="num">264,000</td><td class="num">210,200</td><td class="num">2,403,200</td><td class="num">+3,200</td></tr>
+        <tr><td>+ BRE as signed (no bobblehead fix)</td><td class="num">319,900</td><td class="num">240,000</td><td class="num">2,377,100</td><td class="num">−22,900</td></tr>
+        <tr><td>+ BRE + air-freight</td><td class="num">328,000</td><td class="num">240,000</td><td class="num">2,369,000</td><td class="num">−31,000</td></tr>
+      </tbody></table></div>
+    <p><b>Plans that meet the objective:</b></p>
+    <ul>
+      <li><b>Decline or defer BRE + make-good credit:</b> $2,403,200. Cheapest, but Riverbend may choose a replacement night instead of the credit.</li>
+      <li><b>Decline BRE + air-freight + a Father's Day concessions bundle</b> (+$0.25 margin per attendee = +$26,500): $2,426,400. Honors the guarantee.</li>
+      <li><b>Air-freight + ask Skyburst to split the surcharge</b> (−$3,250): $2,403,150.</li>
+      <li><b>Counter BRE</b> with hats on a later date at standard lead time (10,000 × $4.10 = $41,000), so the fee must be at least about $45,000 to break even.</li>
+    </ul>
+    <p><b>The big insight:</b> −$100 is well inside forecast error. A Sunday at the conservative 25,000 costs $94,500. The decision should rest on <em>risk and sponsor relationships</em>, not a rounding-error pass or fail. The strongest recommendation is <b>decline or counter BRE + air-freight + the Father's Day bundle ($2,426,400)</b>. It keeps the contractual promise <em>and</em> meets the objective. Air-freight + decline alone ($2,399,900) misses by $100. Make the room say why that matters, or doesn't.</p>
+    <p><b>Break-even / objective attendance (Plot Twist + surcharge + air-freight):</b> 17,115 and 106,004. Ask the room: "We need four more fans. Is that a plan?"</p>
+  </div></details>
+</section>

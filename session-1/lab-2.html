@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inning 2: Follow the Evidence | Rally Lab - Copilot Level 2</title>
+<meta name="description" content="Baseball-themed hands-on labs for Microsoft 365 Copilot Level 2: Researcher, Analyst, Excel, Notebooks, Agent Builder, Pages.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' aria-hidden='true'><circle cx='32' cy='32' r='29' fill='%23fff' stroke='%23E7E0CF' stroke-width='2'/><path d='M14 10c8 7 11 15 11 22s-3 15-11 22M50 10c-8 7-11 15-11 22s3 15 11 22' fill='none' stroke='%23C6011F' stroke-width='2.4'/><g stroke='%23C6011F' stroke-width='2' stroke-linecap='round'><path d='M17 15l4-2M20 20l4-1.5M22 26l4-.8M22.5 32h4M22 38l4 .8M20 44l4 1.5M17 49l4 2M47 15l-4-2M44 20l-4-1.5M42 26l-4-.8M41.5 32h-4M42 38l-4 .8M44 44l-4 1.5M47 49l-4 2'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@400;500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css"><script>document.documentElement.classList.add("js")</script></head><body class="theme-s1" data-page="s1-l2" data-lab="s1-l2"><header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#fff" stroke="#E7E0CF" stroke-width="2"/><path d="M14 10c8 7 11 15 11 22s-3 15-11 22M50 10c-8 7-11 15-11 22s3 15 11 22" fill="none" stroke="#C6011F" stroke-width="2.4"/><g stroke="#C6011F" stroke-width="2" stroke-linecap="round"><path d="M17 15l4-2M20 20l4-1.5M22 26l4-.8M22.5 32h4M22 38l4 .8M20 44l4 1.5M17 49l4 2M47 15l-4-2M44 20l-4-1.5M42 26l-4-.8M41.5 32h-4M42 38l-4 .8M44 44l-4 1.5M47 49l-4 2"/></g></svg><span class="word">Rally Lab</span><span class="tag">Microsoft 365 Copilot<br>Level 2</span></a>
+<button class="nav-toggle" type="button" aria-label="Menu">Menu</button>
+<nav class="nav"><a href="../index.html">Home</a><a href="../session-1/index.html" class="active">Game 1: Investigation</a><a href="../session-2/index.html">Game 2: Innovation Lab</a><a href="../case-file.html">Case File</a><a href="../resources.html">Dugout Guide</a></nav></div></header><main><section class="lab-hero"><div class="hero-num" aria-hidden="true">2</div><div class="wrap">
+<div class="crumbs"><a href="../index.html">Rally Lab</a> / <a href="index.html">Game 1 · The Investigation</a> / Inning 2</div>
+<div class="row"><div class="inning-badge"><div><small>Inning</small><b>2</b><small>of 5</small></div></div>
+<div class="hero-text"><h1>Follow the Evidence</h1><p class="sub">Reconstruct a disputed approval from fragmented emails and a meeting, and catch a flawed AI recap.</p>
+<div class="chips"><span class="chip tool">Outlook</span><span class="chip tool">Teams</span><span class="chip">⏱ 25 minutes</span><span class="chip">📋 Output: Decision timeline, outstanding-commitments report, follow-up email</span><span class="chip idea">💡 Big Idea #2: Conditional is not approved</span></div></div>
+<div class="hero-path" data-session="1" aria-label="Session progress">
+<svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 106 L104 62 L60 18 L16 62 Z" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2" stroke-dasharray="4 4"/>
+<rect class="hp-base" data-lab-dot="s1-l1" x="-7" y="-7" width="14" height="14" transform="translate(60 106) rotate(45)"/><rect class="hp-base" data-lab-dot="s1-l2" x="-7" y="-7" width="14" height="14" transform="translate(104 62) rotate(45)" data-current/><rect class="hp-base" data-lab-dot="s1-l3" x="-7" y="-7" width="14" height="14" transform="translate(60 18) rotate(45)"/><rect class="hp-base" data-lab-dot="s1-l4" x="-7" y="-7" width="14" height="14" transform="translate(16 62) rotate(45)"/><rect class="hp-base" data-lab-dot="s1-l5" x="-7" y="-7" width="14" height="14" transform="translate(60 62) rotate(45)"/>
+</svg><small>Game 1 base path</small></div></div></div></section><nav class="lineup-nav" aria-label="Innings"><div class="wrap"><span class="lbl">Game 1 lineup</span><a class="" data-lab-link="s1-l1" href="lab-1.html"><span class="n">1</span>Investigation Plan</a><a class="current" data-lab-link="s1-l2" href="lab-2.html"><span class="n">2</span>The Missing Approval</a><a class="" data-lab-link="s1-l3" href="lab-3.html"><span class="n">3</span>Readiness Brief</a><a class="" data-lab-link="s1-l4" href="lab-4.html"><span class="n">4</span>Reconciliation</a><a class="" data-lab-link="s1-l5" href="lab-5.html"><span class="n">5</span>Make the Call</a><span class="lineup-progress"><i style="width:0%"></i></span></div></nav><div class="lab-body"><div class="wrap lab-grid"><aside class="toc"><b>In this inning</b><a href="#mission">Mission</a><a href="#call-your-shot">Call your shot</a><a href="#game-plan">Game plan</a><a href="#before">Before you start</a><a href="#play">Play-by-play</a><a href="#drill">Bullpen drill</a><a href="#challenge">Bottom of the 9th</a><a href="#verify">Umpire review</a><a href="#boxscore">Box score</a><a href="#extra-innings">Extra innings</a><a href="#postgame">Postgame takeaways</a><a href="#dugout">Dugout notes</a></aside>
+<div class="lab-content"><style>
+  .tl { list-style: none; padding: 0; margin: 0; position: relative; }
+  .tl::before { content: ""; position: absolute; left: 92px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+  .tl li { display: grid; grid-template-columns: 80px 26px 1fr; gap: 10px; align-items: start; padding: 8px 0; }
+  .tl .d { font-family: var(--head); font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-align: right; padding-top: 2px; }
+  .tl .dot { width: 14px; height: 14px; border-radius: 50%; margin: 4px 0 0 6px; background: #fff; border: 3px solid var(--muted); position: relative; z-index: 1; }
+  .tl .dot.red { border-color: var(--bad); } .tl .dot.yellow { border-color: var(--warn); } .tl .dot.green { border-color: var(--ok); }
+  .tl .w { font-size: .93rem; } .tl .w b { font-family: var(--head); letter-spacing: .02em; }
+  .recap-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 12px 14px; border-top: 1px solid var(--line); }
+  .recap-row:first-child { border-top: 0; }
+  .recap-row label { font-size: .8rem; color: var(--muted); white-space: nowrap; font-family: var(--head); letter-spacing: .08em; text-transform: uppercase; }
+</style>
+
+<section id="mission" data-toc="Mission">
+  <h2><span class="base"></span>The mission</h2>
+  <div class="mission">
+    <h3>The Missing Approval</h3>
+    <p>A sponsorship email says an additional giveaway, <b>5,000 Season Ticket Member bucket hats from Big River Energy</b> on Sunday 6/20, has been
+      approved. An operations meeting suggests it's still pending. The fan email that mentions "Bucket Hat Sunday" sends to 180,000 people
+      <b>Thursday at 10:00 AM</b>, and Sam needs a go/no-go by <b>Wednesday 5:00 PM</b>.</p>
+    <p class="mb0">Your job: use Copilot to reconstruct what actually happened across 16 emails and one Teams huddle, separate confirmed decisions from
+      proposals and assumptions, and catch the AI-generated meeting recap that got it wrong.</p>
+  </div>
+</section>
+<section id="call-your-shot" data-toc="Call your shot"><div class="shot" data-key="shot:s1-l2">
+<div class="shot-head"><span class="shot-badge">☝ Call your shot</span><span>Predict before you play. Wrong guesses teach the most.</span></div>
+<h3>You only have time to read the auto-generated meeting recap. How many of its 8 lines does the transcript flatly contradict?</h3><div class="opts"><button type="button" class="opt" data-correct="0"><span class="l">A</span>0. It&#x27;s generated from the transcript.</button><button type="button" class="opt" data-correct="0"><span class="l">B</span>1</button><button type="button" class="opt" data-correct="1"><span class="l">C</span>3</button><button type="button" class="opt" data-correct="0"><span class="l">D</span>5 or more</button></div>
+<div class="shot-why" hidden><b class="verdict"></b> <b>Three</b>: bobbleheads "more than 15,000", bucket hats "approved", and "send the fan email as planned". All three are high-stakes, and two more lines are only partly true. A recap that's mostly right can still point you to exactly the wrong decision.</div></div></section>
+
+<section id="game-plan" data-toc="Game plan">
+  <h2><span class="base"></span>Game plan</h2>
+  <ul class="objectives">
+    <li>Reconstruct a business decision from <b>fragmented communications</b> and trace how it changed.</li>
+    <li>Spot <b>conflicting statements, revised commitments and missing approvals</b>.</li>
+    <li>Tell <b>confirmed decisions</b> apart from proposals and assumptions, with evidence.</li>
+    <li>Check an AI <b>meeting recap</b> against the transcript.</li>
+    <li>Draft a <b>clarification email, meeting agenda and follow-up actions</b>.</li>
+  </ul>
+</section>
+
+<section id="before" data-toc="Before you start">
+  <h2><span class="base"></span>Before you start</h2>
+  <div class="files">
+    <a class="file" href="../data/session-1/01_Email_Thread_Export.docx" download><span class="ext docx">DOCX</span><span><b>Email thread export</b><span>E01-E16, May 10 - Jun 15</span></span></a>
+    <a class="file" href="../data/session-1/02_Teams_Ops_Huddle_Transcript.docx" download><span class="ext docx">DOCX</span><span><b>Teams huddle transcript</b><span>Jun 15 transcript + auto recap</span></span></a>
+    <a class="file" href="../data/session-1/03_Event_Plan_v3_Riverfront_Rally_Weekend.docx" download><span class="ext docx">DOCX</span><span><b>Event Plan v3</b><span>Optional: revision history</span></span></a>
+  </div>
+  <p style="margin-top:16px">Prefer to read along? Every email and the full transcript are on the <a href="../case-file.html">Case File</a> page.</p>
+  <div class="tabs">
+    <div class="tab-list"><button aria-selected="true" type="button">Classroom track</button><button aria-selected="false" type="button">Live track (Outlook &amp; Teams)</button></div>
+    <div class="tab-panel">
+      <p><b>Everyone can do this track.</b> The emails and meeting live in two Word files, so you'll investigate them in Copilot Chat:</p>
+      <ol><li>Open <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Copilot Chat</a> in <b>Work</b> mode.</li>
+        <li>Attach <code>01_Email_Thread_Export.docx</code> and <code>02_Teams_Ops_Huddle_Transcript.docx</code> (paperclip / <b>+</b>, or type <kbd>/</kbd> and search the file names).</li>
+        <li>Run each prompt below in the <b>same conversation</b> so Copilot keeps the context.</li></ol>
+    </div>
+    <div class="tab-panel" hidden>
+      <p><b>Instructor demo, or try on your own real threads.</b> The same skills, applied where the content actually lives:</p>
+      <ul>
+        <li><b>Copilot in Outlook:</b> open the thread and select <b>Summarize</b> (or "Summary by Copilot") at the top of the message. Then open the Copilot pane and ask follow-ups such as "What did each person commit to in this thread?" Use <b>Draft with Copilot</b> for the clarification email in step 6.</li>
+        <li><b>Copilot in Teams:</b> open the meeting from your calendar or the meeting chat, go to <b>Recap</b>, and select <b>Copilot</b>. Ask "What decisions were made, and what is still pending?" Transcription must have been on during the meeting.</li>
+        <li><b>Copilot Chat across both:</b> in Work mode, ask about the topic and Copilot searches mail, chats and meetings you have access to. Example: "What has been said about bucket hats in email and Teams since May 20?"</li>
+      </ul>
+      <div class="callout warn"><b class="t">Rain delay</b><p>Meeting recap and transcript questions need transcription (or recording) enabled and the Copilot license for meetings. If they aren't available in your tenant, use the Classroom track. The thinking is identical.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="play" data-toc="Play-by-play">
+  <h2><span class="base"></span>The play-by-play</h2>
+  <ol class="steps">
+    <li class="step">
+      <h3>Get the lay of the land</h3>
+      <div class="prompt"><div class="p-head"><span class="where">Copilot Chat · 2 files attached</span><button class="copy-btn" type="button">Copy</button></div><pre>I&#x27;ve attached an export of 16 emails (IDs E01-E16) and a Teams meeting transcript with an auto-generated recap, all about the Riverfront Rally Weekend promotion (Fri 6/18 - Sun 6/20, 2027).
+
+Give me a 6-bullet briefing: the main topics discussed, who the key people are and their roles, and which topics look unresolved. Cite email IDs or transcript timestamps for every bullet.</pre></div>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>Topics: the bucket hat add-on, magnets delivered after cancellation, bobblehead damage, the fan email deadline, finance's question about the $25K.</li>
+          <li>People: Dana, Jordan, Elena, Marcus, Priya, Sam, Tasha, Chris, and Ryan at the sponsor.</li></ul></div>
+    </li>
+
+    <li class="step">
+      <h3>Follow one decision through time</h3>
+      <p>Now narrow in on the disputed giveaway and build a timeline.</p>
+      <div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Build a timeline of every message and meeting moment that concerns the Big River Energy bucket hat giveaway (PR-1057).
+
+Table columns: Date/time | Source (email ID or transcript timestamp) | Who | What they said or did (quote the key phrase) | Type: Proposal / Conditional approval / Claim of approval / Objection / Scope change / Action item | Did this change the status? (yes/no and how)
+
+Order it chronologically. After the table, state in one sentence what the status of the bucket hat giveaway is as of the end of the June 15 meeting, and why.</pre></div>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>About 12 rows from E01 (the rule) through E03, E04, E05-E07, E08, E09/E10, E11, E15, E16 and the 00:02:44-00:04:33 transcript exchange.</li>
+          <li>Status: <b>pending / not approved</b>. Two of the three required approvals are missing, and the sponsor changed the scope.</li></ul></div>
+      <div class="callout scout"><b class="t">Scouting report · Quote the key phrase</b><p>Asking for the quoted phrase makes the difference between "Elena approved" and <em>"Looks good to me pending Marcus confirming…"</em> impossible to miss. Quotes make claims checkable.</p></div>
+    </li>
+
+    <li class="step">
+      <h3>Confirmed, proposed or assumed?</h3>
+      <div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Using the approval rule in E01 (a new giveaway needs ALL THREE: a signed sponsor amendment, Elena&#x27;s approval, and Marcus&#x27;s Ops capacity sign-off), evaluate the bucket hat giveaway.
+
+For each of the three requirements, give: Met / Not met / Conditional, the evidence (email ID or timestamp with a short quote), and any statement that contradicts it.
+
+Then list every statement in the emails or meeting that claims the giveaway is approved, and explain whether the evidence supports that claim. Do not soften conclusions. If a claim is unsupported, say so.</pre></div>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>Signed amendment: <b>Not met</b>. Unsigned at lock (E09/E10); the sponsor's redline in E11 changes the scope; "basically done" at 00:03:24.</li>
+          <li>Elena's approval: <b>Conditional</b> (E04: "pending Marcus… and the amendment coming back signed").</li>
+          <li>Ops sign-off: <b>Not met</b> (E08 "I have NOT signed off"; 00:02:58).</li>
+          <li>Unsupported approval claims: E05 (to the sponsor!), E06, E10, and 00:02:44.</li></ul></div>
+    </li>
+
+    <li class="step">
+      <h3>Umpire review: check the recap against the transcript</h3>
+      <p>The transcript file includes an <b>auto-generated recap</b> that nobody reviewed. Ask Copilot to audit it, then check each line yourself.</p>
+      <div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>The transcript document contains a &quot;Meeting recap (auto-generated - not reviewed)&quot; section followed by the full transcript.
+
+Audit the recap line by line against the transcript. For each recap bullet return: the recap claim | Supported / Partly supported / Contradicted | the transcript timestamp(s) and quote that prove it | the corrected wording.
+
+Be strict: a recap line that drops a condition or reverses a decision counts as Contradicted.</pre></div>
+      <p>Now be the umpire. Tick each recap error <em>you</em> confirm in the transcript:</p>
+      <div class="card" style="padding:0">
+        <div class="recap-row"><div><b>"Saturday: Bobbleheads delivered - more than 15,000 on hand. Ready."</b><br><span class="muted">Hint: what did Priya actually say at 00:01:30, and what did E12 say about damage?</span></div><label><input type="checkbox" class="track" data-key="catch:s1-l2-1"> Caught it</label></div>
+        <div class="recap-row"><div><b>"Bucket hat giveaway approved by Elena (Jordan Pierce)."</b><br><span class="muted">Hint: what did Marcus conclude at 00:04:33?</span></div><label><input type="checkbox" class="track" data-key="catch:s1-l2-2"> Caught it</label></div>
+        <div class="recap-row"><div><b>"Action - Sam: send the fan email Thursday as planned."</b><br><span class="muted">Hint: what was Sam actually asked to do?</span></div><label><input type="checkbox" class="track" data-key="catch:s1-l2-3"> Caught it</label></div>
+      </div>
+      <div class="callout ump"><b class="t">Umpire review · Recaps compress, and compression drops conditions</b>
+        <p>Recaps are useful starting points, but they're summaries of a summary. Before you forward one or act on it, check any line that contains a decision, a number or an owner against the transcript.</p></div>
+    </li>
+
+    <li class="step">
+      <h3>Build the outstanding-commitments report</h3>
+      <div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Create an outstanding-commitments report from the emails and the transcript (not the recap).
+
+Include every commitment, request, or open question, not just the bucket hats: e.g., the magnet cancellation, purchase orders, sponsor scope, staffing, reconciliation, the fan email, finance questions, and damaged inventory.
+
+Table columns: # | Commitment or open item | Owner (or &quot;NO OWNER&quot;) | Due date/time (or &quot;none stated&quot;) | Source | Current status (Done / Open / Overdue / Failed) | Risk if missed
+
+Sort by due date, earliest first. Flag in bold any item that has no owner or whose deadline has already passed as of Wed June 16, 2027 9:00 AM.</pre></div>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>Owners and deadlines from 00:04:33: Jordan (amendment + scope), Marcus (staffing by Wed noon), Priya (expedite check + reconciliation), Sam (hold the hat line, go/no-go Wed 5 PM per E15).</li>
+          <li><b>Failed:</b> the magnet cancellation (E02 sent 5/18, but magnets were delivered 6/14 per E13/E14).</li>
+          <li><b>Overdue:</b> the hat PO deadline of May 28 (E07, no reply).</li>
+          <li><b>No owner:</b> returning magnets to the warehouse; working out how many bobbleheads are unusable (E12); finance's BRE question (E16).</li></ul></div>
+    </li>
+
+    <li class="step">
+      <h3>Draft the follow-up: email + agenda</h3>
+      <div class="prompt"><div class="p-head"><span class="where">Copilot Chat (or Draft with Copilot in Outlook)</span><button class="copy-btn" type="button">Copy</button></div><pre>Draft a clarification email from Dana Whitfield to Jordan Pierce, Elena Ortiz and Marcus Bell (cc Sam Kowalski and Chris Ahn).
+
+Purpose: get a definitive go/no-go on the Big River Energy bucket hats before the fan email content deadline (Wed 6/16 5:00 PM).
+
+Requirements:
+- Neutral, factual, non-blaming tone. Under 200 words.
+- State the approval rule from E01 and list which of the three approvals are and aren&#x27;t met, with the email ID for each.
+- Flag that the sponsor&#x27;s 6/9 redline (E11) changes the scope from 5,000 to 10,000 hats for the same $25,000.
+- Ask each person one specific question with a deadline.
+- Say that until all three approvals are met, the bucket hat line will be removed from the fan email and the $25K stays out of the forecast.
+
+Then draft a 15-minute agenda for a 12:15 PM Wednesday decision huddle, with time boxes, decision owner and required inputs for each item.</pre></div>
+      <div class="callout scout"><b class="t">Scouting report · Make Copilot ask, not assume</b><p>Add <em>"Before drafting, list any facts you'd need that aren't in the sources."</em> Copilot may notice it doesn't know whether staffing was confirmed at noon. That's a perfect line for the agenda.</p></div>
+    </li>
+
+    <li class="step">
+      <h3>Check the originals</h3>
+      <p>Click the citations in Copilot's last two answers. For <b>at least three claims</b>, open the source and confirm the wording. In particular, confirm with your own eyes:</p>
+      <ul><li>E04: Elena's exact conditional wording.</li><li>E11: the sponsor's redline to 10,000 hats. Was it ever forwarded to Dana?</li><li>00:04:33: Marcus's "we treat them as pending."</li></ul>
+      <label><input type="checkbox" class="track" data-key="catch:s1-l2-4"> I found a Copilot claim that didn't exactly match its source and corrected it.</label>
+    </li>
+  </ol>
+</section>
+
+<section id="drill" data-toc="Bullpen drill"><h2><span class="base"></span>Bullpen drill: Fact, condition or wishful thinking?</h2>
+<p class="lead">Classify each statement from the case file. This is the core skill Copilot needs you to apply to its summaries.</p><div class="sorter" data-key="drill:s1-l2">
+<div class="sort-top"><span class="sort-time">⏱ 2-minute drill · optional if you're short on time</span><span class="sort-score" aria-live="polite">0 / 6 sorted</span><button type="button" class="sort-reset">Reset drill</button></div>
+<div class="sort-item" data-answer="Conditional"><div class="sort-q"><blockquote>Looks good to me pending Marcus confirming Sunday gate capacity and the amendment coming back signed.</blockquote><cite>Elena Ortiz · E04</cite></div>
+<div class="sort-btns"><button type="button" data-cat="Confirmed">Confirmed</button><button type="button" data-cat="Conditional">Conditional</button><button type="button" data-cat="Proposal">Proposal</button><button type="button" data-cat="Assumption">Assumption</button><button type="button" data-cat="Unsupported claim">Unsupported claim</button></div><div class="sort-fb" hidden><b></b> Elena attached two conditions. Neither was met.</div></div><div class="sort-item" data-answer="Unsupported claim"><div class="sort-q"><blockquote>The bucket hat giveaway for Sunday 6/20 is approved on our side!</blockquote><cite>Jordan Pierce to the sponsor · E05</cite></div>
+<div class="sort-btns"><button type="button" data-cat="Confirmed">Confirmed</button><button type="button" data-cat="Conditional">Conditional</button><button type="button" data-cat="Proposal">Proposal</button><button type="button" data-cat="Assumption">Assumption</button><button type="button" data-cat="Unsupported claim">Unsupported claim</button></div><div class="sort-fb" hidden><b></b> Restates a conditional approval as final, to an external party.</div></div><div class="sort-item" data-answer="Confirmed"><div class="sort-q"><blockquote>The promo list is locked: Friday towel + fireworks, Saturday bobblehead, Sunday mini bat.</blockquote><cite>Dana Whitfield · E09</cite></div>
+<div class="sort-btns"><button type="button" data-cat="Confirmed">Confirmed</button><button type="button" data-cat="Conditional">Conditional</button><button type="button" data-cat="Proposal">Proposal</button><button type="button" data-cat="Assumption">Assumption</button><button type="button" data-cat="Unsupported claim">Unsupported claim</button></div><div class="sort-fb" hidden><b></b> The owner states the locked plan in writing, on the lock date.</div></div><div class="sort-item" data-answer="Proposal"><div class="sort-q"><blockquote>We&#x27;d like hats at all five gates (10,000 hats) for the same $25,000.</blockquote><cite>Ryan Castellano · E11</cite></div>
+<div class="sort-btns"><button type="button" data-cat="Confirmed">Confirmed</button><button type="button" data-cat="Conditional">Conditional</button><button type="button" data-cat="Proposal">Proposal</button><button type="button" data-cat="Assumption">Assumption</button><button type="button" data-cat="Unsupported claim">Unsupported claim</button></div><div class="sort-fb" hidden><b></b> A sponsor redline: a new offer, not an agreement.</div></div><div class="sort-item" data-answer="Assumption"><div class="sort-q"><blockquote>Honestly the system shows more than fifteen thousand delivered, so we should be covered.</blockquote><cite>Priya Raman · huddle 00:01:30</cite></div>
+<div class="sort-btns"><button type="button" data-cat="Confirmed">Confirmed</button><button type="button" data-cat="Conditional">Conditional</button><button type="button" data-cat="Proposal">Proposal</button><button type="button" data-cat="Assumption">Assumption</button><button type="button" data-cat="Unsupported claim">Unsupported claim</button></div><div class="sort-fb" hidden><b></b> Based on an uncleaned system total that includes a duplicate and 600 damaged units.</div></div><div class="sort-item" data-answer="Confirmed"><div class="sort-q"><blockquote>I have NOT signed off on the bucket hats.</blockquote><cite>Marcus Bell · E08</cite></div>
+<div class="sort-btns"><button type="button" data-cat="Confirmed">Confirmed</button><button type="button" data-cat="Conditional">Conditional</button><button type="button" data-cat="Proposal">Proposal</button><button type="button" data-cat="Assumption">Assumption</button><button type="button" data-cat="Unsupported claim">Unsupported claim</button></div><div class="sort-fb" hidden><b></b> An unconditional statement, from the person with the authority, about his own approval.</div></div><div class="sort-done" hidden></div></div></section>
+<section id="challenge" data-toc="Bottom of the 9th">
+  <h2><span class="base"></span>Bottom of the 9th</h2>
+  <div class="challenge">
+    <span class="kick">Audience challenge · 4 minutes</span>
+    <h3>Confirmed or unresolved?</h3>
+    <p>As a table, answer three questions and defend each with <b>one email ID or timestamp</b>:</p>
+    <ol><li>Name one commitment that is <b>confirmed</b>.</li><li>Name one that is <b>unresolved</b>.</li><li>Name one that was <b>confirmed but then failed in execution</b>.</li></ol>
+    <p class="mb0">Bonus: who outside the company believes something that isn't true, and why is that a business risk?</p>
+    <div class="count"><span>Tables</span><span>4 min</span><span>Evidence or it didn't happen</span></div>
+  </div>
+</section>
+
+<section id="verify" data-toc="Umpire review">
+  <h2><span class="base"></span>Umpire review checklist</h2>
+  <div class="card">
+    <p><b>1B · Source:</b> every timeline row has an email ID or timestamp you could open.</p>
+    <p><b>2B · Status:</b> nothing is labeled "approved" unless all three E01 requirements are met.</p>
+    <p><b>3B · Math:</b> the timeline has the right number of rows. Did Copilot skip E11 (the redline) or E16 (finance)?</p>
+    <p class="mb0"><b>HOME · Gaps:</b> what don't we know? Whether Marcus's staffing came through at noon Wednesday, and whether Elena ever saw the 10,000-hat redline.</p>
+  </div>
+</section>
+
+<section id="boxscore" data-toc="Box score">
+  <h2><span class="base"></span>Box score</h2>
+  <div class="boxscore"><div class="bs-head"><span>Inning 2 outputs</span><span>25 min</span></div>
+    <table><thead><tr><th>Output</th><th>What good looks like</th></tr></thead><tbody>
+      <tr><td><b>Decision timeline</b></td><td>About 12 chronological rows, quotes, a type label and a status-change column, ending with "pending / not approved."</td></tr>
+      <tr><td><b>Outstanding-commitments report</b></td><td>Owners, deadlines, status and risk, with no-owner and overdue items flagged.</td></tr>
+      <tr><td><b>Follow-up email draft + agenda</b></td><td>Under 200 words, cites evidence, one question per person, a removal-from-email default.</td></tr>
+      <tr><td><b>Recap audit</b></td><td>Three contradicted lines found and corrected.</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="extra-innings" data-toc="Extra innings"><h2><span class="base"></span>Extra innings: Build a claim ledger</h2>
+<div class="extra-card"><span class="extra-tag">Stretch at-bat · optional</span><p>Follow one claim from hop to hop and watch it change. This works on any decision that has passed through several people.</p>
+<div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Trace every statement that says the bucket hat giveaway is approved back to its original source, hop by hop.
+For each hop show: who said it, to whom, the exact words (quote), and what was ADDED or DROPPED compared with the previous hop.
+End with: the earliest point where the claim stopped matching the evidence.</pre></div></div></section>
+<section id="postgame" data-toc="Postgame takeaways"><div class="postgame">
+<div class="pg-head"><span>🎙 Postgame press conference</span><span>Big Idea #2 of 11</span></div>
+<div class="big-idea"><span class="bi-kick">The big idea</span><h3>Conditional is not approved</h3><p>Decisions lose their conditions as they travel from person to person. Trace every claim back to the original words and to the person who actually has the authority.</p></div>
+<div class="concepts"><div class="concept"><span class="c-num">1</span><h4>Telephone-game decay</h4><p>"Looks good pending Marcus" (E04) became "approved on our side" (E05), then "Elena signed off" (E10). Each hop dropped a condition. Summaries do the same unless you ask for quotes.</p></div><div class="concept"><span class="c-num">2</span><h4>Recaps are drafts, not records</h4><p>The auto-recap got 3 of 8 lines wrong, and they were the most important ones. Compression drops exactly the qualifiers that matter: <i>pending</i>, <i>some damage</i>, <i>hold</i>.</p></div><div class="concept"><span class="c-num">3</span><h4>Authority + evidence</h4><p>A commitment is confirmed only when someone with authority states it unconditionally in a source you can trace. Who said it matters as much as what was said.</p></div></div>
+<div class="transfer"><h4>📎 Take it to your desk</h4><p>The same move, ready for your real work. Copy it now and use it this week.</p>
+<div class="prompt"><div class="p-head"><span class="where">Copilot Chat · your work</span><button class="copy-btn" type="button">Copy</button></div><pre>Reconstruct how <span class="ph">[decision]</span> evolved in my email and meetings since <span class="ph">[date]</span>.
+For each step: who, what exactly they said (quote it), and whether it was CONFIRMED, CONDITIONAL, PROPOSED or ASSUMED.
+Flag every place where a later message describes an earlier one differently from what it actually said.</pre></div></div></div></section>
+<section id="dugout" data-toc="Dugout notes">
+  <h2><span class="base"></span>Dugout notes</h2>
+  <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
+    <p><b>Timing (25 min):</b> 3 min setup and track choice · 4 min steps 1-2 (demo the timeline live) · 4 min step 3 · 5 min step 4 recap audit (the room favorite, so give it time) · 4 min steps 5-6 · 4 min challenge · 1 min wrap. If you're running long, demo step 6 instead of having everyone run it.</p>
+    <h4>Reference timeline: bucket hats (PR-1057)</h4>
+    <ul class="tl">
+      <li><span class="d">May 10</span><span class="dot"></span><span class="w"><b>E01 · Dana.</b> Sets the rule: new giveaways need a signed amendment, Elena's approval and Ops sign-off. Lock date June 4.</span></li>
+      <li><span class="d">May 21</span><span class="dot"></span><span class="w"><b>E03 · Jordan.</b> <em>Proposal:</em> 5,000 hats, Home Plate + Club, $25,000.</span></li>
+      <li><span class="d">May 24</span><span class="dot yellow"></span><span class="w"><b>E04 · Elena.</b> <em>Conditional approval:</em> "Looks good to me pending Marcus confirming Sunday gate capacity and the amendment coming back signed."</span></li>
+      <li><span class="d">May 25</span><span class="dot yellow"></span><span class="w"><b>Event Plan v2.</b> Hats added as "TBD, pending approvals."</span></li>
+      <li><span class="d">May 27</span><span class="dot red"></span><span class="w"><b>E05 · Jordan → sponsor.</b> <em>Claim:</em> "approved on our side!" (overclaim to an external party). <b>E06:</b> enters PR-1057 as Approved. <b>E07 · Priya:</b> needs a PO by May 28. No reply.</span></li>
+      <li><span class="d">Jun 2</span><span class="dot red"></span><span class="w"><b>E08 · Marcus.</b> <em>Objection:</em> "I have NOT signed off." Needs 6 more staff; agency confirms June 15.</span></li>
+      <li><span class="d">Jun 4</span><span class="dot red"></span><span class="w"><b>E09 · Dana.</b> Locks v3 without hats. <b>E10 · Jordan:</b> "Bucket hats are approved." Restates a conditional as final.</span></li>
+      <li><span class="d">Jun 9</span><span class="dot red"></span><span class="w"><b>E11 · Ryan (sponsor).</b> <em>Scope change:</em> 10,000 hats at all five gates, same $25,000. Not forwarded to Dana.</span></li>
+      <li><span class="d">Jun 15 AM</span><span class="dot yellow"></span><span class="w"><b>E15 · Sam.</b> Fan email draft includes "Bucket Hat Sunday." Go/no-go needed by Wed 5 PM.</span></li>
+      <li><span class="d">Jun 15 2 PM</span><span class="dot yellow"></span><span class="w"><b>Huddle 00:02:44-00:04:33.</b> Jordan: "approved." Marcus: not signed off. Priya: no PO. Marcus decides "we treat them as pending."</span></li>
+      <li><span class="d">Jun 15 3 PM</span><span class="dot yellow"></span><span class="w"><b>E16 · Chris.</b> $25K booked as revenue without a signed amendment.</span></li>
+    </ul>
+    <h4 style="margin-top:16px">Challenge answers</h4>
+    <ul>
+      <li><b>Confirmed:</b> Friday fireworks ("Skyburst confirmed. The permit is filed," 00:01:05). Also Marcus's commitment to confirm staffing by Wed noon (00:04:33).</li>
+      <li><b>Unresolved:</b> bucket hats (E04 conditional, E08, 00:04:33 pending, E11 scope change).</li>
+      <li><b>Confirmed, then failed in execution:</b> the magnet cancellation. Clearly decided in E02, but 8,000 magnets were delivered on 6/14 (E13/E14). Nobody owns returning them.</li>
+      <li><b>Bonus:</b> Ryan at Big River Energy believes the hats are approved (E05), and he signed on his own terms. That's a relationship and contract risk, not just an internal mix-up. It sets up Session 2's plot twist.</li>
+    </ul>
+    <h4>Recap audit answer key</h4>
+    <div class="table-wrap"><table class="data"><thead><tr><th>Recap claim</th><th>Verdict</th><th>Correction</th></tr></thead><tbody>
+      <tr><td>Bobbleheads: more than 15,000 on hand</td><td><span class="tag red">Contradicted</span></td><td>Priya said "some damage" and "the <em>system</em> shows more than fifteen thousand." The system includes a duplicate row and 600 damaged units: 14,400 usable (proved in Inning 4).</td></tr>
+      <tr><td>Bucket hats approved by Elena</td><td><span class="tag red">Contradicted</span></td><td>"We treat them as pending" (00:04:33). Elena's approval was conditional (E04).</td></tr>
+      <tr><td>Sam: send fan email as planned</td><td><span class="tag red">Contradicted</span></td><td>Sam <b>holds</b> the bucket hat line until confirmed (00:04:33).</td></tr>
+      <tr><td>Mini bats: one RF pallet remaining</td><td><span class="tag yellow">Partly</span></td><td>True, but nobody checked the date. It's 6/21, after the game (Inning 4).</td></tr>
+      <tr><td>Priya: expedite hats</td><td><span class="tag yellow">Partly</span></td><td>She agreed to <em>check on</em> expediting, "no promises" (00:03:49).</td></tr>
+    </tbody></table></div>
+    <p><b>Facilitation tip:</b> Ask "Who would have forwarded this recap?" Most hands go up. That's the point of the exercise.</p>
+  </div></details>
+</section>
+
+<div class="complete-bar"><div><b class="cb-title">Inning 2 in the books?</b><p>Log it on the scoreboard. Your progress is saved in this browser.</p></div><button class="btn" type="button" data-complete>Mark inning complete</button></div>
+<div class="pager"><a class="prev" href="lab-1.html"><small>← Previous inning</small><b>The AI Investigation Begins</b></a><a class="next" href="lab-3.html"><small>Next inning →</small><b>Researcher: Is the Promotion Really Ready?</b></a></div></div></div></div></main><footer class="footer"><div class="wrap">
+<div><b>Rally Lab</b><br>Enhancing Productivity with Microsoft 365 Copilot - Level 2<br>Investigate, Innovate, and Make Smarter Decisions</div>
+<div style="max-width:520px">All people, sponsors, numbers, emails and documents in these labs are <b style="font-size:inherit;letter-spacing:0;text-transform:none">fictional</b> training material
+created for this workshop. Copilot features and menu names vary by license, tenant settings and release - your screen may differ slightly.</div>
+</div></footer><script src="../assets/js/site.js"></script></body></html>

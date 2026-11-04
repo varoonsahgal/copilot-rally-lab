@@ -1,0 +1,168 @@
+<!--meta {"kind": "lab", "session": 1, "n": 1} -->
+<section id="mission" data-toc="Mission">
+  <h2><span class="base"></span>The mission</h2>
+  <div class="mission">
+    <h3>Play ball, Task Force.</h3>
+    <p>It's <b>Wednesday, June 16, 2027, 9:00 AM</b>. Riverfront Rally Weekend starts in 48 hours. Dana Whitfield (Promotions) says the plan is locked.
+      Jordan Pierce (Sponsorship) says a new Big River Energy bucket hat giveaway is approved. Marcus Bell (Operations) says it isn't. The warehouse
+      says bobbleheads are covered, but nobody has done the math.</p>
+    <p class="mb0">Before you swing at anything, you need an <b>investigation plan</b>: what you need to know, where the evidence lives, and what would
+      count as "confirmed." In this inning you learn the difference between asking Copilot a general question and grounding it in work evidence.</p>
+  </div>
+</section>
+
+<section id="game-plan" data-toc="Game plan">
+  <h2><span class="base"></span>Game plan</h2>
+  <ul class="objectives">
+    <li>Explain the difference between a <b>general (web) answer</b> and a <b>grounded (work) answer</b>, and see it happen.</li>
+    <li>Choose between <b>Copilot Chat, Researcher and Analyst</b> for a given question.</li>
+    <li>Write prompts with the <b>5-Tool Prompt</b>: Goal · Context · Evidence · Constraints · Output.</li>
+    <li>Produce a <b>clear investigation plan</b> for the Rally Weekend readiness question.</li>
+  </ul>
+</section>
+
+<section id="before" data-toc="Before you start">
+  <h2><span class="base"></span>Before you start</h2>
+  <p>You only need two files for this inning. Do the setup now anyway, because every later inning uses it: <b>extract</b> the Session 1 kit zip (Copilot can't read inside a .zip), then drag the <code>Rally Weekend Task Force</code> folder into OneDrive.</p>
+  <div class="files">
+    <file href="{{root}}data/Session1_Lab_Kit.zip" ext="zip" title="Session 1 lab kit" desc="All eight Session 1 files"/>
+    <file href="{{root}}data/session-1/03_Event_Plan_v3_Riverfront_Rally_Weekend.docx" ext="docx" title="Event Plan v3" desc="Locked June 4 - Marketing's view"/>
+    <file href="{{root}}data/session-1/01_Email_Thread_Export.docx" ext="docx" title="Email thread export" desc="16 emails - everyone else's view"/>
+  </div>
+  <div class="callout warn"><b class="t">Rain delay · Work vs. Web</b>
+    <p>In Microsoft 365 Copilot Chat you may see a <b>Work / Web</b> toggle at the top of the chat. <b>Work</b> grounds answers in your Microsoft 365 content (mail, chats, files you can access). <b>Web</b> answers from the public internet. Some tenants hide the toggle or turn off web grounding. If you don't see it, attach the files directly and you're grounded either way.</p></div>
+</section>
+
+<section id="play" data-toc="Play-by-play">
+  <h2><span class="base"></span>The play-by-play</h2>
+  <ol class="steps">
+    <li class="step">
+      <h3>Swing #1: the ungrounded question</h3>
+      <p>Open <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Microsoft 365 Copilot Chat</a>. Switch to <b>Web</b> if you have the toggle. Don't attach anything. Ask:</p>
+      <prompt where="Copilot Chat · Web · no files">Is the Riverfront Rally Weekend promotion ready to go? What should we check before the weekend?</prompt>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>A polite, generic checklist ("confirm inventory, train staff, communicate with fans…").</li>
+          <li>No mention of bucket hats, Big River Energy, Jordan or Marcus. Copilot has no idea what <em>your</em> weekend is.</li>
+          <li>Possibly confident-sounding filler. That's the danger: it <em>sounds</em> like an answer.</li></ul></div>
+    </li>
+    <li class="step">
+      <h3>Swing #2: the same question, grounded</h3>
+      <p>Switch to <b>Work</b>. Attach <code>03_Event_Plan_v3…docx</code> and <code>01_Email_Thread_Export.docx</code>. Use the paperclip / <b>+</b> button, or type <kbd>/</kbd> and pick the files from OneDrive. Ask the same question, with one added sentence:</p>
+      <prompt where="Copilot Chat · Work · 2 files attached">Is the Riverfront Rally Weekend promotion ready to go? What should we check before the weekend?
+Answer only from the attached event plan and email export. For each point, cite the document or email ID (E01-E16) it comes from.</prompt>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>Specifics: the June 4 lock date, the three-part approval rule (E01), the bucket hat dispute (E03-E10), magnets delivered despite cancellation (E13/E14).</li>
+          <li>Citations you can click to open the source.</li>
+          <li>Probably <em>some</em> gaps. It hasn't seen the spreadsheets yet, so it can't know the bobblehead count is short.</li></ul></div>
+      <div class="callout scout"><b class="t">Scouting report · Why grounding matters</b>
+        <p>Copilot only knows what it can reach. A grounded answer is only as complete as the evidence you point it at. Part of every investigation is asking, "What hasn't it seen?"</p></div>
+    </li>
+    <li class="step">
+      <h3>Pick the right player: Chat vs. Researcher vs. Analyst</h3>
+      <p>Each Copilot tool plays a different position. Match the question to the tool <em>before</em> you start typing.</p>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>Tool</th><th>Position</th><th>Use it when…</th><th>Rally Weekend example</th><th>Speed</th></tr></thead>
+        <tbody>
+          <tr><td><b>Copilot Chat</b></td><td>Catcher · home plate</td><td>Quick, focused questions; drafting; summarizing a few items you can point to.</td><td>"Summarize Marcus's June 2 email."</td><td>Seconds</td></tr>
+          <tr><td><b>Researcher</b></td><td>Scout · 1B</td><td>Multi-step, multi-source questions that need a structured, cited report. Can combine work and web.</td><td>"Is the weekend actually ready? Cross-check plans, contracts and comms."</td><td>Several minutes</td></tr>
+          <tr><td><b>Analyst</b></td><td>Analytics dept. · 2B</td><td>Data questions across one or more files: reconciling, trends, outliers, charts. Reasons step by step and can run code.</td><td>"Compare allocations with deliveries and list every discrepancy."</td><td>A few minutes</td></tr>
+          <tr><td><b>Copilot in Excel</b></td><td>Groundskeeper · 3B</td><td>Changing a workbook directly: formulas, columns, formatting, PivotTables, charts.</td><td>"Add a Distributable Qty column = Qty - Damaged Qty."</td><td>Seconds</td></tr>
+        </tbody></table></div>
+      <details class="reveal"><summary>Quick quiz: which tool? (click to reveal)</summary><div class="inner">
+        <ol>
+          <li>"What did Elena actually say about the bucket hats?" → <b>Chat</b> (one email, quick lookup).</li>
+          <li>"Do bobbleheads historically lift Saturday attendance?" → <b>Analyst</b> (trend across 163 rows).</li>
+          <li>"Write a readiness brief covering contracts, ops rules and comms, with sources." → <b>Researcher</b>.</li>
+          <li>"Highlight every delivery row with a UOM of CS." → <b>Copilot in Excel</b>.</li>
+        </ol></div></details>
+    </li>
+    <li class="step">
+      <h3>Learn the 5-Tool Prompt</h3>
+      <p>A five-tool player can hit, hit for power, run, field and throw. A five-tool prompt has five parts too:</p>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>Tool</th><th>What it does</th><th>Rally Weekend example</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 · Goal</b></td><td>The decision or deliverable you need.</td><td>"I need to decide whether each promotional element is ready."</td></tr>
+          <tr><td><b>2 · Context</b></td><td>Who you are, the situation, the deadline.</td><td>"I'm on the Task Force. The weekend starts Friday 6/18. A fan email sends Thursday."</td></tr>
+          <tr><td><b>3 · Evidence</b></td><td>Exactly which sources to use, and which not to use.</td><td>"Use only the attached event plan and email export."</td></tr>
+          <tr><td><b>4 · Constraints</b></td><td>Rules for honesty and scope.</td><td>"Don't guess. Label anything unconfirmed. Cite email IDs."</td></tr>
+          <tr><td><b>5 · Output</b></td><td>The exact shape of the answer.</td><td>"A table with columns: Question, Source, Owner, Status."</td></tr>
+        </tbody></table></div>
+    </li>
+    <li class="step">
+      <h3>Live demo: build the investigation plan</h3>
+      <p>Keep the same two files attached (add any others from the kit you like) and run the full 5-tool prompt:</p>
+      <prompt where="Copilot Chat · Work">GOAL: I need an investigation plan to decide whether each element of the Riverfront Rally Weekend (Fri 6/18 - Sun 6/20, 2027) is ready, before leadership makes a go / no-go call.
+
+CONTEXT: I'm on the Riverfront Rally Weekend Task Force. Marketing says the plan is locked, Sponsorship says a new Big River Energy bucket hat giveaway is approved, and Operations says it isn't. Warehouse quantities may not match what was promised to sponsors. A fan email goes to 180,000 fans on Thursday 6/17 at 10:00 AM.
+
+EVIDENCE: Use only the attached files. Do not use web results.
+
+CONSTRAINTS: Do not decide whether anything is ready yet. Identify what information is needed to make a responsible decision. If the files conflict, say so and name both sources. Mark anything you are inferring as an assumption.
+
+OUTPUT:
+1. A table with columns: # | Question we must answer | Why it matters | Where the evidence should be (email ID, document, or system) | Who owns the answer | What would count as "confirmed"
+2. A short list of the conflicting claims you already see, with sources.
+3. The three questions to answer first, given the Thursday 10:00 AM fan email.</prompt>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>8-12 investigation questions covering approvals, contracts, inventory/deliveries, staffing, fan comms and finance.</li>
+          <li>Conflicts already visible: E04 (conditional approval) vs E05/E10 ("approved"); E08 (Marcus: not signed off); E02 cancellation vs E13 delivery.</li>
+          <li>A "confirmed" definition that matches the three-part rule in E01: signed amendment + VP Marketing approval + Ops sign-off.</li></ul></div>
+      <div class="callout ump"><b class="t">Umpire review</b>
+        <p>Open at least two cited emails and confirm they say what Copilot claims. Did it notice that Elena's approval says <em>"pending"</em>? Did it list the Excel workbooks as a needed source, even though you didn't attach them? A good plan names the evidence it hasn't seen yet.</p></div>
+    </li>
+    <li class="step">
+      <h3>Tighten it and save it</h3>
+      <p>Iterate once, then keep the plan. You'll use it to steer Innings 2-5.</p>
+      <prompt where="Copilot Chat · Work">Good. Now map each question in your plan to the Copilot tool best suited to answer it (Copilot Chat, Copilot in Outlook/Teams, Researcher, Analyst, or Copilot in Excel) and add that as a new column. Then add a final column "Deadline" using these real deadlines from the files: staffing confirmation Wed 6/16 noon, fan email content final Wed 6/16 5:00 PM, fan email sends Thu 6/17 10:00 AM.</prompt>
+      <div class="callout scout"><b class="t">Scouting report · Keep your plan</b>
+        <p>Copy the table into a Word doc or a Copilot Page (if available, use the option to edit the response in Pages). Name it <code>Rally Weekend - Investigation Plan</code> and save it to your Task Force folder.</p></div>
+    </li>
+  </ol>
+</section>
+
+<section id="challenge" data-toc="Bottom of the 9th">
+  <h2><span class="base"></span>Bottom of the 9th</h2>
+  <div class="challenge">
+    <span class="kick">Audience challenge · 1 minute</span>
+    <h3>What would make it "confirmed"?</h3>
+    <p>Pick one item from your plan, such as the bucket hats. As a table, agree on the <b>single piece of evidence</b> that would move it from "claimed" to "confirmed." Then check: does that evidence exist in the files you have?</p>
+    <div class="count"><span>Pairs</span><span>1 min</span><span>Share one answer</span></div>
+  </div>
+</section>
+
+<section id="verify" data-toc="Umpire review">
+  <h2><span class="base"></span>Umpire review checklist</h2>
+  <div class="card">
+    <p><label><input type="checkbox" class="track" data-key="catch:s1-l1-1"> I compared the ungrounded and grounded answers and can explain the difference in one sentence.</label></p>
+    <p><label><input type="checkbox" class="track" data-key="catch:s1-l1-2"> I opened at least two citations and they matched the claim.</label></p>
+    <p class="mb0"><label><input type="checkbox" class="track" data-key="catch:s1-l1-3"> My plan names at least one source Copilot <em>hasn't</em> seen yet (the Excel workbooks).</label></p>
+  </div>
+</section>
+
+<section id="boxscore" data-toc="Box score">
+  <h2><span class="base"></span>Box score</h2>
+  <div class="boxscore"><div class="bs-head"><span>Inning 1 outputs</span><span>10 min</span></div>
+    <table><thead><tr><th>Output</th><th>Where it lives</th><th>Used in</th></tr></thead><tbody>
+      <tr><td><b>Investigation plan</b>: questions, sources, owners, "confirmed" definitions, tools, deadlines</td><td>Word doc or Copilot Page in your Task Force folder</td><td>Innings 2-5</td></tr>
+      <tr><td><b>Conflict list</b>: first claims that don't agree</td><td>Bottom of the same doc</td><td>Inning 2</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="dugout" data-toc="Dugout notes">
+  <h2><span class="base"></span>Dugout notes</h2>
+  <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
+    <p><b>Timing (10 min):</b> 2 min scenario setup (read the mission aloud, show the three game cards on the home page) · 3 min ungrounded vs grounded demo · 1 min tool table · 3 min investigation-plan demo · 1 min challenge debrief. Assign step 6 as "do it during Inning 2 setup."</p>
+    <p><b>Demo tip:</b> Run Swing #1 and Swing #2 side by side in two browser tabs. The contrast is the teaching moment, so let the room read both before you comment.</p>
+    <p><b>A strong investigation plan includes:</b></p>
+    <div class="table-wrap"><table class="data"><thead><tr><th>Question</th><th>Evidence</th><th>"Confirmed" means</th></tr></thead><tbody>
+      <tr><td>Is the bucket hat giveaway (PR-1057) approved?</td><td>E01, E04, E05, E08, E10, E11, transcript 00:02:44-00:04:33</td><td>Signed amendment (both parties) + unconditional VP approval + Ops sign-off</td></tr>
+      <tr><td>Do gates have enough usable bobbleheads for the 15,000 guarantee?</td><td>Warehouse Deliveries (Qty, Damaged Qty), E12, Sponsor Commitments</td><td>Distributable EA ≥ 15,000 after dedupe and damage</td></tr>
+      <tr><td>Will every gate have mini bats before Sunday?</td><td>Deliveries dates/status, Inventory On Hand</td><td>All pallets delivered 48 hrs before gates (Ops rule)</td></tr>
+      <tr><td>Why are magnets at the gates?</td><td>E02, E13, E14, Requests (PR-1039 Cancelled)</td><td>Stock returned to Central Warehouse</td></tr>
+      <tr><td>What can the fan email say?</td><td>E15, Event Plan v3, Standards</td><td>Only items that pass all three approvals</td></tr>
+      <tr><td>Is BRE revenue real?</td><td>E16, Sponsor Commitments</td><td>Countersigned amendment in the contract system</td></tr>
+    </tbody></table></div>
+    <p><b>Challenge answer (bucket hats):</b> the confirming evidence is a <em>countersigned Amendment #2 whose scope matches our plan</em>, plus Marcus's written sign-off. Neither exists in the files. The 6/9 redline (E11) even changes the scope to 10,000 hats. That's the hook for Inning 2.</p>
+  </div></details>
+</section>

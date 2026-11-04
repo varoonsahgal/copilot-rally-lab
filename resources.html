@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dugout Guide | Rally Lab - Copilot Level 2</title>
+<meta name="description" content="Baseball-themed hands-on labs for Microsoft 365 Copilot Level 2: Researcher, Analyst, Excel, Notebooks, Agent Builder, Pages.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' aria-hidden='true'><circle cx='32' cy='32' r='29' fill='%23fff' stroke='%23E7E0CF' stroke-width='2'/><path d='M14 10c8 7 11 15 11 22s-3 15-11 22M50 10c-8 7-11 15-11 22s3 15 11 22' fill='none' stroke='%23C6011F' stroke-width='2.4'/><g stroke='%23C6011F' stroke-width='2' stroke-linecap='round'><path d='M17 15l4-2M20 20l4-1.5M22 26l4-.8M22.5 32h4M22 38l4 .8M20 44l4 1.5M17 49l4 2M47 15l-4-2M44 20l-4-1.5M42 26l-4-.8M41.5 32h-4M42 38l-4 .8M44 44l-4 1.5M47 49l-4 2'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@400;500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css"><script>document.documentElement.classList.add("js")</script></head><body class="theme-home" data-page="dugout"><header class="topbar"><div class="wrap">
+<a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#fff" stroke="#E7E0CF" stroke-width="2"/><path d="M14 10c8 7 11 15 11 22s-3 15-11 22M50 10c-8 7-11 15-11 22s3 15 11 22" fill="none" stroke="#C6011F" stroke-width="2.4"/><g stroke="#C6011F" stroke-width="2" stroke-linecap="round"><path d="M17 15l4-2M20 20l4-1.5M22 26l4-.8M22.5 32h4M22 38l4 .8M20 44l4 1.5M17 49l4 2M47 15l-4-2M44 20l-4-1.5M42 26l-4-.8M41.5 32h-4M42 38l-4 .8M44 44l-4 1.5M47 49l-4 2"/></g></svg><span class="word">Rally Lab</span><span class="tag">Microsoft 365 Copilot<br>Level 2</span></a>
+<button class="nav-toggle" type="button" aria-label="Menu">Menu</button>
+<nav class="nav"><a href="index.html">Home</a><a href="session-1/index.html">Game 1: Investigation</a><a href="session-2/index.html">Game 2: Innovation Lab</a><a href="case-file.html">Case File</a><a href="resources.html" class="active">Dugout Guide</a></nav></div></header><main><style>
+  .res-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 44px; }
+  .res-wrap .toc { top: 90px; }
+  @media (max-width: 980px) { .res-wrap { grid-template-columns: 1fr; } }
+  .res-wrap section { margin-bottom: 64px; scroll-margin-top: 90px; }
+  .verify-list { list-style: none; padding: 0; display: grid; gap: 10px; }
+  .verify-list li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .verify-list input { width: 18px; height: 18px; accent-color: var(--ok); margin-top: 3px; }
+  .verify-list b { font-family: var(--head); letter-spacing: .03em; }
+</style>
+<section class="session-hero" style="background:radial-gradient(900px 400px at 85% 10%, rgba(30,91,58,.6), transparent 60%), linear-gradient(160deg,#16161A,#123B26)"><div class="wrap">
+  <span class="script" style="color:#9BE3B5">Take it home</span>
+  <h1>The Dugout Guide</h1>
+  <p>Your field guide after the game: which Copilot tool plays which position, reusable prompts, an agent-building playbook and the verification checklist. Print it, bookmark it, steal from it.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><button class="btn" type="button" onclick="window.print()">🖨 Print this guide</button><a class="btn ghost" href="case-file.html">Open the Case File</a></div>
+</div></section>
+
+<div class="band tight"><div class="wrap res-wrap">
+<aside class="toc"><b>On this page</b><a href="#playbook">Copilot Playbook</a><a href="#positions">Tool chooser</a><a href="#prompts">Prompt library</a><a href="#verify">Verification checklist</a><a href="#agents">Agent playbook</a><a href="#prototype">Prototype prompt</a><a href="#facilitator">Facilitator guide</a></aside>
+<div>
+
+<section id="playbook">
+  <span class="kicker">One idea per inning</span><h2>The Copilot Playbook</h2>
+  <p class="lead">The 11 principles behind every exercise. Hover to flip; click to jump to that inning's postgame takeaways.</p>
+  <div class="playbook"><a class="bcard g1" href="session-1/lab-1.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#1</span><span class="bc-game">Game 1 · Inning 1</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Ground the swing</h4><span class="bc-tool">Copilot Chat</span></div></div>
+<div class="bc-back"><span class="bc-num">#1</span><p>Copilot is only as good as what it can see. Name the sources, state the goal, and demand evidence. Otherwise you get a confident answer to a question about someone else's company.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g1" href="session-1/lab-2.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#2</span><span class="bc-game">Game 1 · Inning 2</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Conditional is not approved</h4><span class="bc-tool">Outlook · Teams</span></div></div>
+<div class="bc-back"><span class="bc-num">#2</span><p>Decisions lose their conditions as they travel from person to person. Trace every claim back to the original words and to the person who actually has the authority.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g1" href="session-1/lab-3.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#3</span><span class="bc-game">Game 1 · Inning 3</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Depth needs structure</h4><span class="bc-tool">Researcher</span></div></div>
+<div class="bc-back"><span class="bc-num">#3</span><p>Deep research is only as good as the questions it's broken into. Ask for the lines of investigation, the citations, and the weakest link.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g1" href="session-1/lab-4.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#4</span><span class="bc-game">Game 1 · Inning 4</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Rules before results</h4><span class="bc-tool">Analyst · Excel</span></div></div>
+<div class="bc-back"><span class="bc-num">#4</span><p>Agree how records match, convert and de-duplicate before you see the answer. Then reconcile at the lowest grain, because totals hide offsetting errors.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g1" href="session-1/lab-5.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#5</span><span class="bc-game">Game 1 · Inning 5</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Separate what you know from what you think</h4><span class="bc-tool">Copilot Chat</span></div></div>
+<div class="bc-back"><span class="bc-num">#5</span><p>A decision brief is a sorting exercise. Facts get a source, estimates get a method, unknowns get an owner and a deadline. Then the irreversible decisions get the highest bar.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g2" href="session-2/lab-1.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#6</span><span class="bc-game">Game 2 · Inning 1</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Re-test assumptions, not just answers</h4><span class="bc-tool">Copilot Chat</span></div></div>
+<div class="bc-back"><span class="bc-num">#6</span><p>When the facts change, trace which conclusions depended on them. A recommendation expires when the assumptions under it do.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g2" href="session-2/lab-2.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#7</span><span class="bc-game">Game 2 · Inning 2</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Curate the context</h4><span class="bc-tool">Copilot Notebooks</span></div></div>
+<div class="bc-back"><span class="bc-num">#7</span><p>A notebook is a bench you pick on purpose: the right references, clear standing orders, and nothing else. Anything outside the notebook doesn't exist to it.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g2" href="session-2/lab-3.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#8</span><span class="bc-game">Game 2 · Inning 3</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Design for &quot;I don&#x27;t know&quot;</h4><span class="bc-tool">Agent Builder</span></div></div>
+<div class="bc-back"><span class="bc-num">#8</span><p>You can tell a trustworthy agent by how it handles missing, conflicting and out-of-scope information, more than by the questions it answers.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g2" href="session-2/lab-4.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#9</span><span class="bc-game">Game 2 · Inning 4</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Make assumptions visible</h4><span class="bc-tool">Copilot Pages</span></div></div>
+<div class="bc-back"><span class="bc-num">#9</span><p>A model is an argument. Show every input and formula so anyone can challenge it, then find the one input that flips the decision.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g2" href="session-2/lab-5.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#10</span><span class="bc-game">Game 2 · Inning 5</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Lead with the answer</h4><span class="bc-tool">PowerPoint · Word</span></div></div>
+<div class="bc-back"><span class="bc-num">#10</span><p>Executives buy conclusions they can trust: the headline first, every number sourced, every risk owned, and the ask explicit.</p><span class="bc-go">Open the inning →</span></div></div></a><a class="bcard g2" href="session-2/lab-6.html#postgame"><div class="bc-inner">
+<div class="bc-front"><span class="bc-num">#11</span><span class="bc-game">Game 2 · Inning 6</span><span class="bc-flip">hover to flip ↻</span><div class="bc-band"><h4>Automate the asking, not the deciding</h4><span class="bc-tool">Scheduled Prompts</span></div></div>
+<div class="bc-back"><span class="bc-num">#11</span><p>Recurring prompts keep you aware on a schedule. Judgment, approvals and changes to business systems stay with people.</p><span class="bc-go">Open the inning →</span></div></div></a></div>
+</section>
+
+<section id="positions">
+  <span class="kicker">Every tool has a position</span><h2>The Copilot tool chooser</h2>
+  <p class="lead">Start with the job, not the tool. If you only remember one thing: <b>Chat for quick, Researcher for deep, Analyst for numbers across files, Excel for the workbook itself.</b></p>
+  <div class="tool-grid">
+    <div class="tool"><span class="pos">C</span><span class="role">The catcher</span><h3>Copilot Chat</h3><p>Fast questions, drafting, summarizing, grounded in files you attach or reference with "/".</p><div class="when"><b>Use when:</b> you need an answer in under a minute and can name the sources.</div></div>
+    <div class="tool"><span class="pos">1B</span><span class="role">The scout</span><h3>Researcher</h3><p>Multi-step, multi-source investigation across work content and (optionally) the web, with a structured, cited report.</p><div class="when"><b>Use when:</b> the question has several parts, the evidence is spread out and you'll need citations.</div></div>
+    <div class="tool"><span class="pos">2B</span><span class="role">The analytics department</span><h3>Analyst</h3><p>Reasoning over data: writes and runs Python on your files, then explains, compares and charts.</p><div class="when"><b>Use when:</b> you need to compare several spreadsheets, find patterns or show your math.</div></div>
+    <div class="tool"><span class="pos">3B</span><span class="role">The groundskeeper</span><h3>Copilot in Excel</h3><p>Works inside your open workbook: formula columns, highlighting, PivotTables, charts and insights.</p><div class="when"><b>Use when:</b> the deliverable is the workbook itself, and others will reuse it.</div></div>
+    <div class="tool"><span class="pos">SS</span><span class="role">The utility player</span><h3>Outlook &amp; Teams</h3><p>Summarize threads, catch up on meetings, draft replies and agendas where the conversation happens.</p><div class="when"><b>Use when:</b> you're reconstructing who said what, and when.</div></div>
+    <div class="tool"><span class="pos">LF</span><span class="role">The clubhouse</span><h3>Copilot Notebooks</h3><p>A project workspace that keeps chosen references, notes and instructions together for ongoing questions.</p><div class="when"><b>Use when:</b> it's one project you'll keep asking about for weeks.</div></div>
+    <div class="tool"><span class="pos">CF</span><span class="role">The everyday starter</span><h3>Agent Builder</h3><p>A reusable assistant with fixed instructions, knowledge sources and output format that you can share.</p><div class="when"><b>Use when:</b> many people repeat the same task the same way.</div></div>
+    <div class="tool"><span class="pos">RF</span><span class="role">The prototype</span><h3>Copilot Pages</h3><p>A shareable, editable canvas, including lightweight interactive tools where enabled.</p><div class="when"><b>Use when:</b> the output should be co-edited, or clicked and played with.</div></div>
+    <div class="tool"><span class="pos">P</span><span class="role">The closer</span><h3>Word &amp; PowerPoint</h3><p>Turn validated findings into decision briefs and executive storylines.</p><div class="when"><b>Use when:</b> it's time to persuade someone who wasn't in the room.</div></div>
+    <div class="tool"><span class="pos">DH</span><span class="role">The everyday regular</span><h3>Scheduled prompts</h3><p>Run the same prompt on a schedule and get the result delivered to you.</p><div class="when"><b>Use when:</b> you ask the same status question every week.</div></div>
+  </div>
+</section>
+
+<section id="prompts">
+  <span class="kicker">Steal these</span><h2>Reusable prompt library</h2>
+  <div class="tabs"><div class="tab-list"><button type="button" aria-selected="true">Investigate comms</button><button type="button" aria-selected="false">Research</button><button type="button" aria-selected="false">Reconcile data</button><button type="button" aria-selected="false">Decide &amp; communicate</button></div>
+  <div class="tab-panel">
+    <div class="prompt"><div class="p-head"><span class="where">Copilot Chat · Outlook · Teams</span><button class="copy-btn" type="button">Copy</button></div><pre>Reconstruct the decision history for <span class="ph">[topic]</span> from <span class="ph">[thread / meeting / files]</span>.
+Build a timeline table: date, who, what they said or committed to, and source (cite the message).
+Classify each item as CONFIRMED (explicit, unconditional, by someone with authority), PROPOSED, CONDITIONAL (state the condition) or ASSUMED.
+Then list conflicting statements side by side, and every approval that is still missing.
+Do not infer approvals that are not explicitly stated.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Compare this meeting recap with the transcript. For every line in the recap, tell me SUPPORTED, PARTLY SUPPORTED or CONTRADICTED, and quote the transcript timestamp that proves it.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Outlook</span><button class="copy-btn" type="button">Copy</button></div><pre>Draft a short, neutral clarification email to <span class="ph">[people]</span> about <span class="ph">[topic]</span>.
+State what we know (with dates), what is unresolved, the specific decision or confirmation I need from each person, and the deadline <span class="ph">[deadline]</span>.
+No blame, no speculation. Under 150 words.</pre></div>
+  </div>
+  <div class="tab-panel" hidden>
+    <div class="prompt"><div class="p-head"><span class="where">Researcher</span><button class="copy-btn" type="button">Copy</button></div><pre>Investigate whether <span class="ph">[initiative]</span> is ready to proceed by <span class="ph">[date]</span>.
+Use <span class="ph">[files / sources]</span> and relevant communications. Break the investigation into: commitments and contracts, operations and logistics, finance, and stakeholder communications.
+For each: findings, evidence with citations, risks, and open questions.
+Finish with a readiness rating (Ready / Ready with conditions / Not ready), the three most important unanswered questions, and any conclusion that rests on a single source.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Researcher</span><button class="copy-btn" type="button">Copy</button></div><pre>Before you write the report, list the lines of investigation you plan to pursue and the sources you&#x27;ll use for each. Wait for my confirmation.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Act as a skeptical auditor. Which three conclusions in this report have the weakest evidence? For each, tell me what source would confirm or refute it.</pre></div>
+  </div>
+  <div class="tab-panel" hidden>
+    <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>Before analyzing, describe every sheet in the attached files (rows, columns) and propose a matching key between them. List any identifier quality issues. Do not reconcile yet.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>Reconcile <span class="ph">[file A table]</span> against <span class="ph">[file B table]</span> using exactly these rules: <span class="ph">[normalization rules]</span>, <span class="ph">[unit conversions]</span>, <span class="ph">[duplicate rule]</span>, <span class="ph">[tolerance]</span>.
+Output a table at <span class="ph">[key]</span> level with planned, actual, variance, variance %, match confidence (Exact / Normalized / No match) and a reason.
+List every row you excluded or changed. Show your Python.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Copilot in Excel</span><button class="copy-btn" type="button">Copy</button></div><pre>Add a column &quot;<span class="ph">[name]</span>&quot; to <span class="ph">[table]</span> that <span class="ph">[rule in plain English]</span>. Then highlight rows where <span class="ph">[condition]</span> and explain the formula you used.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>Estimate the effect of <span class="ph">[factor]</span> on <span class="ph">[metric]</span>. Compare only like-for-like groups (same <span class="ph">[day of week / season / segment]</span>) and show sample sizes. Flag where the sample is too small to trust.</pre></div>
+  </div>
+  <div class="tab-panel" hidden>
+    <div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Using these findings, sort every item into: VERIFIED FACT (with source), ESTIMATE (with method), or UNRESOLVED (with owner and deadline).
+Then rank the risks by business impact and tell me which decisions leadership can make today and which need more information.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">PowerPoint</span><button class="copy-btn" type="button">Copy</button></div><pre>Create a 3-slide executive storyline from <span class="ph">[file]</span>: 1) What we discovered, 2) What the numbers mean, 3) What we recommend and why. One headline per slide written as a conclusion, max 3 supporting points, numbers sourced.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Act as a skeptical <span class="ph">[CFO / President]</span> who has 5 minutes. Ask me the five toughest questions about this recommendation, then tell me which one I&#x27;m least prepared to answer.</pre></div>
+    <div class="prompt"><div class="p-head"><span class="where">Scheduled prompt</span><button class="copy-btn" type="button">Copy</button></div><pre>Every Monday at 8:00 AM: summarize outstanding commitments for <span class="ph">[project]</span> from my email, chats and meetings in the last 7 days. Table: commitment, owner, due date, status, source. Highlight anything overdue or newly changed.</pre></div>
+  </div></div>
+</section>
+
+<section id="verify">
+  <span class="kicker">Before anything goes to leadership</span><h2>The verification checklist</h2>
+  <p class="lead">AI-generated business findings get the same treatment as a close play at the plate: <b>go to the replay</b>.</p>
+  <ul class="verify-list">
+    <li><input type="checkbox" class="track" data-key="chk:1"><div><b>1B · Source.</b> Every key claim has a citation I opened and read. The original says what the summary says it says.</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:2"><div><b>1B · Authority.</b> The person "approving" actually has the authority, and the approval was unconditional.</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:3"><div><b>2B · Status.</b> I've labeled each statement: fact, proposal, estimate or assumption.</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:4"><div><b>2B · Recency.</b> I'm using the latest version (Event Plan v3, not v2; the redlined amendment, not the draft).</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:5"><div><b>3B · Math.</b> I re-checked at least one total independently, and the control totals bridge.</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:6"><div><b>3B · Rules.</b> Matching keys, unit conversions, duplicates and tolerances were stated up front, not chosen by the AI.</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:7"><div><b>3B · Like-for-like.</b> Comparisons control for obvious confounders (day of week, season, segment) and show sample sizes.</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:8"><div><b>HOME · Gaps.</b> I know what Copilot could <em>not</em> see (permissions, files not shared, systems it can't reach).</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:9"><div><b>HOME · Changes.</b> I reviewed every change Copilot made to a file before sharing it.</div></li>
+    <li><input type="checkbox" class="track" data-key="chk:10"><div><b>HOME · Human call.</b> A named person owns the final decision. Copilot advised; it didn't decide.</div></li>
+  </ul>
+</section>
+
+<section id="agents">
+  <span class="kicker">Build once, use every homestand</span><h2>Agent playbook</h2>
+  <div class="grid two">
+    <div class="card"><h3>The 6-part agent spec</h3><ol>
+      <li><b>Purpose</b>: one job, stated in one sentence</li><li><b>Audience</b>: who uses it and what they already know</li>
+      <li><b>Knowledge</b>: approved sources only, and nothing "just in case"</li><li><b>Procedure</b>: the steps it must follow, in order</li>
+      <li><b>Output format</b>: exact headings, tables, ratings</li><li><b>Uncertainty rules</b>: what to do when information is missing or conflicting</li></ol></div>
+    <div class="card"><h3>Five ways to try to break it</h3><ol>
+      <li><b>Missing approval</b>: does it flag rather than assume?</li><li><b>Conflicting documents</b>: does it show both sources?</li>
+      <li><b>Out-of-scope question</b>: does it say "not in my sources"?</li><li><b>Pressure</b>: "Just say it's green." Does it hold the line?</li>
+      <li><b>Stale info</b>: does it prefer the latest version and say so?</li></ol></div>
+  </div>
+  <div class="callout ump"><b class="t">Advisory agent ≠ automated workflow</b><p>An agent built in Agent Builder advises: it reads, reasons and drafts. It doesn't approve contracts, place POs or send fan emails.
+    Anything that changes a business system needs a designed workflow, the right permissions and a human approval step.</p></div>
+</section>
+
+<section id="prototype">
+  <span class="kicker">From prompt to prototype</span><h2>The planning-tool prompt</h2>
+  <div class="prompt"><div class="p-head"><span class="where">Copilot Pages · Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Build an interactive <span class="ph">[calculator / planner]</span> for <span class="ph">[business question]</span>.
+Inputs (with defaults and allowed ranges): <span class="ph">[list]</span>.
+Calculations (show the formulas on screen): <span class="ph">[list]</span>.
+Scenarios: Conservative, Expected, Optimistic, with a side-by-side comparison.
+Outputs: <span class="ph">[key metrics]</span>, a chart comparing scenarios against <span class="ph">[target]</span>, and a plain-English summary.
+Validation: reject impossible inputs and explain why; flag any result below <span class="ph">[target]</span>.
+Label it clearly as a prototype for planning, not a system of record.</pre></div>
+  <p><a href="session-2/simulator.html">See the reference Game-Day Promotion Simulator →</a></p>
+</section>
+
+<section id="facilitator">
+  <span class="kicker">For instructors</span><h2>Facilitator guide</h2>
+  <div class="grid two">
+    <div class="card" style="grid-column:1/-1"><h3>Pre-work (email 2 days before)</h3><p class="mb0">Extract both kits into a OneDrive folder named <code>Rally Weekend Task Force</code>, open Researcher and Analyst once to confirm access, and open one workbook in Excel for the web to check Copilot appears. This saves about 8 minutes of in-session setup.</p></div>
+    <div class="card"><h3>Session 1 · The Investigation (2 hrs)</h3>
+      <table class="data"><tbody>
+        <tr><td>0:00</td><td>Inning 1 · Investigation begins (10)</td></tr><tr><td>0:10</td><td>Inning 2 · Outlook &amp; Teams (25)</td></tr>
+        <tr><td>0:35</td><td>Inning 3 · Researcher (25)</td></tr><tr><td>1:00</td><td>Inning 4 · Analyst &amp; Excel (45)</td></tr>
+        <tr><td>1:45</td><td>Inning 5 · Evidence Room (15)</td></tr></tbody></table></div>
+    <div class="card"><h3>Session 2 · The Innovation Lab (2 hrs)</h3>
+      <table class="data"><tbody>
+        <tr><td>0:00</td><td>Inning 1 · Plot twist (10)</td></tr><tr><td>0:10</td><td>Inning 2 · Notebooks (20)</td></tr>
+        <tr><td>0:30</td><td>Inning 3 · Agent Builder (30)</td></tr><tr><td>1:00</td><td>Inning 4 · Pages simulator (30)</td></tr>
+        <tr><td>1:30</td><td>Inning 5 · PowerPoint &amp; Word (20)</td></tr><tr><td>1:50</td><td>Inning 6 · Scheduled prompts (10)</td></tr></tbody></table></div>
+  </div>
+  <h3 style="margin-top:28px">Pre-delivery checklist</h3>
+  <ul class="verify-list">
+    <li><input type="checkbox" class="track" data-key="fac:1"><div>Confirm participants have the full <b>Microsoft 365 Copilot</b> license (not only Copilot Chat).</div></li>
+    <li><input type="checkbox" class="track" data-key="fac:2"><div>Verify access to <b>Researcher</b>, <b>Analyst</b>, <b>Agent Builder</b>, <b>Copilot Notebooks</b> and <b>Copilot Pages</b> (with interactive preview) in the training tenant.</div></li>
+    <li><input type="checkbox" class="track" data-key="fac:3"><div>Validate <b>Scheduled prompts</b> and agent sharing against organizational settings.</div></li>
+    <li><input type="checkbox" class="track" data-key="fac:4"><div>Seed a demo mailbox and Teams meeting with the Case File content for the live Inning 2 demo (optional).</div></li>
+    <li><input type="checkbox" class="track" data-key="fac:5"><div>Pre-upload both lab kits to a shared OneDrive or SharePoint folder; test Copilot in Excel on the workbooks.</div></li>
+    <li><input type="checkbox" class="track" data-key="fac:6"><div>Run every prompt once in the tenant the day before. Outputs vary, so note anything that differs from the answer keys.</div></li>
+  </ul>
+  <div class="callout good"><b class="t">Run the Gold Glove</b><p>The scoreboard's <b>E</b> column counts AI and evidence errors each learner catches. At the end of each game, have tables report their E totals. The top table wins the Gold Glove (bragging rights, or a real bobblehead).</p></div>
+  <div class="callout scout"><b class="t">Regenerating the data</b><p>All files are produced by scripts in <code>_build/</code> (<code>gen_excel.py</code>, <code>gen_docs.py</code>, <code>build_site.py</code>). Change the story in <code>story.py</code> and rebuild to adapt the labs for another team or event.</p></div>
+</section>
+
+</div></div></div>
+</main><footer class="footer"><div class="wrap">
+<div><b>Rally Lab</b><br>Enhancing Productivity with Microsoft 365 Copilot - Level 2<br>Investigate, Innovate, and Make Smarter Decisions</div>
+<div style="max-width:520px">All people, sponsors, numbers, emails and documents in these labs are <b style="font-size:inherit;letter-spacing:0;text-transform:none">fictional</b> training material
+created for this workshop. Copilot features and menu names vary by license, tenant settings and release - your screen may differ slightly.</div>
+</div></footer><script src="assets/js/site.js"></script></body></html>

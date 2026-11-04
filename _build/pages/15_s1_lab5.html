@@ -1,0 +1,229 @@
+<!--meta {"kind": "lab", "session": 1, "n": 5} -->
+<style>
+  .fev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 800px) { .fev { grid-template-columns: 1fr; } }
+  .fev .col { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
+  .fev .col h4 { font-family: var(--display); font-weight: 400; font-size: 1.7rem; margin: 0 0 6px; letter-spacing: .02em; }
+  .fev .col ul { margin: 0; padding-left: 1.1em; font-size: .9rem; }
+  .fev .col li { margin: .35em 0; }
+  .fev .f { border-top: 5px solid var(--ok); } .fev .e { border-top: 5px solid var(--warn); } .fev .u { border-top: 5px solid var(--bad); }
+  .matrix { display: grid; grid-template-columns: 34px repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(96px, auto)) 30px; gap: 6px; margin: 14px 0; }
+  .matrix .cell { border-radius: 10px; padding: 10px; font-size: .8rem; display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; }
+  .matrix .ylab, .matrix .xlab { font-family: var(--head); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; justify-content: center; }
+  .matrix .ylab { writing-mode: vertical-rl; transform: rotate(180deg); }
+  .matrix .c1 { background: #EEF6F0; } .matrix .c2 { background: #FFF6E0; } .matrix .c3 { background: #FDE6E9; }
+  .chipx { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+  .scorecard td:first-child { font-weight: 600; white-space: nowrap; }
+  .scorecard .day { font-family: var(--head); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); display: block; font-weight: 500; }
+  .vote { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+  .vote div { background: rgba(0,0,0,.22); border-radius: 12px; padding: 12px 14px; font-size: .9rem; }
+  .vote b { display: block; font-family: var(--head); letter-spacing: .1em; text-transform: uppercase; font-size: .8rem; color: #BFE6CB; }
+  @media (max-width: 700px) { .vote { grid-template-columns: 1fr; } }
+</style>
+
+<section id="mission" data-toc="Mission">
+  <h2><span class="base"></span>The mission</h2>
+  <div class="mission">
+    <h3>Make the call.</h3>
+    <p>It's <b>Wednesday, 11:00 AM</b>. You have a decision timeline (Inning 2), a cited readiness brief (Inning 3) and a verified exception workbook (Inning 4).
+      Sam's fan email deadline is <b>5:00 PM today</b>. Leadership doesn't want three documents. They want <b>one scorecard and one action plan</b>.</p>
+    <p class="mb0">In this inning you bring the evidence together, separate what you <em>know</em> from what you <em>estimate</em> and what's still <em>unknown</em>,
+      and defend a recommendation: <b>proceed, proceed with conditions, or delay</b>.</p>
+  </div>
+</section>
+
+<section id="game-plan" data-toc="Game plan">
+  <h2><span class="base"></span>Game plan</h2>
+  <ul class="objectives">
+    <li>Combine <b>communication, research and spreadsheet</b> findings into one view.</li>
+    <li>Separate <b>verified facts, estimates and unresolved issues</b>.</li>
+    <li>Prioritize risks by <b>business impact</b>.</li>
+    <li>Split <b>decisions leadership can make now</b> from those that need more information.</li>
+    <li>Deliver a <b>readiness scorecard and prioritized action plan</b>.</li>
+  </ul>
+</section>
+
+<section id="before" data-toc="Before you start">
+  <h2><span class="base"></span>Before you start</h2>
+  <p>Gather your outputs from Innings 2-4: the timeline and commitments report, the readiness brief, and the exception workbook or Analyst findings. Either attach them to a new Copilot Chat, or <b>continue in the conversation where you did Inning 4</b>.</p>
+  <div class="callout scout"><b class="t">Scouting report · Missed an inning?</b>
+    <p>Paste the scouting summary below into Copilot Chat as your evidence. It's the reference result from Innings 2-4.</p></div>
+  <details class="reveal"><summary>Reference evidence summary from Innings 2-4 (paste-ready)</summary><div class="inner">
+    <prompt where="Paste as evidence">EVIDENCE SUMMARY - Riverfront Rally Weekend (as of Wed 6/16/2027 11:00 AM)
+Communications (Inning 2):
+- Bucket hats (PR-1057, Big River Energy): Elena's 5/24 approval was conditional (E04). Marcus has not signed off (E08; huddle 00:02:58). Amendment unsigned at lock; sponsor redline 6/9 asks for 10,000 hats at all gates for the same $25,000 (E11). Jordan told the sponsor it was approved (E05). No PO ever issued (E07). Huddle decision: treat as pending (00:04:33).
+- Magnets (PR-1039): cancelled 5/18 (E02) but 8,000 delivered to gates 6/14 (E13, E14). Occupying dock bays.
+- Fan email to 180,000 fans sends Thu 6/17 10:00 AM; it currently mentions Bucket Hat Sunday; go/no-go needed Wed 5:00 PM (E15).
+- Finance has $25K BRE revenue booked without a signed amendment (E16).
+- The auto-generated meeting recap contains 3 errors (bobbleheads, hat approval, fan email).
+Spreadsheets (Inning 4):
+- Rally Towels (PR-1041): 20,050 distributable vs 20,000 allocated after converting DLV-2212 (40 CS = 4,000 EA). Home Plate +50 (0.8%, within tolerance). OK.
+- Retro Bobbleheads (PR-1043): system shows 16,200 because DLV-2222 (1,200) is duplicated. True delivered 15,000; damaged 600; distributable 14,400 vs 15,000 guaranteed to Riverbend. Make-good: $8 x 600 = $4,800 or a replacement night. Warehouse stock: 0.
+- Kids Mini Bats (PR-1048): Right Field second pallet DLV-2234 (1,000) scheduled 6/21 - after the 6/20 game - but 1,000 units are in the warehouse. Club Entrance short 50 (vendor backorder, ETA 6/24). Game-day distributable today: 8,950 vs 10,000.
+- Bucket hats (PR-1057): 0 delivered, 0 inventory, no PO.
+- Fireworks (PR-1052): vendor service; no delivery expected - not an exception.
+Other:
+- Ticketing says Sunday is pacing about 31,200 vs 33,000 planned; Saturday pacing ahead (verbal, huddle 00:04:16).
+- Ops rule: pallets must be at gates 48 hours before gates open. Sunday gates open 12:10 PM.</prompt>
+  </div></details>
+</section>
+
+<section id="play" data-toc="Play-by-play">
+  <h2><span class="base"></span>The play-by-play</h2>
+  <ol class="steps">
+    <li class="step">
+      <h3>Sort the evidence: fact, estimate, or unknown?</h3>
+      <prompt where="Copilot Chat">Using all of the evidence in this conversation (or the evidence summary I pasted), sort every material finding about the Riverfront Rally Weekend into three buckets:
+
+1. VERIFIED FACTS - backed by a document, system record, or written statement from the decision owner. Cite it.
+2. ESTIMATES - numbers or projections that depend on assumptions. State the assumption.
+3. UNRESOLVED - open questions that could change a decision. Name who can resolve each and by when.
+
+Present as three separate lists. Do not put anything in VERIFIED FACTS that relies only on a verbal claim in a meeting.</prompt>
+      <div class="fev">
+        <div class="col f"><h4>Verified facts</h4><ul><li>Hats: 2 of 3 approvals missing; no PO; 0 stock</li><li>600 bobbleheads damaged; DLV-2222 duplicated</li><li>DLV-2234 dated 6/21; 1,000 bats in warehouse</li><li>8,000 magnets delivered vs cancelled PR-1039</li><li>Towels in tolerance after UOM fix</li></ul></div>
+        <div class="col e"><h4>Estimates</h4><ul><li>Sunday pacing ~31,200 vs 33,000 (verbal)</li><li>Saturday "pacing ahead" (verbal)</li><li>Make-good $4,800 (assumes Riverbend picks the credit)</li><li>Sunday staffing need: +6 for hats</li></ul></div>
+        <div class="col u"><h4>Unresolved</h4><ul><li>Staffing agency answer (Marcus, Wed noon)</li><li>Has Elena seen the 10,000-hat redline?</li><li>Can Seventh Inning rush hats? (Priya)</li><li>Riverbend: credit or replacement night?</li><li>Can DLV-2234 move to Friday? (Priya)</li></ul></div>
+      </div>
+    </li>
+
+    <li class="step">
+      <h3>Prioritize the risks</h3>
+      <prompt where="Copilot Chat">Create a risk register for the weekend from the evidence. For each risk give: Risk | Element | Likelihood (Low/Med/High) | Business impact (Low/Med/High) with a one-line reason (sponsor relationship, fan trust, money, safety, operations) | Dollar exposure if calculable (show the math) | Mitigation | Owner | Decision deadline.
+
+Rank by impact first, then likelihood. Then place each risk in a 3x3 impact-by-likelihood grid as a simple text table.</prompt>
+      <p class="muted" style="font-size:.9rem">Reference placement (your grid may differ slightly; be ready to defend yours):</p>
+      <div class="matrix" aria-label="Risk matrix: impact by likelihood">
+        <div class="ylab">High impact</div>
+        <div class="cell c2"><span class="chipx">Fan trust: email promises hats</span></div>
+        <div class="cell c3"><span class="chipx">Sponsor told "approved" (BRE)</span></div>
+        <div class="cell c3"><span class="chipx">Bobblehead guarantee missed (−600)</span><span class="chipx">Hats can't be fulfilled</span></div>
+        <div class="ylab">Medium</div>
+        <div class="cell c1"><span class="chipx">Club bats −50</span></div>
+        <div class="cell c2"><span class="chipx">$25K booked, unsigned</span></div>
+        <div class="cell c3"><span class="chipx">RF gate: no bats for 1,000 kids</span></div>
+        <div class="ylab">Low</div>
+        <div class="cell c1"><span class="chipx">Towel +50 overage</span></div>
+        <div class="cell c1"><span class="chipx">Sunday attendance softness</span></div>
+        <div class="cell c2"><span class="chipx">Magnets clogging dock bays</span></div>
+        <div></div><div class="xlab">Low likelihood</div><div class="xlab">Medium</div><div class="xlab">High / already true</div>
+      </div>
+      <div class="callout ump"><b class="t">Umpire review · Check the math</b><p>If Copilot shows dollar exposure, recompute it yourself: bobbleheads 600 × $8 = <b>$4,800</b>; mini bats if unfixed 1,050 × $2 = <b>$2,100</b>, or 50 × $2 = <b>$100</b> once DLV-2234 is rescheduled; at-risk revenue <b>$25,000</b> (BRE). Did it use the right make-good rate for each sponsor?</p></div>
+    </li>
+
+    <li class="step">
+      <h3>Now vs. later: what can leadership decide today?</h3>
+      <prompt where="Copilot Chat">Split the decisions leadership faces into two lists:
+
+A. DECIDE NOW (the evidence is sufficient today): the decision, the recommended choice, and the evidence.
+B. NEEDS MORE INFORMATION: the decision, the missing information, who provides it, and the latest time we can wait before the decision is forced (e.g., Wed 5:00 PM fan email lock; 48-hour delivery cutoff before Sunday gates at 12:10 PM, i.e., Fri 12:10 PM).
+
+Keep it to the 8 most important decisions.</prompt>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li><b>Now:</b> pull the hat line from the fan email; move the $25K to pending; reschedule DLV-2234 from warehouse stock; return the magnets; correct the duplicate and status errors in the source files.</li>
+          <li><b>Later:</b> the bobblehead remedy (credit vs replacement night vs sourcing units); whether the hats return on a future date; the Club Entrance 50-bat gap.</li></ul></div>
+    </li>
+
+    <li class="step">
+      <h3>The vote</h3>
+      <p>Each table takes one element below and votes. Then a spokesperson has <b>60 seconds</b> to defend the call with evidence.</p>
+      <div class="challenge" style="margin-top:8px">
+        <span class="kick">Interactive exercise · 5 minutes</span>
+        <h3>Proceed, conditions, or delay?</h3>
+        <p><b>Element A:</b> the Big River Energy bucket hat giveaway (Sun 6/20). <b>Element B:</b> Retro Bobblehead Night (Sat 6/19) with 14,400 usable units.</p>
+        <div class="vote">
+          <div><b>🟢 Proceed</b>Go as planned. What evidence makes you comfortable?</div>
+          <div><b>🟡 Proceed with conditions</b>Go, if named conditions are met by named owners by a named time.</div>
+          <div><b>🔴 Delay</b>Pull it. What's the cost, and who tells the sponsor?</div>
+        </div>
+        <div class="count"><span>Tables</span><span>2 min to vote</span><span>60 sec to defend</span></div>
+      </div>
+      <prompt where="Copilot Chat · stress test your vote">Our team recommends [[Proceed / Proceed with conditions / Delay]] for [[element]]. Our reasons: [[your 2-3 reasons]].
+
+Act as a skeptical VP who has to answer to the sponsor and to fans. Give the three strongest objections to our recommendation, each tied to specific evidence, and tell us what would change your mind.</prompt>
+    </li>
+
+    <li class="step">
+      <h3>Build the scorecard and action plan</h3>
+      <prompt where="Copilot Chat">Create the final Promotional-Readiness Scorecard for leadership.
+
+Part 1 - Scorecard table, one row per element (Rally Towels, Fireworks, Retro Bobbleheads, Kids Mini Bats, Bucket Hats, Magnet Schedules clean-up, Fan Email, Finance forecast). Columns: Element | Game day | Rating (GREEN = all checks met with evidence; YELLOW = unverified but a credible owner and date exist; RED = a check has failed or cannot be met before gates open) | Key evidence (cite) | Recommendation (Proceed / Proceed with conditions / Delay) | Condition(s).
+
+Part 2 - Prioritized action plan: # | Action | Owner | Deadline | Done-when (the evidence that proves it's done). Order by deadline. Include fixing the source data (duplicate delivery row, PR-1057 status, CS unit of measure).
+
+Part 3 - A 3-sentence overall recommendation for Elena Ortiz.
+
+Use only the evidence in this conversation. If a rating depends on an unresolved item, say which.</prompt>
+    </li>
+  </ol>
+</section>
+
+<section id="scorecard" data-toc="Reference scorecard">
+  <h2><span class="base"></span>Reference scorecard</h2>
+  <p class="lead">Compare your Copilot-built scorecard with this one. Differences are fine if you can defend them with evidence.</p>
+  <div class="table-wrap"><table class="data scorecard">
+    <thead><tr><th>Element</th><th>Rating</th><th>Key evidence</th><th>Recommendation</th></tr></thead>
+    <tbody>
+      <tr><td><span class="day">Fri 6/18</span>Rally Towels</td><td><span class="tag green">Green</span></td><td>20,050 distributable vs 20,000 after 40 CS → 4,000 EA (DLV-2212); HP +0.8% within tolerance</td><td>Proceed</td></tr>
+      <tr><td><span class="day">Fri 6/18</span>Fireworks</td><td><span class="tag green">Green</span></td><td>Skyburst confirmed, permit filed (00:01:05); vendor service, so no delivery expected</td><td>Proceed</td></tr>
+      <tr><td><span class="day">Sat 6/19</span>Retro Bobbleheads</td><td><span class="tag red">Red</span></td><td>14,400 usable vs 15,000 guaranteed (600 damaged, E12; DLV-2222 duplicate masks it); warehouse 0</td><td>Proceed with conditions: notify Riverbend today, offer make-good ($4,800) or replacement night, explore replacement units</td></tr>
+      <tr><td><span class="day">Sun 6/20</span>Kids Mini Bats</td><td><span class="tag yellow">Yellow</span></td><td>DLV-2234 scheduled 6/21; 1,000 on hand; Club −50 (backorder)</td><td>Proceed with conditions: move DLV-2234 to the RF gate by Fri 12:10 PM</td></tr>
+      <tr><td><span class="day">Sun 6/20</span>Bucket Hats</td><td><span class="tag red">Red</span></td><td>Conditional approval only (E04); no Ops sign-off (E08); unsigned and re-scoped (E11); no PO (E07); 0 stock</td><td><b>Delay.</b> Remove from the weekend and offer BRE a future date</td></tr>
+      <tr><td><span class="day">Now</span>Magnet clean-up</td><td><span class="tag yellow">Yellow</span></td><td>8,000 delivered against cancelled PR-1039 (E02 vs E13/E14)</td><td>Return to Central Warehouse for 7/13 before Friday staging</td></tr>
+      <tr><td><span class="day">Thu 6/17</span>Fan email</td><td><span class="tag red">Red</span></td><td>Promises "Bucket Hat Sunday" (E15); promises an item that fails the E01 three-part approval rule</td><td>Proceed with conditions: remove the hat line by Wed 5:00 PM</td></tr>
+      <tr><td><span class="day">Now</span>Finance forecast</td><td><span class="tag yellow">Yellow</span></td><td>$25K BRE booked without a contract (E16)</td><td>Move to pending; add make-good exposure</td></tr>
+    </tbody></table></div>
+  <div class="boxscore" style="margin-top:22px"><div class="bs-head"><span>Prioritized action plan</span><span>Owner · deadline</span></div>
+    <table><thead><tr><th>#</th><th>Action</th><th>Owner</th><th>Deadline</th></tr></thead><tbody>
+      <tr><td>1</td><td>Confirm Sunday staffing answer (determines nothing if hats are delayed, so close it out)</td><td>Marcus Bell</td><td>Wed 6/16 12:00 PM</td></tr>
+      <tr><td>2</td><td>Fix source data: delete duplicate DLV-2222, set PR-1057 to Pending, convert DLV-2212 to 4,000 EA</td><td>Priya Raman / Dana Whitfield</td><td>Wed 6/16 3:00 PM</td></tr>
+      <tr><td>3</td><td>Remove "Bucket Hat Sunday" from the fan email</td><td>Sam Kowalski</td><td>Wed 6/16 5:00 PM</td></tr>
+      <tr><td>4</td><td>Call Big River Energy with Elena: not this weekend, scope to be renegotiated</td><td>Jordan Pierce + Elena Ortiz</td><td>Wed 6/16 EOD</td></tr>
+      <tr><td>5</td><td>Move $25K to pending; add $4,800 make-good exposure to forecast</td><td>Chris Ahn</td><td>Wed 6/16 EOD</td></tr>
+      <tr><td>6</td><td>Notify Riverbend of the 600-unit shortfall and make-good options</td><td>Jordan Pierce + Dana Whitfield</td><td>Thu 6/17 12:00 PM</td></tr>
+      <tr><td>7</td><td>Return 8,000 magnets to Central Warehouse; free dock bays</td><td>Priya Raman</td><td>Thu 6/17</td></tr>
+      <tr><td>8</td><td>Deliver DLV-2234 (1,000 bats) from warehouse to the RF gate</td><td>Priya Raman</td><td>Fri 6/18 12:10 PM (48-hr rule)</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="verify" data-toc="Umpire review">
+  <h2><span class="base"></span>Umpire review checklist</h2>
+  <div class="card">
+    <p><label><input type="checkbox" class="track" data-key="catch:s1-l5-1"> No "fact" on my scorecard rests only on a verbal claim or the auto-recap.</label></p>
+    <p><label><input type="checkbox" class="track" data-key="catch:s1-l5-2"> I recomputed every dollar figure Copilot produced ($4,800 · $2,100/$100 · $25,000).</label></p>
+    <p><label><input type="checkbox" class="track" data-key="catch:s1-l5-3"> Every action has one owner, a deadline and a "done-when."</label></p>
+    <p class="mb0"><label><input type="checkbox" class="track" data-key="catch:s1-l5-4"> The fireworks are <em>not</em> flagged as a missing delivery (it's a vendor service).</label></p>
+  </div>
+</section>
+
+<section id="boxscore" data-toc="Box score">
+  <h2><span class="base"></span>Box score</h2>
+  <div class="boxscore"><div class="bs-head"><span>Session 1 final output</span><span>15 min</span></div>
+    <table><thead><tr><th>Output</th><th>What good looks like</th></tr></thead><tbody>
+      <tr><td><b>Promotional-readiness scorecard</b></td><td>8 elements, GREEN/YELLOW/RED with cited evidence and a clear recommendation each.</td></tr>
+      <tr><td><b>Prioritized action plan</b></td><td>Ordered by deadline; one owner each; "done-when" evidence; includes fixing the source data.</td></tr>
+      <tr><td><b>Defended recommendation</b></td><td>Proceed with conditions overall; bucket hats delayed; stress-tested against a skeptical VP.</td></tr>
+    </tbody></table></div>
+  <div class="callout good" style="margin-top:22px"><b class="t">Game 1: final</b>
+    <p>You went from information chaos to a decision leadership can act on, and you caught the errors that a confident AI recap and a "the system shows" claim would have let through.
+      Save your scorecard as <code>My_Task_Force_Findings</code> in your Task Force folder. <b>Game 2 starts from the reference 09 file</b>, so everyone starts level, but keep yours to compare.</p></div>
+  <div class="card" style="margin-top:16px;background:var(--navy);color:#E6EEF8;border-color:var(--navy)">
+    <span class="kicker" style="color:var(--gold)">Coming up in Game 2 · The Innovation Lab</span>
+    <p class="mb0">Leadership loved the scorecard and wants it <em>repeatable</em>. Then, overnight, things change: the weather turns, a sponsor signs on its own terms, and costs go up.
+      You'll build a notebook, an agent, an interactive simulator and an executive pitch to keep up. <a href="{{root}}session-2/index.html" style="color:var(--gold)">Preview Game 2 →</a></p>
+  </div>
+</section>
+
+<section id="dugout" data-toc="Dugout notes">
+  <h2><span class="base"></span>Dugout notes</h2>
+  <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
+    <p><b>Timing (15 min):</b> 2 min sort facts/estimates/unknowns (demo only) · 3 min risk register and grid · 2 min now vs later · 5 min vote and defense · 3 min scorecard reveal and bridge to Game 2. If you're short on time, skip step 3 and show the reference scorecard.</p>
+    <p><b>Expected votes and the strongest defenses:</b></p>
+    <ul>
+      <li><b>Bucket hats → Delay</b> (nearly unanimous). Evidence: E04 is conditional, E08 has no Ops sign-off, E11 changed the scope, no PO (E07), zero stock. Physically impossible by Sunday without a rush, and the fan email would promise it to 180,000 people. A "proceed with conditions" team should be asked: "Name the condition that can be met by Wed 5:00 PM." There isn't one.</li>
+      <li><b>Bobbleheads → Proceed with conditions</b> (most common). The game still happens and 14,400 fans get one. The condition is proactive sponsor notification with the make-good options (the Event Standards require reporting within 24 hours of the event, but telling them before is the relationship move). A "Delay" team is overreacting; push them on the cost of cancelling the sponsor's biggest night.</li>
+    </ul>
+    <p><b>Discussion prompt:</b> "Which finding would you have missed without the spreadsheet?" The answer is the bobblehead shortfall. Every communication said "we're covered."</p>
+    <p><b>Seed for Session 2:</b> mention that Ryan at BRE still thinks the hats are approved (E05), and that Riverbend gets to choose credit or a replacement night. Both come back in the Plot Twist.</p>
+  </div></details>
+</section>

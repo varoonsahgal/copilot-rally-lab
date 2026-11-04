@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game-Day Promotion Simulator | Rally Lab - Copilot Level 2</title>
+<meta name="description" content="Baseball-themed hands-on labs for Microsoft 365 Copilot Level 2: Researcher, Analyst, Excel, Notebooks, Agent Builder, Pages.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' aria-hidden='true'><circle cx='32' cy='32' r='29' fill='%23fff' stroke='%23E7E0CF' stroke-width='2'/><path d='M14 10c8 7 11 15 11 22s-3 15-11 22M50 10c-8 7-11 15-11 22s3 15 11 22' fill='none' stroke='%23C6011F' stroke-width='2.4'/><g stroke='%23C6011F' stroke-width='2' stroke-linecap='round'><path d='M17 15l4-2M20 20l4-1.5M22 26l4-.8M22.5 32h4M22 38l4 .8M20 44l4 1.5M17 49l4 2M47 15l-4-2M44 20l-4-1.5M42 26l-4-.8M41.5 32h-4M42 38l-4 .8M44 44l-4 1.5M47 49l-4 2'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@400;500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css"><script>document.documentElement.classList.add("js")</script></head><body class="theme-s2" data-page="s2-sim"><header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#fff" stroke="#E7E0CF" stroke-width="2"/><path d="M14 10c8 7 11 15 11 22s-3 15-11 22M50 10c-8 7-11 15-11 22s3 15 11 22" fill="none" stroke="#C6011F" stroke-width="2.4"/><g stroke="#C6011F" stroke-width="2" stroke-linecap="round"><path d="M17 15l4-2M20 20l4-1.5M22 26l4-.8M22.5 32h4M22 38l4 .8M20 44l4 1.5M17 49l4 2M47 15l-4-2M44 20l-4-1.5M42 26l-4-.8M41.5 32h-4M42 38l-4 .8M44 44l-4 1.5M47 49l-4 2"/></g></svg><span class="word">Rally Lab</span><span class="tag">Microsoft 365 Copilot<br>Level 2</span></a>
+<button class="nav-toggle" type="button" aria-label="Menu">Menu</button>
+<nav class="nav"><a href="../index.html">Home</a><a href="../session-1/index.html">Game 1: Investigation</a><a href="../session-2/index.html" class="active">Game 2: Innovation Lab</a><a href="../case-file.html">Case File</a><a href="../resources.html">Dugout Guide</a></nav></div></header><main><style>
+  .sim-hero { padding: 54px 0 40px; }
+  .sim-hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+  .proto-badge { display:inline-flex; gap:8px; align-items:center; background:rgba(224,164,42,.15); border:1px solid rgba(224,164,42,.5); color:var(--gold); border-radius:999px; padding:5px 14px; font-family:var(--head); letter-spacing:.14em; text-transform:uppercase; font-size:.72rem; }
+  .scen-bar { display:flex; gap:8px; flex-wrap:wrap; margin-top:22px; }
+  .scen-bar button { background:rgba(255,255,255,.08); color:#fff; border:1.5px solid rgba(255,255,255,.25); border-radius:999px; padding:10px 18px; font-family:var(--head); text-transform:uppercase; letter-spacing:.12em; font-size:.82rem; cursor:pointer; }
+  .scen-bar button:hover { border-color: var(--gold); }
+  .scen-bar button[aria-pressed="true"] { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+  .sim { display:grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap:28px; padding:36px 0 70px; align-items:start; }
+  @media (max-width: 1000px) { .sim { grid-template-columns: 1fr; } }
+  .panel { background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:20px 22px; box-shadow:var(--shadow); margin-bottom:18px; }
+  .panel h3 { font-size:1rem; text-transform:uppercase; letter-spacing:.14em; color:#1F4E8C; display:flex; justify-content:space-between; align-items:baseline; }
+  .panel h3 small { font-family:var(--body); text-transform:none; letter-spacing:0; color:var(--muted); font-weight:500; font-size:.82rem; }
+  .field { display:grid; grid-template-columns: 1fr 120px; gap:6px 14px; align-items:center; padding:9px 0; border-top:1px dashed var(--line); }
+  .field:first-of-type { border-top:none; }
+  .field label { font-weight:600; font-size:.9rem; }
+  .field label span { display:block; font-weight:400; font-size:.76rem; color:var(--muted); }
+  .field input[type=number] { width:100%; padding:7px 9px; border:1.5px solid var(--line); border-radius:8px; font-family:var(--mono); font-size:.88rem; text-align:right; background:#fff; }
+  .field input[type=number]:focus { outline:none; border-color:#1F4E8C; box-shadow:0 0 0 3px rgba(31,78,140,.15); }
+  .field input[type=number].bad { border-color:var(--bad); background:#FFF5F6; }
+  .field input[type=range] { grid-column: 1 / -1; accent-color:#1F4E8C; width:100%; }
+  .toggle { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-top:1px dashed var(--line); font-size:.9rem; }
+  .toggle:first-of-type { border-top:none; }
+  .toggle input { margin-top:4px; accent-color:#1F4E8C; width:17px; height:17px; flex:none; }
+  .toggle b { display:block; }
+  .toggle span { color:var(--muted); font-size:.8rem; }
+  .radio-group { display:grid; gap:4px; margin-top:6px; }
+  .radio-group label { display:flex; gap:8px; align-items:center; font-size:.86rem; }
+  .board { background:linear-gradient(160deg, var(--navy), #10294A); color:#fff; border-radius:18px; padding:22px; box-shadow:var(--shadow-lg); position:sticky; top:84px; }
+  .board .tiles { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; }
+  .tile { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:12px 14px; }
+  .tile small { display:block; font-family:var(--head); letter-spacing:.16em; text-transform:uppercase; font-size:.66rem; color:#A9B9CF; }
+  .tile b { display:block; font-family:var(--display); font-weight:400; font-size:2.1rem; line-height:1.05; color:#F7D774; letter-spacing:.02em; }
+  .tile span { font-size:.78rem; color:#C4D0E0; }
+  .tile.hero { grid-column: 1 / -1; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  .tile.hero b { font-size:3rem; }
+  .verdict { display:inline-flex; align-items:center; gap:8px; border-radius:999px; padding:8px 16px; font-family:var(--head); letter-spacing:.1em; text-transform:uppercase; font-size:.85rem; font-weight:600; }
+  .verdict.ok { background:#DFF2E6; color:var(--ok); }
+  .verdict.no { background:#FBE3E6; color:var(--bad); }
+  .msgs { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:6px; }
+  .msgs li { font-size:.84rem; border-radius:9px; padding:8px 12px; }
+  .msgs li.err { background:#FBE3E6; color:var(--bad); }
+  .msgs li.warn { background:#FFF1D1; color:#7A4A00; }
+  .msgs li.info { background:rgba(255,255,255,.08); color:#DCE6F3; }
+  .chart-box { background:#fff; border-radius:14px; padding:16px 16px 8px; margin-top:16px; color:var(--ink); }
+  .chart-box h4 { font-family:var(--head); margin:0; font-size:1rem; }
+  .chart-box .csub { font-size:.82rem; color:var(--muted); margin-bottom:6px; }
+  .formula { font-family:var(--mono); font-size:.8rem; line-height:1.7; background:#F3EFE4; border-radius:10px; padding:12px 14px; overflow-x:auto; }
+  .formula b { color:#1F4E8C; }
+  .sumrow { display:flex; justify-content:space-between; font-size:.86rem; padding:4px 0; border-top:1px dashed var(--line); }
+  .sumrow:first-child { border-top:none; }
+  .sumrow.total { font-weight:700; border-top:1.5px solid var(--ink); margin-top:4px; padding-top:6px; }
+  .num { font-variant-numeric: tabular-nums; font-family:var(--mono); }
+  .simtip { position:fixed; pointer-events:none; z-index:100; background:var(--ink); color:#fff; padding:8px 11px; border-radius:8px; font-size:.8rem; opacity:0; transition:opacity .1s; }
+</style>
+
+<section class="session-hero sim-hero"><div class="wrap">
+  <span class="proto-badge">⚠ Prototype · fictional data · not a production tool</span>
+  <h1 style="margin-top:14px">Game-Day Promotion Simulator</h1>
+  <p>The reference build for Inning 4. Move the sliders, flip the plot-twist toggles, and see whether the Riverfront Rally Weekend still clears its <b>$2.4M</b> net contribution objective.
+    Every formula is shown, so nothing is a black box.</p>
+  <div class="scen-bar" role="group" aria-label="Attendance scenarios">
+    <button type="button" data-scen="conservative" aria-pressed="false">Conservative</button>
+    <button type="button" data-scen="expected" aria-pressed="true">Expected</button>
+    <button type="button" data-scen="optimistic" aria-pressed="false">Optimistic</button>
+    <button type="button" data-scen="plot" aria-pressed="false">Plot Twist (Jun 17)</button>
+    <button type="button" id="resetAll" aria-pressed="false" style="border-style:dashed">Reset all</button>
+  </div>
+</div></section>
+
+<div class="wrap sim">
+  <div>
+    <div class="panel"><h3>Attendance <small>Forecast · per game · capacity 42,000</small></h3><div id="g-att"></div></div>
+    <div class="panel"><h3>Unit economics <small>Budget Model · Unit Economics tab</small></h3><div id="g-unit"></div></div>
+    <div class="panel"><h3>Promotional costs <small id="promoTotal"></small></h3><div id="g-promo"></div></div>
+    <div class="panel"><h3>Sponsorship (contracted) <small id="sponsTotal"></small></h3><div id="g-spons"></div></div>
+    <div class="panel"><h3>Plot-twist decisions <small>Memo · June 17</small></h3>
+      <label class="toggle"><input type="checkbox" id="t-surcharge"><div><b>Fireworks surcharge</b><span>+$6,500 promotional cost (Skyburst fuel &amp; permit)</span></div></label>
+      <div class="toggle" style="display:block"><b>Bobblehead fix (600 units short of the 15,000 guarantee)</b>
+        <div class="radio-group" role="radiogroup" aria-label="Bobblehead fix">
+          <label><input type="radio" name="bobble" value="none" checked> No fix yet</label>
+          <label><input type="radio" name="bobble" value="air"> Air-freight 600 replacements (+$8,100 promo cost)</label>
+          <label><input type="radio" name="bobble" value="credit"> Riverbend make-good credit (−$4,800 sponsorship)</label>
+        </div></div>
+      <label class="toggle"><input type="checkbox" id="t-ore"><div><b>Accept Big River Energy deal as signed</b><span>+$25,000 sponsorship · −$53,500 rush hats (10,000 × $5.35) · −$2,400 extra staffing</span></div></label>
+    </div>
+    <div class="panel"><h3>Objective</h3><div id="g-obj"></div></div>
+  </div>
+
+  <div>
+    <div class="board" aria-live="polite">
+      <div class="tiles">
+        <div class="tile hero"><div><small>Weekend net contribution</small><b id="o-net">-</b><span id="o-gap">-</span></div><span id="o-verdict" class="verdict">-</span></div>
+        <div class="tile"><small>Weekend attendance</small><b id="o-att">-</b><span id="o-att-sub">-</span></div>
+        <div class="tile"><small>Net per attendee</small><b id="o-unit">-</b><span>Margin − variable cost</span></div>
+        <div class="tile"><small>Break-even attendance</small><b id="o-be">-</b><span>Net contribution = $0</span></div>
+        <div class="tile"><small>Attendance for objective</small><b id="o-objA">-</b><span id="o-objA-sub">-</span></div>
+      </div>
+      <ul class="msgs" id="o-msgs"></ul>
+      <div class="chart-box">
+        <h4>Net contribution by attendance scenario</h4>
+        <div class="csub">Each preset uses your current cost, sponsorship and toggle settings. The black line is the objective.</div>
+        <div class="legend"><span><i style="background:#3D6FB0"></i>Preset scenario</span><span><i style="background:#C6011F"></i>Your inputs</span><span><i style="background:#16161A;width:3px"></i>Objective</span></div>
+        <div id="chart"></div>
+        <details class="reveal" style="margin:6px 0 8px"><summary>Table view</summary><div class="inner"><div class="table-wrap" style="margin:6px 0"><table class="data" id="scenTable"></table></div></div></details>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:18px"><h3>What it takes</h3><div id="o-takes" style="font-size:.93rem"></div></div>
+    <div class="panel"><h3>The math, in full <small>Check it yourself</small></h3>
+      <div id="o-sum"></div>
+      <div class="formula" style="margin-top:12px">
+        <b>A</b> = Fri + Sat + Sun<br>
+        <b>Net</b> = A × (Margin − Variable) + Sponsorship − Promo − Fixed × 3<br>
+        <b>Break-even A</b> = ⌈(Promo + Fixed × 3 − Sponsorship) ÷ (Margin − Variable)⌉<br>
+        <b>Objective A</b> = ⌈(Objective + Promo + Fixed × 3 − Sponsorship) ÷ (Margin − Variable)⌉
+      </div>
+      <p class="muted" style="font-size:.82rem;margin:10px 0 0">Not modeled: weather refunds, sponsor relationship value, concessions lift on hot days, and the cost of a Riverbend replacement night. A prototype for discussion. Validate against <code>Rally_Weekend_Budget_Model.xlsx</code> before you rely on it.</p>
+    </div>
+  </div>
+</div>
+<div class="wrap" style="padding-bottom:60px"><a class="btn" href="lab-4.html">← Back to Inning 4</a></div>
+<div class="simtip" id="simtip"></div>
+
+<script>
+(function () {
+  var CAP = 42000;
+  var SCEN = {
+    conservative: [33500, 36500, 30000],
+    expected: [36500, 39800, 33000],
+    optimistic: [39500, 42000, 36000],
+    plot: [36500, 41000, 28500]
+  };
+  var SCEN_LABEL = { conservative: "Conservative", expected: "Expected", optimistic: "Optimistic", plot: "Plot Twist" };
+  var FIELDS = {
+    att: [["fri", "Friday 6/18", "Rally Towel + Fireworks", 36500], ["sat", "Saturday 6/19", "Retro Bobblehead Night", 39800], ["sun", "Sunday 6/20", "Father's Day Family Sunday", 33000]],
+    unit: [["margin", "Margin per attendee", "$ · blended net margin", 34, 0.25], ["varc", "Variable cost per attendee", "$ · cleaning, guest services", 7, 0.25], ["fixed", "Fixed cost per game", "$ · × 3 games", 135000, 5000]],
+    promo: [["p1", "Rally Towels", "20,000 × $1.15", 23000], ["p2", "Retro Bobbleheads", "15,000 × $6.40", 96000], ["p3", "Kids Mini Bats", "10,000 × $2.85", 28500], ["p4", "Fireworks show", "Skyburst Pyrotechnics", 65000], ["p5", "Entertainment & marketing", "In-park", 45000]],
+    spons: [["s1", "Harbor City Mutual", "Friday", 60000], ["s2", "Riverbend Health Partners", "Saturday", 110000], ["s3", "Lakeside Fresh Market", "Sunday", 45000]],
+    obj: [["objective", "Weekend net contribution objective", "$ · set by leadership", 2400000, 50000]]
+  };
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (v) { var s = Math.round(Math.abs(v)).toLocaleString("en-US"); return (v < 0 ? "−$" : "$") + s; };
+  var num = function (v) { return Math.round(v).toLocaleString("en-US"); };
+
+  function buildField(group, f) {
+    var id = f[0], wrap = document.createElement("div"); wrap.className = "field";
+    var isAtt = group === "att";
+    wrap.innerHTML = '<label for="in-' + id + '">' + f[1] + '<span>' + f[2] + '</span></label>' +
+      '<input type="number" id="in-' + id + '" value="' + f[3] + '" step="' + (f[4] || (isAtt ? 100 : 500)) + '" inputmode="decimal">' +
+      (isAtt ? '<input type="range" id="rg-' + id + '" min="0" max="' + CAP + '" step="100" value="' + f[3] + '" aria-label="' + f[1] + ' slider">' : "");
+    $("g-" + group).appendChild(wrap);
+    var n = wrap.querySelector('input[type=number]'), r = wrap.querySelector('input[type=range]');
+    n.addEventListener("input", function () { if (r && n.value !== "") r.value = Math.max(0, Math.min(CAP, +n.value)); clearScen(); update(); });
+    if (r) r.addEventListener("input", function () { n.value = r.value; clearScen(); update(); });
+  }
+  Object.keys(FIELDS).forEach(function (g) { FIELDS[g].forEach(function (f) { buildField(g, f); }); });
+
+  function read(id) { var el = $("in-" + id); var raw = el.value.trim(); var v = raw === "" ? NaN : Number(raw); return { v: v, el: el }; }
+
+  function getState() {
+    var s = { errors: [], warnings: [], info: [] }, all = {};
+    Object.keys(FIELDS).forEach(function (g) { FIELDS[g].forEach(function (f) {
+      var r = read(f[0]); r.el.classList.remove("bad");
+      if (isNaN(r.v)) { s.errors.push(f[1] + " is blank or not a number."); r.el.classList.add("bad"); }
+      else if (r.v < 0) { s.errors.push(f[1] + " cannot be negative."); r.el.classList.add("bad"); }
+      all[f[0]] = r.v;
+    }); });
+    ["fri", "sat", "sun"].forEach(function (k, i) { if (all[k] > CAP) s.warnings.push(FIELDS.att[i][1] + " exceeds ballpark capacity (" + num(CAP) + ")."); });
+    s.v = all;
+    s.surcharge = $("t-surcharge").checked;
+    s.bobble = document.querySelector('input[name=bobble]:checked').value;
+    s.ore = $("t-ore").checked;
+    return s;
+  }
+
+  function calc(v, opts, att) {
+    var A = att ? att[0] + att[1] + att[2] : v.fri + v.sat + v.sun;
+    var unit = v.margin - v.varc;
+    var promo = v.p1 + v.p2 + v.p3 + v.p4 + v.p5;
+    var spons = v.s1 + v.s2 + v.s3;
+    if (opts.surcharge) promo += 6500;
+    if (opts.bobble === "air") promo += 8100;
+    if (opts.bobble === "credit") spons -= 4800;
+    if (opts.ore) { spons += 25000; promo += 53500 + 2400; }
+    var fixed = v.fixed * 3;
+    var net = A * unit + spons - promo - fixed;
+    var be = unit > 0 ? Math.max(0, Math.ceil((promo + fixed - spons) / unit)) : null;
+    var objA = unit > 0 ? Math.ceil((v.objective + promo + fixed - spons) / unit) : null;
+    return { A: A, unit: unit, promo: promo, spons: spons, fixed: fixed, net: net, gap: net - v.objective, be: be, objA: objA };
+  }
+  window.RallySimCalc = calc; // exposed for testing
+
+  var tip = $("simtip");
+  function drawChart(rows, objective) {
+    var root = $("chart"); root.innerHTML = "";
+    var W = root.clientWidth || 520, left = 104, right = 92, top = 22, rowH = 22, gap = 12;
+    var H = top + rows.length * (rowH + gap) + 6;
+    var maxV = Math.max(objective, Math.max.apply(null, rows.map(function (r) { return Math.max(0, r.value); })));
+    var p = Math.pow(10, Math.floor(Math.log10(maxV))), m = maxV / p;
+    var max = (m <= 1 ? 1 : m <= 2 ? 2 : m <= 2.5 ? 2.5 : m <= 3 ? 3 : m <= 5 ? 5 : 10) * p;
+    var x = function (v) { return left + (Math.max(0, v) / max) * (W - left - right); };
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "Net contribution by scenario compared with the objective");
+    function el(n, a, txt) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
+    for (var i = 0; i <= 4; i++) {
+      var tv = max / 4 * i, tx = x(tv);
+      el("line", { x1: tx, x2: tx, y1: top - 6, y2: H - 4, stroke: "#E8E2D4" });
+      el("text", { x: tx, y: 12, "text-anchor": "middle", "font-size": 11, fill: "#6B675F" }, "$" + (tv / 1e6).toFixed(tv % 1e6 ? 1 : 0) + "M");
+    }
+    rows.forEach(function (r, i) {
+      var y = top + i * (rowH + gap), w = Math.max(2, x(r.value) - left), rad = Math.min(4, w / 2);
+      el("text", { x: left - 10, y: y + rowH / 2 + 4, "text-anchor": "end", "font-size": 12, "font-weight": 600, fill: "#3A3A42" }, r.label);
+      var d = "M" + left + "," + y + " H" + (left + w - rad) + " Q" + (left + w) + "," + y + " " + (left + w) + "," + (y + rad) +
+        " V" + (y + rowH - rad) + " Q" + (left + w) + "," + (y + rowH) + " " + (left + w - rad) + "," + (y + rowH) + " H" + left + " Z";
+      var bar = el("path", { d: d, fill: r.mine ? "#C6011F" : "#3D6FB0" });
+      var meets = r.value >= objective;
+      el("text", { x: left + w + 6, y: y + rowH / 2 + 4, "font-size": 11.5, fill: "#16161A", "font-weight": 600 }, money(r.value) + (meets ? " ✓" : " ✗"));
+      var hit = el("rect", { x: 0, y: y - 4, width: W, height: rowH + 8, fill: "transparent" });
+      var html = "<b>" + r.label + "</b><br>Attendance " + num(r.A) + "<br>Net " + money(r.value) + "<br>" + (meets ? "Meets objective by " : "Short of objective by ") + money(Math.abs(r.value - objective));
+      [bar, hit].forEach(function (mk) {
+        mk.addEventListener("mousemove", function (e) { tip.innerHTML = html; tip.style.opacity = 1; tip.style.left = e.clientX + 14 + "px"; tip.style.top = e.clientY + 14 + "px"; });
+        mk.addEventListener("mouseleave", function () { tip.style.opacity = 0; });
+      });
+    });
+    var ox = x(objective);
+    el("line", { x1: ox, x2: ox, y1: top - 6, y2: H - 4, stroke: "#16161A", "stroke-width": 2 });
+    root.appendChild(svg);
+  }
+
+  function update() {
+    var s = getState(), out = $("o-msgs"); out.innerHTML = "";
+    var add = function (cls, t) { var li = document.createElement("li"); li.className = cls; li.textContent = t; out.appendChild(li); };
+    if (s.errors.length) {
+      s.errors.forEach(function (e) { add("err", "✗ " + e); });
+      ["o-net", "o-att", "o-unit", "o-be", "o-objA"].forEach(function (id) { $(id).textContent = "-"; });
+      $("o-gap").textContent = "Fix the highlighted inputs to calculate.";
+      $("o-verdict").className = "verdict no"; $("o-verdict").textContent = "✗ Input error";
+      return;
+    }
+    var v = s.v, r = calc(v, s);
+    $("o-net").textContent = money(r.net);
+    $("o-gap").textContent = (r.gap >= 0 ? "▲ " + money(r.gap) + " above" : "▼ " + money(-r.gap) + " below") + " the " + money(v.objective) + " objective";
+    $("o-verdict").className = "verdict " + (r.gap >= 0 ? "ok" : "no");
+    $("o-verdict").textContent = r.gap >= 0 ? "✓ Meets objective" : "✗ Below objective";
+    $("o-att").textContent = num(r.A);
+    $("o-att-sub").textContent = num(v.fri) + " / " + num(v.sat) + " / " + num(v.sun);
+    $("o-unit").textContent = "$" + r.unit.toFixed(2);
+    $("o-be").textContent = r.be === null ? "Undefined" : num(r.be);
+    $("o-objA").textContent = r.objA === null ? "Undefined" : num(r.objA);
+    $("o-objA-sub").textContent = r.objA === null ? "Margin must exceed variable cost" : (r.A >= r.objA ? num(r.A - r.objA) + " fans of cushion" : num(r.objA - r.A) + " more fans needed");
+    $("promoTotal").textContent = "Base " + money(v.p1 + v.p2 + v.p3 + v.p4 + v.p5) + " · with toggles " + money(r.promo);
+    $("sponsTotal").textContent = "Base " + money(v.s1 + v.s2 + v.s3) + " · with toggles " + money(r.spons);
+
+    if (r.unit <= 0) add("err", "✗ Margin per attendee must be greater than variable cost. Break-even is undefined, and every extra fan loses money.");
+    s.warnings.forEach(function (w) { add("warn", "⚠ " + w); });
+    if (s.bobble === "none") add("warn", "⚠ 600 bobbleheads short of Riverbend's 15,000 guarantee. Choose a fix (make-good exposure $4,800, or a replacement night).");
+    if (s.ore) add("warn", "⚠ BRE deal as signed: Ops sign-off is still missing (the memo says 9 extra staff; the playbook's +3-per-gate rule implies 15). Under the approval rule, this is not yet approved.");
+    if (s.bobble === "credit") add("info", "ℹ The make-good is the sponsor's choice. Riverbend may pick a replacement promotion night instead, which costs more than $4,800.");
+    if (Math.abs(r.gap) < 25000 && r.unit > 0) add("info", "ℹ The result is within $25,000 of the objective, which is inside normal forecast error (about " + num(Math.ceil(25000 / r.unit)) + " fans). Decide on risk, not decimals.");
+
+    // what it takes
+    var t = $("o-takes");
+    if (r.unit <= 0) t.innerHTML = "<p class='mb0'>Fix unit economics first. No attendance level reaches the objective.</p>";
+    else if (r.gap < 0) {
+      var fans = Math.ceil(-r.gap / r.unit), marg = Math.ceil((-r.gap / r.A) * 100) / 100;
+      t.innerHTML = "<p class='mb0'>To close the <b>" + money(-r.gap) + "</b> gap, you need <b>" + num(fans) + " more fans</b>, <em>or</em> <b>+$" + marg.toFixed(2) + " margin per attendee</b>, <em>or</em> " + money(-r.gap) + " of cost savings or extra sponsorship.</p>";
+    } else {
+      t.innerHTML = "<p class='mb0'>You have a cushion of <b>" + money(r.gap) + "</b>. You could lose <b>" + num(Math.floor(r.gap / r.unit)) + " fans</b> (or $" + (Math.floor((r.gap / r.A) * 100) / 100).toFixed(2) + " of margin per attendee) and still meet the objective.</p>";
+    }
+    // full math
+    $("o-sum").innerHTML =
+      row("Attendance × net per attendee", num(r.A) + " × $" + r.unit.toFixed(2), r.A * r.unit) +
+      row("+ Sponsorship", "", r.spons) + row("− Promotional costs", "", -r.promo) + row("− Fixed costs", money(v.fixed) + " × 3", -r.fixed) +
+      "<div class='sumrow total'><span>= Net contribution</span><span class='num'>" + money(r.net) + "</span></div>";
+    function row(a, b, c) { return "<div class='sumrow'><span>" + a + (b ? " <span class='muted'>(" + b + ")</span>" : "") + "</span><span class='num'>" + money(c) + "</span></div>"; }
+
+    // chart + table
+    var rows = Object.keys(SCEN).map(function (k) { var c = calc(v, s, SCEN[k]); return { label: SCEN_LABEL[k], value: c.net, A: c.A }; });
+    rows.push({ label: "Your inputs", value: r.net, A: r.A, mine: true });
+    drawChart(rows, v.objective);
+    $("scenTable").innerHTML = "<thead><tr><th>Scenario</th><th class='num'>Attendance</th><th class='num'>Net</th><th class='num'>vs objective</th></tr></thead><tbody>" +
+      rows.map(function (q) { return "<tr><td>" + q.label + "</td><td class='num'>" + num(q.A) + "</td><td class='num'>" + money(q.value) + "</td><td class='num'>" + money(q.value - v.objective) + "</td></tr>"; }).join("") + "</tbody>";
+  }
+
+  function setAtt(a) { ["fri", "sat", "sun"].forEach(function (k, i) { $("in-" + k).value = a[i]; $("rg-" + k).value = a[i]; }); }
+  function clearScen() { document.querySelectorAll("[data-scen]").forEach(function (b) { b.setAttribute("aria-pressed", "false"); }); }
+  document.querySelectorAll("[data-scen]").forEach(function (b) {
+    b.addEventListener("click", function () { setAtt(SCEN[b.dataset.scen]); clearScen(); b.setAttribute("aria-pressed", "true"); update(); });
+  });
+  $("resetAll").addEventListener("click", function () {
+    Object.keys(FIELDS).forEach(function (g) { FIELDS[g].forEach(function (f) { $("in-" + f[0]).value = f[3]; var rg = $("rg-" + f[0]); if (rg) rg.value = f[3]; }); });
+    $("t-surcharge").checked = false; $("t-ore").checked = false; document.querySelector('input[name=bobble][value=none]').checked = true;
+    clearScen(); document.querySelector('[data-scen=expected]').setAttribute("aria-pressed", "true"); update();
+  });
+  ["t-surcharge", "t-ore"].forEach(function (id) { $(id).addEventListener("change", update); });
+  document.querySelectorAll("input[name=bobble]").forEach(function (r) { r.addEventListener("change", update); });
+  window.addEventListener("resize", function () { clearTimeout(window.__simR); window.__simR = setTimeout(update, 150); });
+  update();
+})();
+</script>
+</main><footer class="footer"><div class="wrap">
+<div><b>Rally Lab</b><br>Enhancing Productivity with Microsoft 365 Copilot - Level 2<br>Investigate, Innovate, and Make Smarter Decisions</div>
+<div style="max-width:520px">All people, sponsors, numbers, emails and documents in these labs are <b style="font-size:inherit;letter-spacing:0;text-transform:none">fictional</b> training material
+created for this workshop. Copilot features and menu names vary by license, tenant settings and release - your screen may differ slightly.</div>
+</div></footer><script src="../assets/js/site.js"></script></body></html>

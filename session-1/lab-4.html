@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inning 4: The Giveaway Mystery | Rally Lab - Copilot Level 2</title>
+<meta name="description" content="Baseball-themed hands-on labs for Microsoft 365 Copilot Level 2: Researcher, Analyst, Excel, Notebooks, Agent Builder, Pages.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' aria-hidden='true'><circle cx='32' cy='32' r='29' fill='%23fff' stroke='%23E7E0CF' stroke-width='2'/><path d='M14 10c8 7 11 15 11 22s-3 15-11 22M50 10c-8 7-11 15-11 22s3 15 11 22' fill='none' stroke='%23C6011F' stroke-width='2.4'/><g stroke='%23C6011F' stroke-width='2' stroke-linecap='round'><path d='M17 15l4-2M20 20l4-1.5M22 26l4-.8M22.5 32h4M22 38l4 .8M20 44l4 1.5M17 49l4 2M47 15l-4-2M44 20l-4-1.5M42 26l-4-.8M41.5 32h-4M42 38l-4 .8M44 44l-4 1.5M47 49l-4 2'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@400;500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css"><script>document.documentElement.classList.add("js")</script></head><body class="theme-s1" data-page="s1-l4" data-lab="s1-l4"><header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#fff" stroke="#E7E0CF" stroke-width="2"/><path d="M14 10c8 7 11 15 11 22s-3 15-11 22M50 10c-8 7-11 15-11 22s3 15 11 22" fill="none" stroke="#C6011F" stroke-width="2.4"/><g stroke="#C6011F" stroke-width="2" stroke-linecap="round"><path d="M17 15l4-2M20 20l4-1.5M22 26l4-.8M22.5 32h4M22 38l4 .8M20 44l4 1.5M17 49l4 2M47 15l-4-2M44 20l-4-1.5M42 26l-4-.8M41.5 32h-4M42 38l-4 .8M44 44l-4 1.5M47 49l-4 2"/></g></svg><span class="word">Rally Lab</span><span class="tag">Microsoft 365 Copilot<br>Level 2</span></a>
+<button class="nav-toggle" type="button" aria-label="Menu">Menu</button>
+<nav class="nav"><a href="../index.html">Home</a><a href="../session-1/index.html" class="active">Game 1: Investigation</a><a href="../session-2/index.html">Game 2: Innovation Lab</a><a href="../case-file.html">Case File</a><a href="../resources.html">Dugout Guide</a></nav></div></header><main><section class="lab-hero"><div class="hero-num" aria-hidden="true">4</div><div class="wrap">
+<div class="crumbs"><a href="../index.html">Rally Lab</a> / <a href="index.html">Game 1 · The Investigation</a> / Inning 4</div>
+<div class="row"><div class="inning-badge"><div><small>Inning</small><b>4</b><small>of 5</small></div></div>
+<div class="hero-text"><h1>The Giveaway Mystery</h1><p class="sub">Reconcile two workbooks full of planted discrepancies, then build and verify an exception report.</p>
+<div class="chips"><span class="chip tool">Analyst</span><span class="chip tool">Copilot in Excel</span><span class="chip">⏱ 45 minutes</span><span class="chip">📋 Output: Reconciliation findings, verified exception workbook, operational risk summary</span><span class="chip idea">💡 Big Idea #4: Rules before results</span></div></div>
+<div class="hero-path" data-session="1" aria-label="Session progress">
+<svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 106 L104 62 L60 18 L16 62 Z" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2" stroke-dasharray="4 4"/>
+<rect class="hp-base" data-lab-dot="s1-l1" x="-7" y="-7" width="14" height="14" transform="translate(60 106) rotate(45)"/><rect class="hp-base" data-lab-dot="s1-l2" x="-7" y="-7" width="14" height="14" transform="translate(104 62) rotate(45)"/><rect class="hp-base" data-lab-dot="s1-l3" x="-7" y="-7" width="14" height="14" transform="translate(60 18) rotate(45)"/><rect class="hp-base" data-lab-dot="s1-l4" x="-7" y="-7" width="14" height="14" transform="translate(16 62) rotate(45)" data-current/><rect class="hp-base" data-lab-dot="s1-l5" x="-7" y="-7" width="14" height="14" transform="translate(60 62) rotate(45)"/>
+</svg><small>Game 1 base path</small></div></div></div></section><nav class="lineup-nav" aria-label="Innings"><div class="wrap"><span class="lbl">Game 1 lineup</span><a class="" data-lab-link="s1-l1" href="lab-1.html"><span class="n">1</span>Investigation Plan</a><a class="" data-lab-link="s1-l2" href="lab-2.html"><span class="n">2</span>The Missing Approval</a><a class="" data-lab-link="s1-l3" href="lab-3.html"><span class="n">3</span>Readiness Brief</a><a class="current" data-lab-link="s1-l4" href="lab-4.html"><span class="n">4</span>Reconciliation</a><a class="" data-lab-link="s1-l5" href="lab-5.html"><span class="n">5</span>Make the Call</a><span class="lineup-progress"><i style="width:0%"></i></span></div></nav><div class="lab-body"><div class="wrap lab-grid"><aside class="toc"><b>In this inning</b><a href="#mission">Mission</a><a href="#stretch">7th-inning stretch</a><a href="#call-your-shot">Call your shot</a><a href="#plan">Game plan</a><a href="#setup">Before you start</a><a href="#part-a">Part A · Analyst</a><a href="#part-b">Part B · Excel</a><a href="#part-c">Part C · Bonus scouting</a><a href="#challenge">Bottom of the 9th</a><a href="#verify">Umpire review</a><a href="#boxscore">Box score</a><a href="#extra-innings">Extra innings</a><a href="#postgame">Postgame takeaways</a><a href="#dugout">Dugout notes</a></aside>
+<div class="lab-content"><style>
+  .chart svg { width: 100%; height: auto; }
+  .bridge { display: grid; gap: 8px; margin: 14px 0; }
+  .bridge .b-row { display: grid; grid-template-columns: 230px 1fr 90px; gap: 12px; align-items: center; font-size: .9rem; }
+  .bridge .track { position: relative; height: 22px; background: #F1ECDF; border-radius: 5px; }
+  .bridge .bar { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+  .bridge .v { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+  .bridge .total .bar { background: #16161A; }
+  .bridge .up .bar { background: #3D6FB0; }
+  .bridge .down .bar { background: #C6011F; }
+  .bridge .end .bar { background: #1E7B4A; }
+  @media (max-width: 640px) { .bridge .b-row { grid-template-columns: 1fr 70px; } .bridge .track { grid-column: 1 / -1; grid-row: 2; } }
+  .rules { counter-reset: r; list-style: none; padding: 0; display: grid; gap: 8px; }
+  .rules li { counter-increment: r; padding: 10px 14px 10px 50px; position: relative; background: #fff; border: 1px solid var(--line); border-radius: 10px; font-size: .92rem; }
+  .rules li::before { content: "R" counter(r); position: absolute; left: 12px; top: 10px; font-family: var(--head); font-weight: 600; color: var(--red); }
+  .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .versus .card h3 { display: flex; align-items: center; gap: 8px; }
+  @media (max-width: 700px) { .versus { grid-template-columns: 1fr; } }
+</style>
+
+<section id="mission" data-toc="Mission">
+  <h2><span class="base"></span>The mission</h2>
+  <div class="mission">
+    <h3>The Giveaway Mystery</h3>
+    <p class="lead">In the 6/15 huddle Priya said: <em>"Honestly the system shows more than fifteen thousand delivered, so we should be covered."</em>
+      The auto-recap repeated it. Riverbend Health Partners is paying <b>$110,000</b> for a guaranteed <b>15,000</b> bobbleheads.</p>
+    <p>You have two workbooks that should tell the same story but don't: Marketing's <b>Promo Allocations &amp; Requests</b> and the warehouse's
+      <b>Fulfillment &amp; Deliveries</b> export. They contain deliberately planted problems: a duplicate record, inconsistent identifiers,
+      a unit-of-measure trap, damaged goods, a late pallet, a delivery against a cancelled request and a missing fulfillment entry, plus a short ship and two false positives.
+      Your job is to reconcile them, build an exception report you'd stake your name on, and work out which problem everyone else will miss.</p>
+  </div>
+</section>
+<section id="stretch" data-toc="7th-inning stretch"><div class="stretch"><div class="st-head"><span class="st-badge">🎵 Seventh-inning stretch: write the PA call</span><span>2 min · stand up, then type</span></div>
+<div class="prompt"><div class="p-head"><span class="where">Copilot Chat</span><button class="copy-btn" type="button">Copy</button></div><pre>Write a 15-second, high-energy ballpark PA announcement for Saturday&#x27;s Retro Bobblehead Night, presented by Riverbend Health Partners.</pre></div>
+<div class="st-ump"><b>Then umpire it.</b> Did Copilot promise a bobblehead to the &quot;first 15,000 fans&quot;? You now know only 14,400 can be handed out. Fluent copy repeats the plan, not the facts. Fix the line, then log your catch.<label><input type="checkbox" class="track" data-key="catch:s1-l4-pa"> I caught it</label></div></div></section><section id="call-your-shot" data-toc="Call your shot"><div class="shot" data-key="shot:s1-l4">
+<div class="shot-head"><span class="shot-badge">☝ Call your shot</span><span>Predict before you play. Wrong guesses teach the most.</span></div>
+<h3>The warehouse system shows 16,200 Retro Bobbleheads delivered against a contractual 15,000. How many can actually be handed to fans on Saturday?</h3><div class="opts"><button type="button" class="opt" data-correct="0"><span class="l">A</span>16,200: a 1,200 surplus</button><button type="button" class="opt" data-correct="0"><span class="l">B</span>15,000: exactly on plan</button><button type="button" class="opt" data-correct="1"><span class="l">C</span>14,400: 600 short</button><button type="button" class="opt" data-correct="0"><span class="l">D</span>13,800: 1,200 short</button></div>
+<div class="shot-why" hidden><b class="verdict"></b> <b>14,400.</b> Remove the duplicate DLV-2222 (−1,200), then the 600 damaged units (25 cases × 24). The largest sponsor is 600 short of its guarantee, and the system total said the opposite.</div></div></section>
+
+<section id="plan" data-toc="Game plan">
+  <h2><span class="base"></span>Game plan</h2>
+  <ul class="objectives">
+    <li>Choose <b>Analyst</b> for multi-file investigation and <b>Copilot in Excel</b> for direct workbook changes</li>
+    <li>Define matching keys and reconciliation rules <em>before</em> running any analysis</li>
+    <li>Find duplicates, missing entries, inconsistent IDs and unit mismatches</li>
+    <li>Separate reliable matches from uncertain ones</li>
+    <li>Build formulas, a summary and a chart with Copilot in Excel, then review every change</li>
+    <li>Prove the result with independent control totals</li>
+  </ul>
+  <div class="versus" style="margin-top:20px">
+    <div class="card"><h3><span class="tag red">Analyst</span> The analytics department</h3>
+      <p>A reasoning agent that writes and runs Python against files you give it. Best when you need to <b>compare several files</b>,
+        explore, explain and chart, and see the code it used. It does not change your workbook.</p></div>
+    <div class="card"><h3><span class="tag green">Copilot in Excel</span> The groundskeeper</h3>
+      <p>Works <b>inside one open workbook</b>: adds formula columns, highlights, sorts, builds PivotTables and charts. Best when the deliverable is
+        a <b>working, auditable workbook</b> other people will open.</p></div>
+  </div>
+</section>
+
+<section id="setup" data-toc="Before you start">
+  <h2><span class="base"></span>Before you start</h2>
+  <div class="files">
+    <a class="file" href="../data/session-1/Promo_Allocations_Requests.xlsx" download><span class="ext xlsx">XLSX</span><span><b>Promo_Allocations_Requests.xlsx</b><span>Requests · Gate Allocations · Item Master · Sponsor Commitments</span></span></a>
+    <a class="file" href="../data/session-1/Warehouse_Fulfillment_Deliveries.xlsx" download><span class="ext xlsx">XLSX</span><span><b>Warehouse_Fulfillment_Deliveries.xlsx</b><span>Deliveries · Inventory On Hand</span></span></a>
+    <a class="file" href="../data/session-1/Rally_Reconciliation_start.xlsx" download><span class="ext xlsx">XLSX</span><span><b>Rally_Reconciliation_start.xlsx</b><span>Part B starter: both tables in one workbook</span></span></a>
+    <a class="file" href="../data/session-1/05_Operations_Playbook_Giveaway_Rules.docx" download><span class="ext docx">DOCX</span><span><b>05_Operations_Playbook_Giveaway_Rules</b><span>Tolerance, UOM and duplicate rules</span></span></a>
+    <a class="file" href="../data/session-1/Promo_Attendance_History_2025_2026.xlsx" download><span class="ext xlsx">XLSX</span><span><b>Promo_Attendance_History (bonus)</b><span>163 rows for Part C</span></span></a>
+  </div>
+  <div class="stats">
+    <div class="stat"><small>Requests</small><b>7</b><span>incl. 1 cancelled, 1 vendor service</span></div>
+    <div class="stat"><small>Gate allocations</small><b>23</b><span>72,000 units allocated</span></div>
+    <div class="stat"><small>Delivery rows</small><b>27</b><span>…but only 26 unique IDs</span></div>
+    <div class="stat"><small>Planted problems</small><b>9</b><span>can you find them all?</span></div>
+  </div>
+  <p class="muted">New to warehouse shorthand? UOM, CS, PO and make-good are in the <a href="../case-file.html#glossary">Case File glossary</a>.</p>
+  <div class="callout warn"><b class="t">Rain delay · setup requirements</b>
+    <ul><li>Copilot in Excel works on files saved to <b>OneDrive or SharePoint</b> with AutoSave on. Data should be in Excel <b>tables</b>; every data sheet in these workbooks already is one.</li>
+      <li>Analyst is under <b>Agents</b> in the Microsoft 365 Copilot app. Attach both workbooks (upload, or reference them from OneDrive).</li>
+      <li>Analyst and Researcher runs may be subject to <b>usage limits</b> in some tenants. Pair up and share one Analyst session if needed.</li>
+      <li>AI output is non-deterministic: your wording and numbers may differ from the examples. That's exactly why Part B ends with independent checks.</li></ul></div>
+</section>
+
+<section id="part-a" data-toc="Part A · Analyst">
+  <h2><span class="base"></span>Part A · Analyst: run the reconciliation</h2>
+  <p class="lead">Roughly 15 minutes. You'll make Analyst show its work at every step: structure first, rules second, results third.</p>
+  <ol class="steps">
+    <li class="step"><h3>Scout the files before you swing</h3>
+      <p>Open <b>Analyst</b>, attach both workbooks, and ask it to describe the data <em>before</em> it analyzes anything.</p>
+      <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>I&#x27;ve attached two workbooks for the Riverfront Rally Weekend (June 18-20, 2027):
+1) Promo_Allocations_Requests.xlsx (Marketing&#x27;s plan)
+2) Warehouse_Fulfillment_Deliveries.xlsx (the warehouse&#x27;s delivery export)
+
+Before doing any analysis:
+- List every sheet in each file with its row count and columns.
+- Tell me which columns could be used to match records between the two files.
+- Point out any data quality issues you notice in the identifier columns (formats, spacing, casing, units).
+Do not reconcile anything yet.</pre></div>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>Sheets: Requests, Gate Allocations, Item Master, Sponsor Commitments | Deliveries, Inventory On Hand (plus README sheets)</li>
+          <li>Proposed key: <b>Request ID + Gate</b> ↔ <b>Request Ref + Destination</b></li>
+          <li>Noticed issues such as <code>PR1043</code>, <code>pr-1043</code>, <code>1043</code>, trailing spaces, <code>BBH-RETRO-27</code> vs <code>BBH-RETRO27</code>, and a <code>CS</code> unit</li></ul></div>
+    </li>
+    <li class="step"><h3>Write the rules down: the umpire's rulebook</h3>
+      <p>The single most important move in any reconciliation is to <b>agree the matching rules before you see the answer</b>.
+        These come straight from the Ops Playbook:</p>
+      <ol class="rules">
+        <li><b>Normalize Request IDs</b>: strip spaces, uppercase, keep the 4 digits → <code>PR-####</code></li>
+        <li><b>Normalize SKUs</b>: uppercase, remove hyphens and spaces, map to the Item Master</li>
+        <li><b>Convert units</b>: if UOM = CS, multiply by the Item Master case pack</li>
+        <li><b>Remove duplicates</b>: a repeated Delivery ID is a duplicate, even if other fields differ</li>
+        <li><b>Distributable = Qty − Damaged Qty</b></li>
+        <li><b>Late = not available</b>: a delivery dated after the game date doesn't count for that game</li>
+        <li><b>Tolerance</b>: within ±1% per gate = MATCH; outside = EXCEPTION</li>
+        <li><b>Vendor services</b> (fireworks) expect no warehouse delivery</li>
+        <li><b>Confidence</b>: label each match <i>Exact</i>, <i>Normalized</i> (needed R1–R3) or <i>No match</i></li>
+      </ol>
+      <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>Reconcile planned gate allocations against warehouse deliveries using EXACTLY these rules:
+R1 Normalize Request IDs: trim, uppercase, keep the 4 digits, format as PR-####.
+R2 Normalize SKUs: uppercase, remove hyphens and spaces, map to the Item Master SKU.
+R3 If UOM = CS, convert to units using the Item Master case pack.
+R4 A repeated Delivery ID is a duplicate - keep only the first occurrence.
+R5 Distributable qty = Qty - Damaged Qty.
+R6 Deliveries dated after the request&#x27;s Game Date do not count toward that game.
+R7 Per Request ID + Gate, distributable within +/-1% of Allocated Qty = MATCH, otherwise EXCEPTION.
+R8 Requests with Fulfillment Type = Vendor Service expect no delivery.
+R9 Label each match Exact, Normalized (needed R1-R3) or No match.
+
+Output one table at Request ID + Gate level with: Request ID, Item, Gate, Request Status, Allocated, Delivered (units), Damaged, Late, Distributable, Variance, Variance %, Match confidence, Result, and a one-line Reason.
+Then list every row you excluded or changed (duplicates, conversions, late deliveries) with the Delivery ID.
+Show the Python you used.</pre></div>
+      <div class="callout scout"><b class="t">Scouting report · why rules first?</b>
+        <p>If you just ask "what's wrong with these files?", Copilot will pick its own rules, and different people in the room will get different answers.
+          Stating the rules makes the result <b>repeatable, explainable and checkable</b>. It's also the start of a reusable prompt (or agent) for next homestand.</p></div>
+    </li>
+    <li class="step"><h3>Spring the naive-total trap</h3>
+      <p>Most people check a reconciliation by summing the Qty column. Ask Analyst to show you why that's dangerous here.</p>
+      <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>For each item (Rally Towel, Retro Bobblehead, Kids Mini Bat, Sunday Bucket Hat) compare three numbers in one chart and one table:
+A) Allocated units (plan)
+B) &quot;Naive system total&quot; = simple SUM of the Qty column in Deliveries for that item, with no cleaning
+C) Distributable on game day after applying rules R1-R7
+
+Explain in plain English, for each item, why A, B and C differ, and which number a sponsor would care about.</pre></div>
+      <details class="reveal" id="reveal-naive"><summary>Reveal the reference chart (after you've run your own)</summary><div class="inner">
+        <div class="chart-card"><h4>What the system says vs. what fans will actually receive</h4>
+          <div class="csub">Units by item · plan, naive Qty sum, and distributable on game day after rules R1-R7</div>
+          <div class="legend"><span><i style="background:#3D6FB0"></i>Allocated (plan)</span><span><i style="background:#C88A12"></i>Naive system total</span><span><i style="background:#C6011F"></i>Distributable on game day</span></div>
+          <div class="chart" id="chart-naive"></div></div>
+        <div class="table-wrap"><table class="data"><thead><tr><th>Item</th><th class="num">Allocated</th><th class="num">Naive total</th><th class="num">Distributable</th><th>What fooled the naive total</th></tr></thead><tbody>
+          <tr><td>Rally Towel</td><td class="num">20,000</td><td class="num">16,090</td><td class="num">20,050</td><td>Riverside logged <b>40 CS</b> (= 4,000 units). Looks 3,910 short; actually fine.</td></tr>
+          <tr><td>Retro Bobblehead</td><td class="num">15,000</td><td class="num">16,200</td><td class="num"><b>14,400</b></td><td>Duplicate <b>DLV-2222</b> (+1,200) hides <b>600 damaged</b>. Looks like a surplus; actually <b>600 short</b>.</td></tr>
+          <tr><td>Kids Mini Bat</td><td class="num">10,000</td><td class="num">9,950</td><td class="num"><b>8,950</b></td><td>Right Field pallet <b>DLV-2234</b> is dated <b>6/21</b>, the day after the game. Looks 0.5% short; actually 10.5% short.</td></tr>
+          <tr><td>Sunday Bucket Hat</td><td class="num">5,000</td><td class="num">0</td><td class="num">0</td><td>No deliveries, no PO, zero inventory: the <b>missing fulfillment entry</b>.</td></tr>
+        </tbody></table></div>
+        <p class="pull">The naive total was wrong in all three directions: too low, too high, and "close enough."</p>
+      </div></details>
+    </li>
+    <li class="step"><h3>Translate exceptions into business impact</h3>
+      <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>Using the reconciliation and the Sponsor Commitments sheet, write an operational risk summary for leadership.
+For each exception: what happened, the business impact in units AND dollars (use the make-good clauses), who owns the fix, and whether it can be fixed before gates open.
+Also check the Inventory On Hand sheet: is there stock that could close any gap?
+Rank by business impact. Keep it to one table plus three bullet takeaways. Flag anything you are unsure about rather than guessing.</pre></div>
+      <div class="expect"><b class="t">What a strong answer includes</b>
+        <ul><li><b>Bobbleheads</b>: 600 short of a contractual 15,000 → $4,800 make-good or a replacement night; warehouse stock is 0</li>
+          <li><b>Mini bats</b>: 1,000 units for Right Field are <b>sitting in the warehouse</b> (Inventory On Hand), so rescheduling DLV-2234 fixes it. Club is short 50 (backorder)</li>
+          <li><b>Magnets</b>: 8,000 delivered against cancelled PR-1039, taking up dock bays needed for weekend pallets</li>
+          <li><b>Bucket hats</b>: 5,000 "Approved" but no delivery, PO or inventory, and an approval entered by Sponsorship itself</li>
+          <li><b>Not exceptions</b>: towels (UOM), Home Plate +50 (0.8%, within tolerance), fireworks (vendor service)</li></ul></div>
+    </li>
+  </ol>
+  <div class="callout ump"><b class="t">Umpire review · interrogate Analyst</b>
+    <ul><li>Open the Python. Did it really drop the <i>second</i> DLV-2222, or did it de-duplicate on all columns (which would miss it, since the Request Ref and Notes differ)?</li>
+      <li>Did it treat <code>1043</code> (no prefix) as PR-1043? That match is <b>Normalized</b>, so confirm it with the destination and the quantity.</li>
+      <li>Did it count the 6/21 pallet? Ask: <i>"Show me every delivery dated after its game date."</i></li>
+      <li>Did it call fireworks or the July keychains an exception? Push back and ask it to apply R8 and scope rules.</li></ul></div>
+</section>
+
+<section id="part-b" data-toc="Part B · Excel">
+  <h2><span class="base"></span>Part B · Copilot in Excel: build the exception workbook</h2>
+  <p class="lead">Roughly 18 minutes. Analyst found the story; now build a workbook that <b>keeps working</b> when tomorrow's export arrives,
+    with live formulas instead of a static answer. Each step has a Copilot prompt and, if Copilot struggles, the formula to fall back on.</p>
+  <ol class="steps">
+    <li class="step"><h3>Open the starter workbook</h3>
+      <p>Copilot in Excel works inside one workbook, so the kit includes <b>Rally_Reconciliation_start.xlsx</b>: the allocations workbook with the warehouse
+        Deliveries table already added as <code>tblDeliveries</code>. Open it from OneDrive in Excel (AutoSave on) and open Copilot from the ribbon.</p>
+      <details class="reveal"><summary>Doing this with your own data? How to build the combined workbook yourself</summary><div class="inner">
+        <p><b>First</b> save a copy of the allocations workbook (File → Save a copy) so Analyst's original stays untouched. Open the copy, add a sheet named <code>Deliveries</code>, and paste the warehouse table into it.
+          If the pasted data isn't already a table, press <kbd>Ctrl</kbd>+<kbd>T</kbd>. Then rename it <code>tblDeliveries</code> in <b>Table Design</b>.</p></div></details>
+      <div class="callout scout"><b class="t">Scouting report</b><p>Named tables (<code>tblRequests</code>, <code>tblGateAllocations</code>, <code>tblItems</code>, <code>tblDeliveries</code>) give Copilot and your formulas
+        unambiguous references like <code>tblItems[Case Pack (units per case)]</code>, and they grow automatically when new rows arrive.</p></div>
+    </li>
+    <li class="step"><h3>Clean the keys with helper columns</h3>
+      <div class="tabs"><div class="tab-list"><button type="button" aria-selected="true">Copilot prompt</button><button type="button" aria-selected="false">Formula fallback</button></div>
+        <div class="tab-panel">
+          <div class="prompt"><div class="p-head"><span class="where">Copilot in Excel</span><button class="copy-btn" type="button">Copy</button></div><pre>In tblDeliveries, add these calculated columns:
+1. &quot;Clean Request ID&quot; - &quot;PR-&quot; followed by the last 4 characters of the trimmed Request Ref.
+2. &quot;SKU Key&quot; - the SKU in uppercase with hyphens removed.
+3. &quot;Case Pack&quot; - look up the case pack from tblItems by matching SKU Key to the tblItems SKU with hyphens removed.
+4. &quot;Qty EA&quot; - if UOM is CS, Qty multiplied by Case Pack, otherwise Qty.
+5. &quot;Duplicate?&quot; - &quot;Duplicate&quot; if this Delivery ID already appeared in an earlier row, otherwise blank.</pre></div></div>
+        <div class="tab-panel" hidden>
+          <div class="table-wrap"><table class="data"><thead><tr><th>Column</th><th>Formula</th></tr></thead><tbody>
+            <tr><td>Clean Request ID</td><td><code>="PR-"&amp;RIGHT(TRIM([@[Request Ref]]),4)</code></td></tr>
+            <tr><td>SKU Key</td><td><code>=UPPER(SUBSTITUTE(TRIM([@SKU]),"-",""))</code></td></tr>
+            <tr><td>Case Pack</td><td><code>=XLOOKUP([@[SKU Key]],SUBSTITUTE(tblItems[SKU],"-",""),tblItems[Case Pack (units per case)],1)</code></td></tr>
+            <tr><td>Qty EA</td><td><code>=IF([@UOM]="CS",[@Qty]*[@[Case Pack]],[@Qty])</code></td></tr>
+            <tr><td>Duplicate?</td><td><code>=IF(COUNTIF(INDEX([Delivery ID],1):[@[Delivery ID]],[@[Delivery ID]])&gt;1,"Duplicate","")</code></td></tr>
+          </tbody></table></div></div></div>
+      <div class="expect"><b class="t">Check it</b><p>Exactly <b>one</b> row is flagged Duplicate (the second DLV-2222, with Notes "Re-scanned at dock"). DLV-2212 shows Qty EA = <b>4,000</b>. Every Clean Request ID has the form <code>PR-####</code> (for example, <code>PR-1043</code>).</p></div>
+    </li>
+    <li class="step"><h3>Apply the game-day rules</h3>
+      <div class="tabs"><div class="tab-list"><button type="button" aria-selected="true">Copilot prompt</button><button type="button" aria-selected="false">Formula fallback</button></div>
+        <div class="tab-panel">
+          <div class="prompt"><div class="p-head"><span class="where">Copilot in Excel</span><button class="copy-btn" type="button">Copy</button></div><pre>In tblDeliveries, add:
+1. &quot;Game Date&quot; - look up Game Date from tblRequests using Clean Request ID.
+2. &quot;On Time?&quot; - &quot;LATE&quot; if Delivery Date is after Game Date, otherwise &quot;On time&quot;.
+3. &quot;Distributable EA&quot; - 0 if the row is a Duplicate or LATE, otherwise Qty EA minus Damaged Qty.
+Then highlight LATE and Duplicate rows in light red.</pre></div></div>
+        <div class="tab-panel" hidden>
+          <div class="table-wrap"><table class="data"><thead><tr><th>Column</th><th>Formula</th></tr></thead><tbody>
+            <tr><td>Game Date</td><td><code>=XLOOKUP([@[Clean Request ID]],tblRequests[Request ID],tblRequests[Game Date],"")</code></td></tr>
+            <tr><td>On Time?</td><td><code>=IF([@[Game Date]]="","n/a",IF([@[Delivery Date]]&lt;=[@[Game Date]],"On time","LATE"))</code></td></tr>
+            <tr><td>Distributable EA</td><td><code>=IF(OR([@[Duplicate?]]="Duplicate",[@[On Time?]]="LATE"),0,[@[Qty EA]]-[@[Damaged Qty]])</code></td></tr>
+          </tbody></table></div></div></div>
+    </li>
+    <li class="step"><h3>Build the exception report on the allocations table</h3>
+      <div class="tabs"><div class="tab-list"><button type="button" aria-selected="true">Copilot prompt</button><button type="button" aria-selected="false">Formula fallback</button></div>
+        <div class="tab-panel">
+          <div class="prompt"><div class="p-head"><span class="where">Copilot in Excel</span><button class="copy-btn" type="button">Copy</button></div><pre>In tblGateAllocations, add these columns:
+1. &quot;Distributable Delivered&quot; - sum of tblDeliveries[Distributable EA] where Clean Request ID matches Request ID and Destination matches Gate.
+2. &quot;Variance&quot; - Distributable Delivered minus Allocated Qty.
+3. &quot;Variance %&quot; - Variance divided by Allocated Qty, formatted as a percentage.
+4. &quot;Request Status&quot; - look up Status from tblRequests.
+5. &quot;Recon Status&quot; - if Request Status is Cancelled: &quot;DELIVERED VS CANCELLED&quot; when anything was delivered, else &quot;Cancelled - OK&quot;. Otherwise &quot;Match&quot; when the absolute Variance % is 1% or less, else &quot;EXCEPTION&quot;.
+Color Recon Status: green for Match, red for EXCEPTION, amber for DELIVERED VS CANCELLED.</pre></div></div>
+        <div class="tab-panel" hidden>
+          <div class="table-wrap"><table class="data"><thead><tr><th>Column</th><th>Formula</th></tr></thead><tbody>
+            <tr><td>Distributable Delivered</td><td><code>=SUMIFS(tblDeliveries[Distributable EA],tblDeliveries[Clean Request ID],[@[Request ID]],tblDeliveries[Destination],[@Gate])</code></td></tr>
+            <tr><td>Variance</td><td><code>=[@[Distributable Delivered]]-[@[Allocated Qty]]</code></td></tr>
+            <tr><td>Variance %</td><td><code>=IFERROR([@Variance]/[@[Allocated Qty]],0)</code></td></tr>
+            <tr><td>Request Status</td><td><code>=XLOOKUP([@[Request ID]],tblRequests[Request ID],tblRequests[Status])</code></td></tr>
+            <tr><td>Recon Status</td><td><code>=IF([@[Request Status]]="Cancelled",IF([@[Distributable Delivered]]&gt;0,"DELIVERED VS CANCELLED","Cancelled - OK"),IF(ABS([@[Variance %]])&lt;=0.01,"Match","EXCEPTION"))</code></td></tr>
+          </tbody></table></div></div></div>
+      <div class="expect"><b class="t">What you should see · 23 allocation rows</b>
+        <div class="stats" style="margin:8px 0 0"><div class="stat good"><small>Match</small><b>11</b></div><div class="stat bad"><small>Exception</small><b>7</b></div>
+          <div class="stat warn"><small>Delivered vs cancelled</small><b>4</b></div><div class="stat"><small>Cancelled - OK</small><b>1</b></div></div></div>
+    </li>
+    <li class="step"><h3>Summarize and visualize <span class="tag gray">optional if short on time</span></h3>
+      <div class="prompt"><div class="p-head"><span class="where">Copilot in Excel</span><button class="copy-btn" type="button">Copy</button></div><pre>Create a summary on a new sheet called &quot;Exception Summary&quot;:
+- A PivotTable by Item showing total Allocated Qty, total Distributable Delivered and total Variance, for Approved requests only.
+- A clustered bar chart comparing Allocated vs Distributable Delivered by Item.
+- Below it, a list of every row where Recon Status is not &quot;Match&quot;, sorted by Variance (most negative first).</pre></div>
+      <div class="callout scout"><b class="t">Scouting report · ask for insight, not just a chart</b><p>Follow up with: <i>"What are the three most important insights from this summary for a VP who has 60 seconds?"</i>
+        Then compare Copilot's answer with your Part A findings. Where do they disagree?</p></div>
+    </li>
+    <li class="step"><h3>Review every change Copilot made</h3>
+      <p>Before trusting the workbook, audit it like a scorer reviewing the book after the game:</p>
+      <ul><li>Click a cell in each new column and <b>read the formula</b> in the formula bar. Does it match the rule you intended?</li>
+        <li>Check that each formula filled the <b>whole table column</b>, not just the first few rows.</li>
+        <li>Use <b>Undo</b> or <b>Version History</b> (File → Info) if Copilot changed something you didn't ask for.</li>
+        <li>Spot-check three rows by hand: DLV-2212 (CS), DLV-2222 (duplicate), DLV-2234 (late).</li></ul>
+    </li>
+    <li class="step"><h3>Prove it with control totals</h3>
+      <p>A reconciliation isn't done until the totals <b>bridge</b>. Add a small checks area (you can ask Copilot to build it) and confirm each line:</p>
+      <div class="bridge" aria-label="Reconciliation bridge from raw quantity to distributable units">
+        <div class="b-row total"><span>Raw SUM of Qty (27 rows)</span><div class="track"><div class="bar" style="left:0;width:93.2%"></div></div><span class="v">62,240</span></div>
+        <div class="b-row up"><span>+ CS→EA conversion (DLV-2212)</span><div class="track"><div class="bar" style="left:93.2%;width:5.9%"></div></div><span class="v">+3,960</span></div>
+        <div class="b-row down"><span>− Duplicate (DLV-2222)</span><div class="track"><div class="bar" style="left:97.3%;width:1.8%"></div></div><span class="v">−1,200</span></div>
+        <div class="b-row down"><span>− Damaged (DLV-2223, 2224)</span><div class="track"><div class="bar" style="left:96.4%;width:.9%"></div></div><span class="v">−600</span></div>
+        <div class="b-row down"><span>− Late (DLV-2234)</span><div class="track"><div class="bar" style="left:94.9%;width:1.5%"></div></div><span class="v">−1,000</span></div>
+        <div class="b-row end"><span>= SUM of Distributable EA</span><div class="track"><div class="bar" style="left:0;width:94.9%"></div></div><span class="v">63,400</span></div>
+      </div>
+      <div class="callout ump"><b class="t">Umpire review · the 12,000-unit gap</b>
+        <p>Now compare <code>SUM(tblDeliveries[Distributable EA])</code> = <b>63,400</b> with <code>SUM(tblGateAllocations[Distributable Delivered])</code>. The second total is
+          <b>51,400</b>. Where did 12,000 units go? <i>Find it before you open the answer key.</i></p>
+        <label><input type="checkbox" class="track" data-key="catch:s1-l4-gap"> I found the 12,000-unit gap</label></div>
+    </li>
+  </ol>
+</section>
+
+<section id="part-c" data-toc="Part C · Bonus scouting">
+  <h2><span class="base"></span>Part C · Take-home: do bobbleheads actually move the turnstiles?</h2>
+  <p class="lead">Take-home, or a demo if time allows. Leadership will ask whether these promotions are worth it. Use Analyst on
+    <b>Promo_Attendance_History_2025_2026.xlsx</b> (163 rows of fictional home games) to find trends and outliers, and to avoid the most common analytics mistake in sports.</p>
+  <ol class="steps">
+    <li class="step"><h3>Clean before you conclude</h3>
+      <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>Analyze the Game Log sheet in Promo_Attendance_History_2025_2026.xlsx.
+Before any analysis, run data quality checks and report: duplicate Game IDs, impossible values (ballpark capacity is 42,000), and missing values.
+Propose a fix for each issue and tell me how much each one would distort the 2026 season total if left uncorrected.
+Do not drop or change anything until I confirm.</pre></div>
+      <div class="expect"><b class="t">Planted issues you should catch</b>
+        <ul><li><b>G2026-019</b> (Sun 5/3/2026): Tickets Sold <b>300,008</b>, an extra zero on <b>30,008</b>. It inflates the 2026 total by <b>270,000 (+10.8%)</b>.</li>
+          <li><b>G2025-024</b> (Sat 5/17/2025): the bobblehead game appears <b>twice</b>.</li>
+          <li><b>G2026-047</b> (Wed 7/1/2026): Scanned Attendance is <b>blank</b> (scanner outage), so no-show and per-cap values are missing.</li></ul>
+        <label><input type="checkbox" class="track" data-key="catch:s1-l4-typo"> Caught the typo</label> &nbsp;
+        <label><input type="checkbox" class="track" data-key="catch:s1-l4-dup"> Caught the duplicate</label> &nbsp;
+        <label><input type="checkbox" class="track" data-key="catch:s1-l4-miss"> Caught the blank</label></div>
+    </li>
+    <li class="step"><h3>Compare fairly: the same-day test</h3>
+      <div class="prompt"><div class="p-head"><span class="where">Analyst</span><button class="copy-btn" type="button">Copy</button></div><pre>Using the cleaned data, estimate the attendance lift for each promotion type.
+Important: promotions are not randomly scheduled (bobbleheads are on Saturdays, fireworks on Fridays), so compare each promotion only against games on the SAME day of week that did not have that promotion type.
+Show: a naive comparison (promo average vs all non-promo games) next to the fair same-day comparison, plus game counts.
+Then show merchandise per cap and no-show rate by promotion type and by weather.
+Chart the fair comparison. Call out where sample sizes are too small to trust.</pre></div>
+      <div class="chart-card"><h4>Promo nights vs. other games on the same day of week</h4>
+        <div class="csub">Average tickets sold, 2025-2026 fictional data, after cleaning · baseline = other games on the same day of week · hover for game counts</div>
+        <div class="legend"><span><i style="background:#C6011F"></i>Promo night</span><span><i style="background:#3D6FB0"></i>Same day of week, other games</span></div>
+        <div class="chart" id="chart-lift"></div></div>
+      <div class="table-wrap"><table class="data"><thead><tr><th>Insight</th><th>Naive read</th><th>Fair read</th><th>So what</th></tr></thead><tbody>
+        <tr><td><b>Bobblehead lift</b> <span class="muted">(9 games)</span></td><td>39,481 vs 24,698 for all non-promo games: <b>+60%</b></td><td>vs the 13 other Saturdays (36,159): <b>+3,322 / +9%</b></td><td>Still real, but most of the "lift" was just Saturday. Two bobblehead games hit 41,000+ near the 42,000 cap, so demand may be capped.</td></tr>
+        <tr><td><b>Fireworks Friday</b> <span class="muted">(17 games)</span></td><td>37,288 vs 24,698: <b>+51%</b></td><td>vs the 11 other Fridays (32,498): <b>+4,789 / +15%</b></td><td>The biggest fair lift in the data, and it backs up the $65K fireworks line.</td></tr>
+        <tr><td><b>Sunday novelty giveaways</b> <span class="muted">(11 games)</span></td><td>31,678 vs 24,698: <b>+28%</b></td><td>vs the 6 other Sundays (31,569): <b>+109 / +0.3%</b></td><td><b>No detectable lift.</b> Mini Bat Sunday is about sponsor value and the family experience, not attendance. Weather matters more on Sundays.</td></tr>
+        <tr><td><b>Merch per cap</b></td><td colspan="2">Bobblehead nights <b>$6.19</b> vs no-promo <b>$4.32</b> (+43%)</td><td>Collectible nights pull fans into the team store too.</td></tr>
+        <tr><td><b>Weather and no-shows</b></td><td colspan="2">No-show rate: clear <b>10.7%</b> · light rain <b>14.6%</b> · rain delay <b>17.0%</b></td><td>Keep this in mind: Session 2 brings a Sunday storm forecast.</td></tr>
+      </tbody></table></div>
+      <div class="callout scout"><b class="t">Scouting report · confounding</b><p>Whenever an AI says "X causes a Y% lift", ask: <i>"What else is different about the games with X?"</i> Day of week, opponent, month and weather all move attendance.
+        Analyst is very good at this when you ask; it rarely does it unprompted.</p></div>
+    </li>
+  </ol>
+</section>
+
+<section id="challenge" data-toc="Bottom of the 9th">
+  <h2><span class="base"></span>Bottom of the 9th</h2>
+  <div class="challenge">
+    <span class="kick">Audience challenge · 5 minutes · teams of 3</span>
+    <h3>Which discrepancy is most likely to be overlooked?</h3>
+    <p>Pick one discrepancy from Parts A and B, then make the case in 60 seconds:</p>
+    <ol><li>Why would a smart, busy person miss it?</li><li>What is the business impact in units, dollars and relationships?</li><li>What evidence (row, email, transcript line) proves it?</li><li>What's the fix, who owns it, and by when?</li></ol>
+    <div class="count"><span>⏱ 3 min prep</span><span>🎤 60 sec pitch</span><span>🏆 room votes</span></div>
+  </div>
+</section>
+
+<section id="verify" data-toc="Umpire review">
+  <h2><span class="base"></span>Umpire review</h2>
+  <div class="table-wrap"><table class="data"><thead><tr><th>Check</th><th>Pass when…</th></tr></thead><tbody>
+    <tr><td><b>Row counts</b></td><td>27 delivery rows, 26 unique Delivery IDs, 23 allocation rows</td></tr>
+    <tr><td><b>Bridge</b></td><td>62,240 + 3,960 − 1,200 − 600 − 1,000 = 63,400</td></tr>
+    <tr><td><b>Tie-out</b></td><td>You can explain every unit of difference between the deliveries total and the allocations total</td></tr>
+    <tr><td><b>Uncertain matches</b></td><td>Every <i>Normalized</i> match (e.g., <code>1043</code>, <code>pr-1041</code>, <code>TWL-RR-27</code>) was confirmed by destination and quantity</td></tr>
+    <tr><td><b>False positives</b></td><td>Fireworks (vendor service) and July keychains (out of scope) are not reported as weekend exceptions</td></tr>
+    <tr><td><b>Formulas</b></td><td>Every Copilot-generated column was read in the formula bar and fills the whole table</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="boxscore" data-toc="Box score">
+  <h2><span class="base"></span>Box score: what you leave with</h2>
+  <div class="boxscore"><div class="bs-head"><span>Inning 4 outputs</span><span>3 deliverables</span></div>
+    <table><tbody>
+      <tr><th>Reconciliation findings</th><td>Analyst table at Request + Gate level with match confidence and reasons</td></tr>
+      <tr><th>Verified exception workbook</th><td><code>Rally_Reconciliation.xlsx</code> with live formulas, Recon Status, summary, chart and control totals</td></tr>
+      <tr><th>Operational risk summary</th><td>Ranked exceptions with units, dollars, owners and fixability, ready for Inning 5</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="extra-innings" data-toc="Extra innings"><h2><span class="base"></span>Extra innings: Make the check self-auditing</h2>
+<div class="extra-card"><span class="extra-tag">Stretch at-bat · optional</span><p>A reconciliation you run once is an analysis. One that warns you next week is a control.</p>
+<div class="prompt"><div class="p-head"><span class="where">Copilot in Excel</span><button class="copy-btn" type="button">Copy</button></div><pre>Add a sheet called &quot;Checks&quot; with control totals:
+1) raw SUM of tblDeliveries[Qty]
+2) units added by CS conversion
+3) units removed as duplicates
+4) damaged units
+5) late units
+6) SUM of tblDeliveries[Distributable EA]
+Add a final cell that shows OK in green if 1+2-3-4-5 equals 6, otherwise MISMATCH in red.
+Also count rows where Recon Status is not Match.</pre></div></div></section>
+<section id="postgame" data-toc="Postgame takeaways"><div class="postgame">
+<div class="pg-head"><span>🎙 Postgame press conference</span><span>Big Idea #4 of 11</span></div>
+<div class="big-idea"><span class="bi-kick">The big idea</span><h3>Rules before results</h3><p>Agree how records match, convert and de-duplicate before you see the answer. Then reconcile at the lowest grain, because totals hide offsetting errors.</p></div>
+<div class="concepts"><div class="concept"><span class="c-num">1</span><h4>Rules before results</h4><p>If you don't state the keys, conversions, duplicate rule and tolerance, the AI picks them, and nobody can reproduce the answer. Rules make the result <b>repeatable and auditable</b>.</p></div><div class="concept"><span class="c-num">2</span><h4>Totals hide offsetting errors</h4><p>A +1,200 duplicate covered a −600 damage shortfall, so the bobblehead total looked like a surplus. Reconcile at request + gate level, then bridge back to the totals.</p></div><div class="concept"><span class="c-num">3</span><h4>Bridge the totals</h4><p>A reconciliation isn't done until the control totals tie: 62,240 raw → +3,960 → −1,200 → −600 → −1,000 = 63,400. If they don't bridge, something didn't match, like the 12,000 keychains hiding behind a naming mismatch.</p></div></div>
+<div class="transfer"><h4>📎 Take it to your desk</h4><p>The same move, ready for your real work. Copy it now and use it this week.</p>
+<div class="prompt"><div class="p-head"><span class="where">Copilot Chat · your work</span><button class="copy-btn" type="button">Copy</button></div><pre>I need to reconcile <span class="ph">[dataset A]</span> against <span class="ph">[dataset B]</span>.
+Before any analysis, help me write the rulebook: matching key, normalization steps, unit conversions, duplicate rule, timing rule, tolerance, and what is out of scope.
+Then list the 5 discrepancy types most likely to be hiding in data like this, and a control total that would expose each one.</pre></div></div></div></section>
+<section id="dugout" data-toc="Dugout notes">
+  <h2><span class="base"></span>Dugout notes</h2>
+  <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
+    <h3>Timing (45 min)</h3>
+    <p>5 min frame (Analyst vs Excel, rules first) · 15 min Part A · 18 min Part B · 7 min challenge and debrief. Part C is optional; demo the "naive vs fair" table if time allows, or assign it.</p>
+    <h3>The nine planted problems</h3>
+    <div class="table-wrap"><table class="data"><thead><tr><th>#</th><th>Problem</th><th>Evidence</th><th>Impact</th><th>Rating</th></tr></thead><tbody>
+      <tr><td>1</td><td><b>Duplicate record</b></td><td>DLV-2222 appears twice (2nd copy: Request Ref "PR1043 ", Notes "Re-scanned at dock")</td><td>+1,200 phantom bobbleheads at Home Plate; masks the shortage</td><td><span class="tag yellow">Data</span></td></tr>
+      <tr><td>2</td><td><b>Damaged bobbleheads</b></td><td>DLV-2223 (360) and DLV-2224 (240); E12 says "15 cases" and "10 cases" (25 × 24 = 600)</td><td>14,400 distributable vs 15,000 guaranteed → <b>$4,800</b> make-good or a replacement night; warehouse stock is 0</td><td><span class="tag red">Red</span></td></tr>
+      <tr><td>3</td><td><b>Missing fulfillment</b></td><td>PR-1057 "Approved" (approved by J. Pierce), no deliveries, no PO, 0 on hand</td><td>5,000 STM hats cannot be delivered; fan email (E15) and $25K booked revenue (E16) at risk</td><td><span class="tag red">Red</span></td></tr>
+      <tr><td>4</td><td><b>Late pallet</b></td><td>DLV-2234 dated 6/21 (Status: Scheduled); Inventory shows 1,000 reserved</td><td>1,000 kids at Right Field get nothing unless it's rescheduled. <b>Fixable today.</b></td><td><span class="tag yellow">Yellow</span></td></tr>
+      <tr><td>5</td><td><b>Short ship</b></td><td>DLV-2235 950 at Club; PO-77812 ETA 6/24</td><td>−50 (−5%), $100 make-good exposure</td><td><span class="tag yellow">Yellow</span></td></tr>
+      <tr><td>6</td><td><b>Delivered vs cancelled</b></td><td>PR-1039 Cancelled (E02) but DLV-2201-2204 delivered 8,000 on 6/14 (E13/E14)</td><td>Dock bays occupied; $3,360 of stock in the wrong place for 7/13</td><td><span class="tag yellow">Yellow</span></td></tr>
+      <tr><td>7</td><td><b>UOM trap</b></td><td>DLV-2212 = 40 CS × 100 = 4,000</td><td>False alarm if unconverted (Riverside looks 3,960 short)</td><td><span class="tag green">OK</span></td></tr>
+      <tr><td>8</td><td><b>Inconsistent IDs</b></td><td>PR1039, pr-1041, pr-1043, "PR-1043 ", 1043, PR1043, TWL-RR-27, BBH-RETRO-27, BBHRETRO27</td><td>Exact matching misses 3 bobblehead gates; normalized matches are reliable once confirmed</td><td><span class="tag green">OK</span></td></tr>
+      <tr><td>9</td><td><b>False positives</b></td><td>PR-1052 fireworks (vendor service); PR-1060 "Central Warehouse" vs "Central Warehouse (pre-stage)"</td><td>Not weekend exceptions. The naming mismatch is the 12,000-unit gap in the tie-out.</td><td><span class="tag gray">Scope</span></td></tr>
+    </tbody></table></div>
+    <h3>Best answer to the challenge</h3>
+    <p><b>The bobblehead shortfall.</b> It's the most likely to be missed because every surface signal says "covered": the naive total is <i>over</i> plan (16,200), Priya said so in the huddle, and the recap repeated it.
+      The damage lives in a separate column and in an email nobody did the math on (E12). Impact: the largest sponsor ($110K) gets 600 fewer bobbleheads than contracted. That means a $4,800 credit
+      or a replacement promotion night, and real relationship risk, with zero warehouse stock to fix it. Strong runner-up: the 6/21 mini bat pallet. It's the easiest fix in the building (the stock is in the warehouse), but only if someone spots the date.</p>
+    <h3>Common Copilot misses to watch for</h3>
+    <ul><li>De-duplicating on all columns (misses DLV-2222 because Request Ref and Notes differ)</li>
+      <li>Reporting towels as 3,910 short (UOM not converted)</li>
+      <li>Calling fireworks "missing fulfillment"</li>
+      <li>Counting the 6/21 pallet as delivered because its Qty is in the table</li>
+      <li>Treating PR-1057's "Approved" status as fact. Ask who approved it.</li></ul>
+  </div></details>
+</section>
+
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  var BLUE = "#3D6FB0", AMBER = "#C88A12", RED = "#C6011F";
+  function drawNaive() {
+    var el = document.getElementById("chart-naive"); if (!el) return;
+    RallyChart.hbars(el, {
+      categories: ["Rally Towel", "Retro Bobblehead", "Kids Mini Bat", "Sunday Bucket Hat"],
+      series: [
+        { name: "Allocated (plan)", color: BLUE, values: [20000, 15000, 10000, 5000] },
+        { name: "Naive system total", color: AMBER, values: [16090, 16200, 9950, 0], notes: ["40 cases counted as 40 units", "Includes duplicate DLV-2222", "Includes pallet dated 6/21", "No deliveries"] },
+        { name: "Distributable on game day", color: RED, values: [20050, 14400, 8950, 0], notes: ["Within tolerance", "600 damaged: 600 short of guarantee", "1,050 short on game day", "Cannot be fulfilled"] }
+      ],
+      left: 150, aria: "Allocated vs naive vs distributable units by item"
+    });
+  }
+  function drawLift() {
+    var el = document.getElementById("chart-lift"); if (!el) return;
+    RallyChart.hbars(el, {
+      categories: ["Bobblehead (Sat)", "Fireworks (Fri)", "Novelty giveaway (Sun)"],
+      series: [
+        { name: "Promo night avg", color: RED, values: [39481, 37288, 31678], notes: ["9 games", "17 games", "22 games"] },
+        { name: "Same day, other games", color: BLUE, values: [36159, 32498, 31569], notes: ["13 other Saturdays", "11 other Fridays", "6 other Sundays (small sample)"] }
+      ],
+      left: 170, max: 40000, aria: "Promotion nights vs same-day baseline"
+    });
+  }
+  drawLift();
+  var rv = document.getElementById("reveal-naive");
+  if (rv) rv.addEventListener("toggle", function () { if (rv.open) drawNaive(); });
+  var t; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(function () { drawLift(); if (rv && rv.open) drawNaive(); }, 150); });
+});
+</script>
+
+<div class="complete-bar"><div><b class="cb-title">Inning 4 in the books?</b><p>Log it on the scoreboard. Your progress is saved in this browser.</p></div><button class="btn" type="button" data-complete>Mark inning complete</button></div>
+<div class="pager"><a class="prev" href="lab-3.html"><small>← Previous inning</small><b>Researcher: Is the Promotion Really Ready?</b></a><a class="next" href="lab-5.html"><small>Next inning →</small><b>The Evidence Room: Make the Call</b></a></div></div></div></div></main><footer class="footer"><div class="wrap">
+<div><b>Rally Lab</b><br>Enhancing Productivity with Microsoft 365 Copilot - Level 2<br>Investigate, Innovate, and Make Smarter Decisions</div>
+<div style="max-width:520px">All people, sponsors, numbers, emails and documents in these labs are <b style="font-size:inherit;letter-spacing:0;text-transform:none">fictional</b> training material
+created for this workshop. Copilot features and menu names vary by license, tenant settings and release - your screen may differ slightly.</div>
+</div></footer><script src="../assets/js/site.js"></script></body></html>

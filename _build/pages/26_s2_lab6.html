@@ -1,0 +1,156 @@
+<!--meta {"kind": "lab", "session": 2, "n": 6} -->
+<style>
+  .quiz { display:grid; gap:12px; }
+  .quiz .q { background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .quiz .q p { margin:0 0 8px; font-weight:600; }
+  .quiz .opts { display:flex; flex-wrap:wrap; gap:6px; }
+  .quiz button { border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:6px 12px; font-family:var(--head); font-size:.78rem; letter-spacing:.06em; cursor:pointer; text-transform:uppercase; }
+  .quiz button:hover { border-color:var(--accent); }
+  .quiz button.right { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .quiz button.wrong { background:#FBE3E6; border-color:var(--bad); color:var(--bad); }
+  .quiz .why { font-size:.88rem; color:var(--muted); margin-top:8px; min-height:1.2em; }
+  .final-score { font-family:var(--display); font-size:2rem; }
+</style>
+<section id="mission" data-toc="Mission">
+  <h2><span class="base"></span>The mission</h2>
+  <div class="mission">
+    <h3>The game ends. The season doesn't.</h3>
+    <p>Rally Weekend will come and go, but Friday's make-good report, next month's promotions and the July 13 magnet night won't wait.
+      Status chasing is where good teams lose hours every week.</p>
+    <p class="mb0">Set up a <b>scheduled prompt</b> that delivers a weekly status and outstanding-commitments digest automatically. Then pick the one workflow <em>you</em> will improve on Monday.</p>
+  </div>
+</section>
+
+<section id="game-plan" data-toc="Game plan">
+  <h2><span class="base"></span>Game plan</h2>
+  <ul class="objectives">
+    <li>Write a recurring status and outstanding-commitments prompt.</li>
+    <li>Schedule it (or preview how, subject to your organization's settings).</li>
+    <li>Tell scheduled <em>analysis</em> apart from automated <em>business actions</em>.</li>
+    <li>Choose the right Copilot tool for a workflow of your own.</li>
+  </ul>
+</section>
+
+<section id="play" data-toc="Play-by-play">
+  <h2><span class="base"></span>Play-by-play</h2>
+  <ol class="steps">
+    <li class="step"><h3>Write the digest prompt and run it once</h3>
+      <p>Run it manually first. Never schedule a prompt you haven't seen work.</p>
+      <prompt where="Copilot Chat">Create my weekly Promotions status digest for the past 7 days.
+Look across my email, Teams chats and meetings, and files I've worked on that mention promotions, giveaways, sponsors or [[project name, e.g. Rally Weekend]].
+Sections:
+1. Outstanding commitments: who promised what to whom, the due date, and status (Open / Overdue / Done), with a link to the source.
+2. Approvals still pending: item, which approval is missing, owner.
+3. Important changes since last week: numbers, dates or scope that changed, shown as old -> new, with the source.
+4. Sponsor follow-ups due in the next 7 days.
+5. Top 3 things I should do Monday morning.
+Only include items with a source. If a section has nothing, write "Nothing found" rather than guessing.</prompt>
+      <div class="callout scout"><b class="t">Classroom note</b><p>Your mailbox doesn't contain the fictional Rally Weekend emails, so run this against your <b>real</b> work (swap in a real project name), or point it at the lab files: "...using the files in my Rally Weekend Task Force folder".</p></div>
+    </li>
+    <li class="step"><h3>Schedule it</h3>
+      <ul><li>After the prompt runs, look for the option to <b>schedule</b> it, usually in the menu on your prompt or response.</li>
+        <li>Choose a cadence (for example <b>Mondays, 7:30 AM</b>) and an end date if offered.</li>
+        <li>Results arrive in Copilot Chat, often with a notification, on each run.</li></ul>
+      <div class="callout warn"><b class="t">Rain delay · availability</b>
+        <p>Scheduled prompts depend on license, release and admin settings, and may limit how many you can create or how often they run. <b>Not available?</b> Save the prompt to your prompt gallery or a pinned note, and put a 5-minute weekly calendar reminder on it. Same habit, one extra click.</p></div>
+    </li>
+    <li class="step"><h3>Know what a scheduled prompt does, and doesn't do</h3>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>Scheduled prompt <span class="tag green">does</span></th><th>Scheduled prompt <span class="tag red">does not</span></th></tr></thead>
+        <tbody>
+          <tr><td>Read and summarize what you already have access to</td><td>Update the ticketing, inventory or contract system</td></tr>
+          <tr><td>Flag overdue commitments and pending approvals</td><td>Send emails to sponsors or fans on your behalf</td></tr>
+          <tr><td>Compare this week to last week</td><td>Approve, reject or reorder anything</td></tr>
+          <tr><td>Deliver results to <b>you</b> to review</td><td>Guarantee it found everything (check the sources)</td></tr>
+        </tbody></table></div>
+      <p>Need the system to <em>act</em>, like creating a task or notifying a channel? That's an <b>automated workflow</b> (for example in Power Automate or Copilot Studio), with an owner, testing and governance.</p>
+    </li>
+    <li class="step"><h3>Two more recurring prompts worth stealing</h3>
+      <prompt where="Copilot Chat · schedule daily, event week">Every weekday at 8:00 AM during event week: summarize anything new about [[event name]] since yesterday (emails, chats, meetings, file changes). Flag anything that changes a quantity, date, approval or sponsor commitment. Keep it under 150 words.</prompt>
+      <prompt where="Copilot Chat · schedule Friday 3 PM">Every Friday at 3:00 PM: list the meetings I attended this week where I was assigned an action item, with the action, due date and whether I've replied or completed it.</prompt>
+    </li>
+  </ol>
+</section>
+
+<section id="quiz" data-toc="Tool picker">
+  <h2><span class="base"></span>Tool picker: who plays where?</h2>
+  <p class="lead">Six real-world workflows. Pick the best Copilot tool for each. <span class="final-score" id="quizScore" aria-live="polite"></span></p>
+  <div class="quiz" id="quiz"></div>
+</section>
+
+<section id="challenge" data-toc="Final challenge">
+  <h2><span class="base"></span>Bottom of the 9th: final challenge</h2>
+  <div class="challenge">
+    <span class="kick">Final challenge · 4 minutes</span>
+    <h3>Your Monday Lineup Card</h3>
+    <p>Share <b>one workflow</b> from your actual job that you'll improve with Copilot, and name the tool that fits it. Use the card format below in the chat or out loud.</p>
+    <div class="count"><span>Post your card in chat</span><span>3 volunteers read theirs</span><span>Tool + first prompt</span></div>
+  </div>
+  <prompt where="Your lineup card">Workflow: [[e.g. weekly sponsor deliverables tracking]]
+Today it takes: [[time / pain]]
+Best tool: [[Chat / Researcher / Analyst / Excel / Notebook / Agent / Pages / Scheduled prompt]]
+Why that tool: [[one sentence]]
+My first prompt: [[the exact prompt I'll run Monday]]
+How I'll verify it: [[source check / math check / human owner]]</prompt>
+</section>
+
+<section id="box" data-toc="Box score">
+  <h2><span class="base"></span>Box score</h2>
+  <div class="boxscore"><div class="bs-head"><span>Inning 6 · Final</span><span>10 min</span></div>
+    <table><tr><th>Output</th><th>Done when…</th></tr>
+      <tr><td><b>Recurring prompt</b></td><td>Run once, then scheduled (or saved with a weekly reminder)</td></tr>
+      <tr><td><b>Implementation idea</b></td><td>A lineup card with a workflow, a tool, a first prompt and a verification step</td></tr>
+      <tr><td>Your Copilot toolkit</td><td>Notebook · Agent · Simulator · Brief + deck · Scheduled prompt</td></tr></table></div>
+  <div class="callout good" style="margin-top:20px"><b class="t">That's the ballgame</b>
+    <p>Take the <a href="{{root}}resources.html">Dugout Guide</a> home: tool chooser, prompt library and the 4-Base Verification Check. Every file from both sessions is in the <a href="{{root}}case-file.html">Case File</a>.</p></div>
+</section>
+
+<section id="finale" data-toc="Final box score">
+  <h2><span class="base"></span>Final box score</h2>
+  <div class="finale"><p class="pull">That's a W.</p>
+    {{scoreboard}}
+    <p style="margin-top:18px">Eleven innings, eleven big ideas. <b>Which Big Idea card will you pin to your monitor?</b></p>
+    <a class="btn gold" href="{{root}}resources.html#playbook">Pick it from the Playbook →</a></div>
+</section>
+
+<section id="dugout" data-toc="Dugout notes">
+  <h2><span class="base"></span>Dugout notes</h2>
+  <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
+    <p><b>Timing (10 min):</b> 3 min digest prompt and schedule demo · 1 min does / doesn't · 2 min tool picker · 4 min lineup cards.</p>
+    <p><b>Demo tip:</b> schedule the prompt live <em>before</em> the session in a demo account, so you can show a completed run, not just the setup screen.</p>
+    <p><b>Tool picker answers:</b> 1 Analyst · 2 Researcher · 3 Agent · 4 Notebook · 5 Pages · 6 Scheduled prompt. Accept a well-argued alternative (e.g., Copilot in Excel for #1 if it's one workbook).</p>
+    <p><b>Close strong:</b> ask three volunteers to read their lineup cards. Point out the verification line every time. That habit is the real takeaway.</p>
+  </div></details>
+</section>
+
+<script>
+(function () {
+  var tools = ["Chat", "Researcher", "Analyst", "Notebook", "Agent", "Pages", "Scheduled prompt"];
+  var Q = [
+    ["Compare three vendor invoice spreadsheets against PO records and list mismatches.", "Analyst", "Multi-file data reconciliation with code-backed analysis is Analyst's home field."],
+    ["Write a cited brief on how other clubs price family 4-packs, combining web sources and our internal plans.", "Researcher", "Multi-step investigation across web and work sources, with citations, is Researcher's job."],
+    ["Every promotion manager should be able to check readiness the same way, all season.", "Agent", "One repeatable task, many users, fixed rules: package it as an agent."],
+    ["Keep all the files and Q&A for the July 4 fireworks night in one place for 6 weeks.", "Notebook", "One project, many questions over time, curated sources: a notebook."],
+    ["Give sales reps an interactive calculator for group-ticket discounts to use in meetings.", "Pages", "An interactive, shareable prototype is what Pages is for."],
+    ["Get a Monday summary of sponsor deliverables due that week.", "Scheduled prompt", "Same question, same cadence: schedule it."]
+  ];
+  var root = document.getElementById("quiz"), score = 0, answered = 0;
+  Q.forEach(function (q, i) {
+    var d = document.createElement("div"); d.className = "q";
+    d.innerHTML = "<p>" + (i + 1) + ". " + q[0] + "</p><div class='opts'></div><div class='why' aria-live='polite'></div>";
+    var opts = d.querySelector(".opts"), why = d.querySelector(".why"), done = false;
+    tools.forEach(function (t) {
+      var b = document.createElement("button"); b.type = "button"; b.textContent = t;
+      b.addEventListener("click", function () {
+        if (done) return; done = true; answered++;
+        if (t === q[1]) { b.classList.add("right"); score++; why.textContent = "✓ " + q[2]; }
+        else { b.classList.add("wrong"); why.textContent = "✗ Best fit: " + q[1] + ". " + q[2];
+          [].forEach.call(opts.children, function (x) { if (x.textContent === q[1]) x.classList.add("right"); }); }
+        if (answered === Q.length) document.getElementById("quizScore").textContent = " · You scored " + score + " / " + Q.length;
+      });
+      opts.appendChild(b);
+    });
+    root.appendChild(d);
+  });
+})();
+</script>

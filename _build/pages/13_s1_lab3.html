@@ -1,0 +1,195 @@
+<!--meta {"kind": "lab", "session": 1, "n": 3} -->
+<style>
+  .lines { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 14px 0; }
+  .line-card { background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 12px; padding: 14px 16px; font-size: .9rem; }
+  .line-card b { display: block; font-family: var(--head); text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; color: var(--accent); margin-bottom: 4px; }
+  .brief { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; box-shadow: var(--shadow); font-size: .93rem; }
+  .brief h4 { font-family: var(--head); text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; color: var(--accent); margin: 14px 0 6px; }
+  .brief h4:first-child { margin-top: 0; }
+  .brief ul { margin: 0; padding-left: 1.2em; }
+</style>
+
+<section id="mission" data-toc="Mission">
+  <h2><span class="base"></span>The mission</h2>
+  <div class="mission">
+    <h3>Is the promotion really ready?</h3>
+    <p>Inning 2 untangled one decision. Leadership's question is bigger: <b>is the whole Riverfront Rally Weekend ready to proceed?</b> That means
+      cross-checking the event plan against sponsor contracts, the Ops playbook and two weeks of communications, all at once.</p>
+    <p class="mb0">That's a job for <b>Researcher</b>, Copilot's cleanup hitter. It plans a multi-step investigation, reads across sources and returns a structured report
+      with citations. Your job is to aim it well, then find where its conclusions are thinner than they look.</p>
+  </div>
+</section>
+
+<section id="game-plan" data-toc="Game plan">
+  <h2><span class="base"></span>Game plan</h2>
+  <ul class="objectives">
+    <li>Decide <b>when Researcher beats Copilot Chat</b>, and when it doesn't.</li>
+    <li>Break a complex business question into <b>lines of investigation</b>.</li>
+    <li>Combine <b>work sources and web research</b> deliberately, and keep them labeled.</li>
+    <li>Generate a <b>structured, cited readiness brief</b> comparing alternatives and risks.</li>
+    <li>Evaluate <b>source quality</b> and spot <b>unsupported conclusions</b>.</li>
+  </ul>
+</section>
+
+<section id="before" data-toc="Before you start">
+  <h2><span class="base"></span>Before you start</h2>
+  <div class="files">
+    <file href="{{root}}data/session-1/03_Event_Plan_v3_Riverfront_Rally_Weekend.docx" ext="docx" title="Event Plan v3" desc="The official plan"/>
+    <file href="{{root}}data/session-1/04_Sponsor_Requirements_Summary.docx" ext="docx" title="Sponsor requirements" desc="Guarantees & make-goods"/>
+    <file href="{{root}}data/session-1/05_Operations_Playbook_Giveaway_Rules.docx" ext="docx" title="Ops playbook" desc="Approval & reconciliation rules"/>
+    <file href="{{root}}data/session-1/01_Email_Thread_Export.docx" ext="docx" title="Email thread export" desc="E01-E16"/>
+    <file href="{{root}}data/session-1/02_Teams_Ops_Huddle_Transcript.docx" ext="docx" title="Teams huddle transcript" desc="Jun 15"/>
+  </div>
+  <div class="table-wrap" style="margin-top:18px"><table class="data">
+    <thead><tr><th></th><th>Copilot Chat</th><th>Researcher</th></tr></thead>
+    <tbody>
+      <tr><td><b>Question shape</b></td><td>Focused: one thread, one doc, one ask</td><td>Open-ended and multi-part: "Is X ready? What are the risks?"</td></tr>
+      <tr><td><b>How it works</b></td><td>Answers in one pass</td><td>Plans, searches several sources iteratively, then writes a report</td></tr>
+      <tr><td><b>Time</b></td><td>Seconds</td><td>Several minutes (go get a hot dog)</td></tr>
+      <tr><td><b>Output</b></td><td>Chat answer</td><td>Long structured report with citations</td></tr>
+      <tr><td><b>Use it for</b></td><td>Drafting, summarizing, quick lookups</td><td>Briefs, comparisons, due diligence, readiness assessments</td></tr>
+    </tbody></table></div>
+  <div class="callout warn"><b class="t">Rain delay · Access &amp; limits</b>
+    <p>Open Researcher from the <b>Microsoft 365 Copilot app</b> → <b>Agents</b> (or "All agents") → <b>Researcher</b>. It needs a Microsoft 365 Copilot license, and some tenants limit how many Researcher runs you get each month, so <b>write your prompt carefully before you run it.</b> Researcher may ask clarifying questions before it starts. Answer them; that's a feature. It's strongest on documents, mail and chats. For deep spreadsheet math, Analyst (Inning 4) is the better player.</p></div>
+</section>
+
+<section id="play" data-toc="Play-by-play">
+  <h2><span class="base"></span>The play-by-play</h2>
+  <ol class="steps">
+    <li class="step">
+      <h3>Break the question into lines of investigation</h3>
+      <p>"Is it ready?" is too big to verify in one piece. Split it into lines Researcher can investigate separately and you can check separately:</p>
+      <div class="lines">
+        <div class="line-card"><b>1 · Contracts</b>Does every promotion have a signed contract whose scope matches the plan?</div>
+        <div class="line-card"><b>2 · Approvals</b>Has every item passed the three-part rule before the June 4 lock?</div>
+        <div class="line-card"><b>3 · Inventory</b>Do delivered, usable quantities meet sponsor guarantees?</div>
+        <div class="line-card"><b>4 · Operations</b>Staffing, delivery cutoffs, dock space, distribution standards.</div>
+        <div class="line-card"><b>5 · Fan comms</b>Does the fan email promise only what's approved?</div>
+        <div class="line-card"><b>6 · Finance</b>Is revenue counted only when contracted? What's our make-good exposure?</div>
+      </div>
+      <p>You can let Researcher propose its own lines, but <b>giving them to it</b> makes the report easier to check and compare.</p>
+    </li>
+
+    <li class="step">
+      <h3>Run Researcher on the readiness question</h3>
+      <p>Open Researcher. Reference the five files above (type <kbd>/</kbd> and pick them from OneDrive, or attach them). Then run:</p>
+      <prompt where="Researcher · work sources">I'm on the Riverfront Rally Weekend Task Force. The weekend is Fri 6/18 - Sun 6/20, 2027; today is Wed 6/16, 9:00 AM. Leadership needs a promotional-readiness assessment before a fan email goes to 180,000 fans Thursday at 10:00 AM.
+
+Investigate whether the weekend is sufficiently prepared to proceed. Use ONLY these work sources: Event Plan v3, Sponsor Requirements Summary, Operations Playbook - Giveaway Rules, the Email Thread Export (E01-E16), and the Teams Ops Huddle Transcript. Treat the auto-generated meeting recap as unreliable unless the transcript confirms it.
+
+Investigate these lines separately:
+1. Contracts - signed status and scope for each sponsor
+2. Approvals - each item against the 3-part approval rule and the June 4 lock date
+3. Inventory - whether usable quantities can meet each sponsor's guaranteed quantity
+4. Operations - staffing, the 48-hour delivery cutoff, dock capacity, distribution standards
+5. Fan communications - whether the planned email promises anything unapproved
+6. Finance - revenue booked without contracts; make-good exposure
+
+Report structure:
+A. Executive summary (5 sentences max) with an overall recommendation: Proceed / Proceed with conditions / Delay - for each game day
+B. Findings by line of investigation, each with a confidence level (High / Medium / Low) and citations
+C. Risk table: Risk | Likelihood | Business impact | Evidence | Owner
+D. Alternatives considered for any element that is not ready (at least 2 options each, with trade-offs)
+E. Unresolved questions that block a confident decision, and who can answer each one
+
+Rules: cite a specific source for every finding. Clearly separate verified facts from claims people made. If the sources do not contain enough information to conclude something, say "insufficient evidence" rather than guessing.</prompt>
+      <div class="callout scout"><b class="t">Scouting report · While it runs</b><p>Researcher shows its reasoning steps as it works, such as which sources it searched and what it's looking for next. Watch them. If it starts drifting (searching for something irrelevant), you'll learn how to tighten the prompt next time.</p></div>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>Friday looks ready. Sunday's bucket hat is flagged as not approved: two of three approvals are missing, scope changed by the 6/9 redline, no PO.</li>
+          <li>The fan email risk and the $25K booked-revenue risk.</li>
+          <li><b>Probably weak on inventory.</b> The Word docs and emails mention damage and the "more than fifteen thousand" claim, but the actual counts live in Excel. Watch how confidently it talks about bobbleheads.</li></ul></div>
+    </li>
+
+    <li class="step">
+      <h3>Optional: add the web, deliberately</h3>
+      <p>Some questions benefit from outside context, for example how organizations typically handle weather contingency for giveaways or sponsor make-goods. If your tenant allows web grounding in Researcher, ask a <b>separate, labeled</b> follow-up:</p>
+      <prompt where="Researcher · work + web">Follow-up: for the elements you rated "Proceed with conditions" or "Delay", research publicly available guidance on (a) how sports and live-event organizations typically communicate a giveaway that is cancelled or changed after being announced, and (b) common practices for weather contingency on giveaway days.
+
+Keep web findings in a separate section titled "External context (web)". Never mix web sources into the internal findings. For each web source, note the publisher and why it is or isn't credible. Do not use web sources to make claims about our internal approvals, contracts, or quantities.</prompt>
+      <div class="callout ump"><b class="t">Umpire review · Work vs. web</b><p>Web context can inform <em>options</em>. It can never confirm an <em>internal fact</em>. If a web article ends up "supporting" a claim about our bucket hat approval, the report has gone off-sides.</p></div>
+    </li>
+
+    <li class="step">
+      <h3>Interrogate the report: sources and confidence</h3>
+      <prompt where="Researcher (or Copilot Chat with the report pasted)">Review your own report as a skeptical auditor.
+
+1. List every conclusion that rests on a single source, or on something a person SAID (in an email or meeting) rather than a document or system record.
+2. For each, rate source quality: System record / Signed document / Written email from the decision owner / Verbal claim in a meeting / Second-hand claim.
+3. Identify any conclusion where you were more confident than the evidence allows, and rewrite it with the right confidence level.
+4. List the sources you did NOT have access to that would most change your conclusions.</prompt>
+      <div class="expect"><b class="t">What you should see</b>
+        <ul><li>"Bobbleheads are covered" turns out to rest on Priya's <em>verbal</em> claim at 00:01:30 ("the system shows…"), not on counted data.</li>
+          <li>Missing sources: the two Excel workbooks (allocations, deliveries, inventory), the contract system, and the staffing agency's confirmation.</li></ul></div>
+    </li>
+
+    <li class="step">
+      <h3>Shape it into a readiness brief</h3>
+      <p>Turn the report into a one-page brief your VP would actually read. Use the template below as the target shape.</p>
+      <prompt where="Copilot Chat or Researcher follow-up">Condense the report into a one-page Promotional-Readiness Investigation Brief for Elena Ortiz (VP Marketing), using exactly these headings:
+1. Bottom line (2 sentences)
+2. Readiness by game day (Fri / Sat / Sun: status + one-line reason + key citation)
+3. Top 5 risks (ranked by business impact)
+4. Supporting sources (what we relied on, and how reliable each is)
+5. Unresolved questions (question | who can answer | needed by)
+6. Recommended next steps before Thursday 10:00 AM
+
+Plain language, no jargon. Keep every citation.</prompt>
+      <div class="brief">
+        <h4>Template · Promotional-Readiness Investigation Brief</h4>
+        <ul><li><b>Bottom line:</b> …</li><li><b>Readiness by game day:</b> Fri <span class="tag green">Proceed</span> · Sat <span class="tag yellow">?</span> · Sun <span class="tag yellow">?</span></li>
+          <li><b>Top risks:</b> 1. … 2. … 3. …</li><li><b>Sources &amp; reliability:</b> Signed docs · written emails · verbal claims</li>
+          <li><b>Unresolved questions:</b> question → owner → deadline</li><li><b>Next steps:</b> before Wed 5:00 PM / before Thu 10:00 AM</li></ul>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="challenge" data-toc="Bottom of the 9th">
+  <h2><span class="base"></span>Bottom of the 9th</h2>
+  <div class="challenge">
+    <span class="kick">Audience challenge · 4 minutes</span>
+    <h3>Find the weak link</h3>
+    <p>Find <b>one conclusion</b> in your Researcher report that needs stronger evidence. Be ready to say:</p>
+    <ol><li>what the report concluded,</li><li>what evidence it actually used, and</li><li>what evidence would make it trustworthy, and where that evidence lives.</li></ol>
+    <p class="mb0"><label><input type="checkbox" class="track" data-key="catch:s1-l3-1"> We found an under-supported conclusion</label></p>
+    <div class="count"><span>Tables</span><span>4 min</span><span>One weak link each</span></div>
+  </div>
+</section>
+
+<section id="verify" data-toc="Umpire review">
+  <h2><span class="base"></span>Umpire review checklist</h2>
+  <div class="card">
+    <p><label><input type="checkbox" class="track" data-key="catch:s1-l3-2"> The report doesn't treat the auto-recap as evidence (or if it did, I caught it).</label></p>
+    <p><label><input type="checkbox" class="track" data-key="catch:s1-l3-3"> Every finding cites a source I could open, and I opened at least three.</label></p>
+    <p><label><input type="checkbox" class="track" data-key="catch:s1-l3-4"> Verbal claims (meeting quotes) are labeled as claims, not facts.</label></p>
+    <p class="mb0"><label><input type="checkbox" class="track" data-key="catch:s1-l3-5"> Web sources (if any) are separated and never used to confirm internal facts.</label></p>
+  </div>
+</section>
+
+<section id="boxscore" data-toc="Box score">
+  <h2><span class="base"></span>Box score</h2>
+  <div class="boxscore"><div class="bs-head"><span>Inning 3 outputs</span><span>25 min</span></div>
+    <table><thead><tr><th>Output</th><th>What good looks like</th></tr></thead><tbody>
+      <tr><td><b>Promotional-readiness investigation brief</b></td><td>One page: bottom line, status by day, ranked risks, sources with reliability, unresolved questions with owners, next steps.</td></tr>
+      <tr><td><b>Weak-link list</b></td><td>At least one conclusion flagged for stronger evidence, with the source that would settle it. This feeds Inning 4.</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="dugout" data-toc="Dugout notes">
+  <h2><span class="base"></span>Dugout notes</h2>
+  <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
+    <p><b>Timing (25 min):</b> 3 min Chat vs. Researcher · 2 min lines of investigation · <b>start the Researcher run at minute 5</b>, because it takes 3-8 minutes · while it runs, walk through step 3 (web) and the source-quality ladder · 5 min review report and step 4 · 3 min brief · 4 min challenge · 1 min bridge to Inning 4.</p>
+    <p><b>Pre-run tip:</b> Run Researcher once before class and keep that report open as a backup in case run limits or latency bite during the live session.</p>
+    <h4>Likely "weak link" answers (all valid)</h4>
+    <div class="table-wrap"><table class="data"><thead><tr><th>Conclusion in the report</th><th>What it actually rests on</th><th>Stronger evidence</th></tr></thead><tbody>
+      <tr><td>"Saturday bobbleheads are covered / 15,000+ delivered"</td><td>Priya's verbal "the system shows more than fifteen thousand" (00:01:30), and possibly the flawed recap</td><td>Deliveries sheet: dedupe DLV-2222, subtract Damaged Qty → 14,400 (Inning 4)</td></tr>
+      <tr><td>"Bucket hats are approved" (if Researcher wavers)</td><td>Jordan's E05/E10 and 00:02:44 claims</td><td>A countersigned amendment and Marcus's written sign-off. Neither exists.</td></tr>
+      <tr><td>"Sunday attendance is at risk / pacing at 31,200"</td><td>One verbal remark from Tasha (00:04:16)</td><td>A ticketing system report, plus the historical Sunday pattern in the attendance workbook</td></tr>
+      <tr><td>"Mini bats are on track; one pallet remaining"</td><td>Transcript 00:02:10-00:02:25: "I'd have to check the date"</td><td>DLV-2234 is scheduled <b>6/21</b>, after the game; 1,000 are in inventory</td></tr>
+      <tr><td>"Towels are fine" (or "Riverside is short")</td><td>Priya's "they scanned that pallet by the case"</td><td>DLV-2212 = 40 CS × 100 = 4,000 EA</td></tr>
+      <tr><td>"Distribution at gate entry is fine for mini bats"</td><td>Event Plan v3</td><td>Event Standards (Session 2) say bat-style items go out on exit. A latent conflict.</td></tr>
+    </tbody></table></div>
+    <p><b>Expected overall verdict:</b> Fri: Proceed. Sat: Proceed with conditions (verify bobblehead counts). Sun: Proceed with conditions on mini bats, and <b>delay / remove the bucket hats</b>. Pull the hat line from the fan email and keep the $25K out of the forecast.</p>
+    <p><b>Bridge line:</b> "Researcher told us <em>where</em> to look. The spreadsheet will tell us <em>what's true</em>. Next inning, we count."</p>
+  </div></details>
+</section>
