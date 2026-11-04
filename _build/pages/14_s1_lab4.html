@@ -123,6 +123,14 @@ R9 Label each match Exact, Normalized (needed R1-R3) or No match.
 Output one table at Request ID + Gate level with: Request ID, Item, Gate, Request Status, Allocated, Delivered (units), Damaged, Late, Distributable, Variance, Variance %, Match confidence, Result, and a one-line Reason.
 Then list every row you excluded or changed (duplicates, conversions, late deliveries) with the Delivery ID.
 Show the Python you used.</prompt>
+      <div class="expect"><b class="t">What you should see <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span></b>
+        <ul><li>In our test Analyst took about 40 seconds and returned a <b>reconciliation workbook</b> (with an Audit Trail sheet), the <b>Python script</b>, and a summary: 24 rows, 15 MATCH, 9 EXCEPTION.</li>
+          <li>It caught the damaged bobbleheads (−360, −240), the duplicate, the CS row, the 6/21 pallet, the Club short-ship, both bucket-hat gates, and explained the 12,000-unit "Central Warehouse" naming mismatch on its own.</li>
+          <li><b>And it missed something.</b> Look at PR-1039. Before you open the next box, can you see what's wrong?</li></ul></div>
+      <details class="reveal"><summary>Reveal: the finding no rule covered</summary><div class="inner">
+        <p>Analyst marked the <b>cancelled</b> magnet request as <b>MATCH</b> at three gates. Your rulebook never said what to do with a cancelled request, so Analyst followed the rules literally, gaps included. That's Big Idea #4 in action: the AI will execute your rules faithfully, <em>including the holes</em>. Add the missing rule and rerun:</p>
+        <prompt where="Analyst">Add rule R10: if a request's Status is Cancelled, any delivery against it is an EXCEPTION labeled "Delivered against cancelled request", and the expected quantity is 0. Rerun the reconciliation and show only the rows whose Result changed.</prompt>
+        <label><input type="checkbox" class="track" data-key="catch:s1-l4-r10"> I spotted the cancelled-request gap before revealing</label></div></details>
       <div class="callout scout"><b class="t">Scouting report · why rules first?</b>
         <p>If you just ask "what's wrong with these files?", Copilot will pick its own rules, and different people in the room will get different answers.
           Stating the rules makes the result <b>repeatable, explainable and checkable</b>. It's also the start of a reusable prompt (or agent) for next homestand.</p></div>
@@ -147,6 +155,7 @@ Explain in plain English, for each item, why A, B and C differ, and which number
           <tr><td>Sunday Bucket Hat</td><td class="num">5,000</td><td class="num">0</td><td class="num">0</td><td>No deliveries, no PO, zero inventory: the <b>missing fulfillment entry</b>.</td></tr>
         </tbody></table></div>
         <p class="pull">The naive total was wrong in all three directions: too low, too high, and "close enough."</p>
+        <p class="muted"><span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> Analyst reproduced this exact table, along with a PNG chart and an editable Excel chart.</p>
       </div></details>
     </li>
     <li class="step"><h3>Translate exceptions into business impact</h3>
@@ -292,22 +301,22 @@ Do not drop or change anything until I confirm.</prompt>
     </li>
     <li class="step"><h3>Compare fairly: the same-day test</h3>
       <prompt where="Analyst">Using the cleaned data, estimate the attendance lift for each promotion type.
-Important: promotions are not randomly scheduled (bobbleheads are on Saturdays, fireworks on Fridays), so compare each promotion only against games on the SAME day of week that did not have that promotion type.
+Important: promotions are not randomly scheduled (bobbleheads are on Saturdays, fireworks on Fridays), so compare each promotion against games on the SAME day of week, using TWO baselines: (1) same-day games with NO promotion, and (2) all other same-day games without that promotion type. Report both.
 Show: a naive comparison (promo average vs all non-promo games) next to the fair same-day comparison, plus game counts.
 Then show merchandise per cap and no-show rate by promotion type and by weather.
 Chart the fair comparison. Call out where sample sizes are too small to trust.</prompt>
       <div class="chart-card"><h4>Promo nights vs. other games on the same day of week</h4>
-        <div class="csub">Average tickets sold, 2025-2026 fictional data, after cleaning · baseline = other games on the same day of week · hover for game counts</div>
-        <div class="legend"><span><i style="background:#C6011F"></i>Promo night</span><span><i style="background:#3D6FB0"></i>Same day of week, other games</span></div>
+        <div class="csub">Average tickets sold, 2025-2026 fictional data, after cleaning · two baselines, both from the same day of week · hover for game counts</div>
+        <div class="legend"><span><i style="background:#C6011F"></i>Promo night</span><span><i style="background:#3D6FB0"></i>Same day, no promotion</span><span><i style="background:#C88A12"></i>Same day, all other games</span></div>
         <div class="chart" id="chart-lift"></div></div>
       <div class="table-wrap"><table class="data"><thead><tr><th>Insight</th><th>Naive read</th><th>Fair read</th><th>So what</th></tr></thead><tbody>
-        <tr><td><b>Bobblehead lift</b> <span class="muted">(9 games)</span></td><td>39,481 vs 24,698 for all non-promo games: <b>+60%</b></td><td>vs the 13 other Saturdays (36,159): <b>+3,322 / +9%</b></td><td>Still real, but most of the "lift" was just Saturday. Two bobblehead games hit 41,000+ near the 42,000 cap, so demand may be capped.</td></tr>
-        <tr><td><b>Fireworks Friday</b> <span class="muted">(17 games)</span></td><td>37,288 vs 24,698: <b>+51%</b></td><td>vs the 11 other Fridays (32,498): <b>+4,789 / +15%</b></td><td>The biggest fair lift in the data, and it backs up the $65K fireworks line.</td></tr>
-        <tr><td><b>Sunday novelty giveaways</b> <span class="muted">(11 games)</span></td><td>31,678 vs 24,698: <b>+28%</b></td><td>vs the 6 other Sundays (31,569): <b>+109 / +0.3%</b></td><td><b>No detectable lift.</b> Mini Bat Sunday is about sponsor value and the family experience, not attendance. Weather matters more on Sundays.</td></tr>
+        <tr><td><b>Bobblehead</b> <span class="muted">(Sat · 9 games)</span></td><td>39,481 vs 24,698: <b>+60%</b></td><td>vs 2 no-promo Saturdays (35,832): <b>+10%</b> · vs 13 other Saturdays (36,159): <b>+9%</b></td><td><b>Robust:</b> about +10% under either baseline, but the no-promo control is just 2 games. Two bobblehead games hit 41,000+, so demand may be capped.</td></tr>
+        <tr><td><b>Fireworks</b> <span class="muted">(Fri · 17 games)</span></td><td>37,288 vs 24,698: <b>+51%</b></td><td>vs 6 no-promo Fridays (31,170): <b>+20%</b> · vs 11 other Fridays (32,498): <b>+15%</b></td><td><b>The strongest real lift</b>, under either baseline. It backs up the $65K fireworks line.</td></tr>
+        <tr><td><b>Novelty giveaway</b> <span class="muted">(Sun · 11 games)</span></td><td>31,678 vs 24,698: <b>+28%</b></td><td>vs 3 no-promo Sundays (29,038): <b>+9%</b> · vs 6 other Sundays (31,569): <b>+0.3%</b></td><td><b>Fragile:</b> the answer flips with the baseline, and both samples are tiny. Don't promise a Sunday attendance lift. Mini Bat Sunday is about sponsor value and families.</td></tr>
         <tr><td><b>Merch per cap</b></td><td colspan="2">Bobblehead nights <b>$6.19</b> vs no-promo <b>$4.32</b> (+43%)</td><td>Collectible nights pull fans into the team store too.</td></tr>
         <tr><td><b>Weather and no-shows</b></td><td colspan="2">No-show rate: clear <b>10.7%</b> · light rain <b>14.6%</b> · rain delay <b>17.0%</b></td><td>Keep this in mind: Session 2 brings a Sunday storm forecast.</td></tr>
       </tbody></table></div>
-      <div class="callout scout"><b class="t">Scouting report · confounding</b><p>Whenever an AI says "X causes a Y% lift", ask: <i>"What else is different about the games with X?"</i> Day of week, opponent, month and weather all move attendance.
+      <div class="callout scout"><b class="t">Scouting report · confounding and baselines</b><p><span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> Unless told otherwise, Analyst picked the no-promotion baseline and warned about the 2-game Saturday control on its own. The bigger lesson: <b>the baseline you choose can flip the answer</b> (Sunday: +9% or +0.3%), so make Copilot state its baseline every time. Whenever an AI says "X causes a Y% lift", ask: <i>"What else is different about the games with X?"</i> Day of week, opponent, month and weather all move attendance.
         Analyst is very good at this when you ask; it rarely does it unprompted.</p></div>
     </li>
   </ol>
@@ -397,7 +406,8 @@ window.addEventListener("DOMContentLoaded", function () {
       categories: ["Bobblehead (Sat)", "Fireworks (Fri)", "Novelty giveaway (Sun)"],
       series: [
         { name: "Promo night avg", color: RED, values: [39481, 37288, 31678], notes: ["9 games", "17 games", "22 games"] },
-        { name: "Same day, other games", color: BLUE, values: [36159, 32498, 31569], notes: ["13 other Saturdays", "11 other Fridays", "6 other Sundays (small sample)"] }
+        { name: "Same day, no promotion", color: BLUE, values: [35832, 31170, 29038], notes: ["only 2 games: tiny sample", "6 games", "only 3 games: tiny sample"] },
+        { name: "Same day, all other games", color: AMBER, values: [36159, 32498, 31569], notes: ["13 games", "11 games", "6 games"] }
       ],
       left: 170, max: 40000, aria: "Promotion nights vs same-day baseline"
     });

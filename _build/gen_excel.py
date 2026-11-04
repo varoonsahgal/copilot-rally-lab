@@ -370,7 +370,7 @@ def build_history():
     }
     sponsors = ["Harbor City Mutual", "Riverbend Health Partners", "Lakeside Fresh Market", "Blue Chip Hardware",
                 "Big River Energy Co.", "Lakeview Credit Union", "Smokehouse Provisions", "Millbrook Motors"]
-    effect = {"None": 0, "Bobblehead": 5600, "Fireworks": 6400, "Apparel Giveaway": 3100,
+    effect = {"No Promotion": 0, "Bobblehead": 5600, "Fireworks": 6400, "Apparel Giveaway": 3100,
               "Novelty Giveaway": 1300, "Theme Night": 900, "Value Night": 3300}
     unit_cost = {"Bobblehead": 6.2, "Apparel Giveaway": 4.6, "Novelty Giveaway": 1.4}
     for year in (2025, 2026):
@@ -390,17 +390,17 @@ def build_history():
             # Promotion assignment by day of week
             r = rng.random()
             if dow == "Fri":
-                ptype = "Fireworks" if r < 0.7 else ("Apparel Giveaway" if r < 0.85 else "None")
+                ptype = "Fireworks" if r < 0.7 else ("Apparel Giveaway" if r < 0.85 else "No Promotion")
             elif dow == "Sat":
-                ptype = "Bobblehead" if r < 0.45 else ("Apparel Giveaway" if r < 0.75 else ("Theme Night" if r < 0.9 else "None"))
+                ptype = "Bobblehead" if r < 0.45 else ("Apparel Giveaway" if r < 0.75 else ("Theme Night" if r < 0.9 else "No Promotion"))
             elif dow == "Sun":
-                ptype = "Novelty Giveaway" if r < 0.5 else ("Theme Night" if r < 0.7 else "None")
+                ptype = "Novelty Giveaway" if r < 0.5 else ("Theme Night" if r < 0.7 else "No Promotion")
             elif dow == "Tue":
-                ptype = "Value Night" if r < 0.6 else "None"
+                ptype = "Value Night" if r < 0.6 else "No Promotion"
             else:
-                ptype = "None" if r < 0.55 else ("Theme Night" if r < 0.75 else ("Novelty Giveaway" if r < 0.9 else "Value Night"))
-            pname = "" if ptype == "None" else rng.choice(promo_catalog[ptype])
-            sponsor = "" if ptype in ("None", "Value Night") else rng.choice(sponsors)
+                ptype = "No Promotion" if r < 0.55 else ("Theme Night" if r < 0.75 else ("Novelty Giveaway" if r < 0.9 else "Value Night"))
+            pname = "" if ptype == "No Promotion" else rng.choice(promo_catalog[ptype])
+            sponsor = "" if ptype in ("No Promotion", "Value Night") else rng.choice(sponsors)
             gqty = {"Bobblehead": 15000, "Apparel Giveaway": rng.choice([10000, 15000, 20000]),
                     "Novelty Giveaway": rng.choice([10000, 15000, 20000])}.get(ptype, 0)
             gcost = round(gqty * unit_cost.get(ptype, 0) * rng.uniform(0.92, 1.08), 0) if gqty else 0

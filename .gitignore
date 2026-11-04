@@ -2,3 +2,4 @@ outline.md
 .DS_Store
 __pycache__/
 _build/history_stats.json
+.claude/settings.local.json

@@ -44,7 +44,7 @@
 <section id="call-your-shot" data-toc="Call your shot"><div class="shot" data-key="shot:s1-l2">
 <div class="shot-head"><span class="shot-badge">☝ Call your shot</span><span>Predict before you play. Wrong guesses teach the most.</span></div>
 <h3>You only have time to read the auto-generated meeting recap. How many of its 8 lines does the transcript flatly contradict?</h3><div class="opts"><button type="button" class="opt" data-correct="0"><span class="l">A</span>0. It&#x27;s generated from the transcript.</button><button type="button" class="opt" data-correct="0"><span class="l">B</span>1</button><button type="button" class="opt" data-correct="1"><span class="l">C</span>3</button><button type="button" class="opt" data-correct="0"><span class="l">D</span>5 or more</button></div>
-<div class="shot-why" hidden><b class="verdict"></b> <b>Three</b>: bobbleheads "more than 15,000", bucket hats "approved", and "send the fan email as planned". All three are high-stakes, and two more lines are only partly true. A recap that's mostly right can still point you to exactly the wrong decision.</div></div></section>
+<div class="shot-why" hidden><b class="verdict"></b> <b>Three</b> are wrong: bucket hats "approved", "send the fan email as planned", and bobbleheads "more than 15,000". But only two can be proved from the transcript alone, because Priya really did say the bobblehead line. In live testing, Copilot flagged the hats and the email and rated the bobblehead line only "partly supported." Grounding gives you an accurate quote of an inaccurate statement.</div></div></section>
 
 <section id="game-plan" data-toc="Game plan">
   <h2><span class="base"></span>Game plan</h2>
@@ -107,7 +107,7 @@ Table columns: Date/time | Source (email ID or transcript timestamp) | Who | Wha
 
 Order it chronologically. After the table, state in one sentence what the status of the bucket hat giveaway is as of the end of the June 15 meeting, and why.</pre></div>
       <div class="expect"><b class="t">What you should see</b>
-        <ul><li>About 12 rows from E01 (the rule) through E03, E04, E05-E07, E08, E09/E10, E11, E15, E16 and the 00:02:44-00:04:33 transcript exchange.</li>
+        <ul><li>Roughly 12-20 rows (Copilot is often more granular than you'd expect) from E01 (the rule) through E03, E04, E05-E07, E08, E09/E10, E11, E15, E16 and the 00:02:44-00:04:33 transcript exchange.</li>
           <li>Status: <b>pending / not approved</b>. Two of the three required approvals are missing, and the sponsor changed the scope.</li></ul></div>
       <div class="callout scout"><b class="t">Scouting report · Quote the key phrase</b><p>Asking for the quoted phrase makes the difference between "Elena approved" and <em>"Looks good to me pending Marcus confirming…"</em> impossible to miss. Quotes make claims checkable.</p></div>
     </li>
@@ -269,12 +269,16 @@ Flag every place where a later message describes an earlier one differently from
     </ul>
     <h4>Recap audit answer key</h4>
     <div class="table-wrap"><table class="data"><thead><tr><th>Recap claim</th><th>Verdict</th><th>Correction</th></tr></thead><tbody>
-      <tr><td>Bobbleheads: more than 15,000 on hand</td><td><span class="tag red">Contradicted</span></td><td>Priya said "some damage" and "the <em>system</em> shows more than fifteen thousand." The system includes a duplicate row and 600 damaged units: 14,400 usable (proved in Inning 4).</td></tr>
+      <tr><td>Bobbleheads: more than 15,000 on hand</td><td><span class="tag red">Wrong</span> <span class="tag yellow">transcript says "Partly"</span></td><td>Against the transcript alone this is only <em>partly</em> supported, because Priya really said it. It's still wrong: the system total includes a duplicate row and 600 damaged units, so only 14,400 are usable. That can only be proved with the Inning 4 spreadsheet.</td></tr>
       <tr><td>Bucket hats approved by Elena</td><td><span class="tag red">Contradicted</span></td><td>"We treat them as pending" (00:04:33). Elena's approval was conditional (E04).</td></tr>
       <tr><td>Sam: send fan email as planned</td><td><span class="tag red">Contradicted</span></td><td>Sam <b>holds</b> the bucket hat line until confirmed (00:04:33).</td></tr>
       <tr><td>Mini bats: one RF pallet remaining</td><td><span class="tag yellow">Partly</span></td><td>True, but nobody checked the date. It's 6/21, after the game (Inning 4).</td></tr>
       <tr><td>Priya: expedite hats</td><td><span class="tag yellow">Partly</span></td><td>She agreed to <em>check on</em> expediting, "no promises" (00:03:49).</td></tr>
     </tbody></table></div>
+    <div class="callout scout"><b class="t">What Copilot actually did <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span></b>
+      <ul><li><b>Contradicted:</b> bucket hats "approved", the fan email "as planned", and (under the strict rule) "expedite hats".</li>
+        <li><b>Only "Partly supported":</b> the bobblehead line, because the transcript itself repeats Priya's uncleaned total. <b>Grounding gets you an accurate quote of an inaccurate statement.</b> Use this as the hook into Inning 4.</li>
+        <li>Copilot also paraphrased "mini bats are mostly out" as "mostly distributed". Out to the gates isn't the same as handed to fans. A small catch worth an E.</li></ul></div>
     <p><b>Facilitation tip:</b> Ask "Who would have forwarded this recap?" Most hands go up. That's the point of the exercise.</p>
   </div></details>
 </section>

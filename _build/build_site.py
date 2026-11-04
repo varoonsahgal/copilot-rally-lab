@@ -82,8 +82,11 @@ def expand(frag, root):
         body = esc(body)
         body = re.sub(r"\[\[(.+?)\]\]", r'<span class="ph">[\1]</span>', body)
         where = esc(attrs.get("where", "Copilot Chat"))
+        hint = ""
+        if re.search(r"(^|\s)/(0\d_|Rally_|My_)", m.group(2)):
+            hint = '<div class="p-hint">📎 <b>Attach the files first.</b> Pasted, the <code>/FileName</code> text is just a label. To link a file, type <kbd>/</kbd> and pick it, or attach it with <b>+</b>.</div>' 
         return (f'<div class="prompt"><div class="p-head"><span class="where">{where}</span>'
-                f'<button class="copy-btn" type="button">Copy</button></div><pre>{body}</pre></div>')
+                f'<button class="copy-btn" type="button">Copy</button></div><pre>{body}</pre>{hint}</div>')
     frag = re.sub(r"<prompt([^>]*)>(.*?)</prompt>", prompt, frag, flags=re.S)
 
     def filetag(m):

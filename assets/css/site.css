@@ -631,3 +631,7 @@ details.reveal .inner { padding: 0 16px 14px; font-size: .94rem; }
 @media (max-width: 900px) { .session-hero .hero-inner { grid-template-columns: minmax(0, 1fr) !important; } .session-hero .hero-inner > div { min-width: 0; } }
 .lab-content { min-width: 0; } @media (max-width: 980px) { .lab-grid { grid-template-columns: minmax(0, 1fr); } } .res-wrap > div { min-width: 0; }
 @media (hover: none) { .bc-flip { display: none; } }
+.prompt .p-hint { padding: 9px 16px 11px; background: #22222A; border-top: 1px solid #2E2E36; font-size: .8rem; color: #C9C3B5; }
+.prompt .p-hint code { background: #33333C; color: #FFB86B; }
+.prompt .p-hint kbd { background: #33333C; color: #fff; border-color: #44444E; }
+.steps { grid-template-columns: minmax(0, 1fr); } .step { min-width: 0; } .prompt pre { overflow-wrap: anywhere; }

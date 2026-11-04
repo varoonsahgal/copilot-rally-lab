@@ -119,16 +119,18 @@ Pre-send check: Review this fan email draft against the readiness checklist: <sp
   <h2><span class="base"></span>Play-by-play</h2>
   <ol class="steps">
     <li class="step"><h3>Start a new agent</h3>
-      <p>In Microsoft 365 Copilot Chat, find the option to <b>create an agent</b> (usually in the Agents area of the left pane). Agent Builder opens with two ways to build:</p>
-      <ul><li><b>Describe:</b> tell Copilot what you want in plain language, and it drafts the configuration.</li>
-        <li><b>Configure:</b> set the name, description, instructions, knowledge and starter prompts directly. You'll use this one, so you control every word.</li></ul>
+      <p>In the Microsoft 365 Copilot app, open <b>Agents → New agent</b> in the left pane. <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> Agent Builder opens with two ways to build:</p>
+      <ul><li><b>Describe:</b> type into <b>Message Agent Builder</b> in plain language, and it drafts the configuration (templates are offered below).</li>
+        <li><b>Configure:</b> select <b>Skip</b> to open the form: name, <b>Describe your agent</b>, <b>Instructions</b> (with a <i>Suggest improvements</i> button), Skills, knowledge sources and <b>Suggested prompts</b>. You'll use this one, so you control every word.</li></ul>
+      <div class="callout warn"><b class="t">Rain delay · agents now see everything by default</b><p>Agent Builder now tells you that new agents can, by default, access everything Copilot can: your OneDrive and SharePoint files, Outlook mailbox, Teams, and the web. In the knowledge section you'll see <b>Cloud files · Outlook · Teams · Copilot connectors · Web search · Attachments</b>, with most switched <b>on</b>. For a trustworthy Readiness Coach, <b>turn off Outlook, Teams and Web search</b>, narrow <b>Cloud files</b> from "Search all" to the Task Force files or folder (or use <b>Attachments</b>), and keep the "use only approved sources" rule in the instructions.</p></div>
       <div class="callout scout"><b class="t">Scouting report · try Describe first, for 60 seconds</b>
         <p>Type <i>"An agent that checks if a ballpark promotion is ready using our checklist"</i> into Describe and look at what it drafts. Compare it with the blueprint above. The difference (citations, conflict rules, uncertainty rules) is the craft.</p></div>
     </li>
     <li class="step"><h3>Configure it from the blueprint</h3>
       <ul><li>Paste the <b>name</b>, <b>description</b> and <b>instructions</b>.</li>
-        <li>Add the five <b>knowledge</b> files. If there's an option to use only the specified sources, turn it on.</li>
-        <li>Add the four <b>starter prompts</b>.</li></ul>
+        <li>Add the five <b>knowledge</b> files under Cloud files or Attachments, and switch off the sources you don't want (see the Rain delay above).</li>
+        <li>Add the four starter prompts under <b>Suggested prompts</b> (a title plus a message each).</li>
+        <li>Click <b>Suggest improvements</b> on your instructions and decide which suggestions to accept. It's a good discussion moment.</li></ul>
     </li>
     <li class="step"><h3>Test in the preview pane</h3>
       <p>Use the test panel beside the configuration before you create or share anything.</p>

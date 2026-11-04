@@ -31,7 +31,7 @@ LAB_CONCEPTS = {
         ],
         shot=dict(q="You only have time to read the auto-generated meeting recap. How many of its 8 lines does the transcript flatly contradict?",
                   opts=["0. It's generated from the transcript.", "1", "3", "5 or more"], a=2,
-                  why="<b>Three</b>: bobbleheads \"more than 15,000\", bucket hats \"approved\", and \"send the fan email as planned\". All three are high-stakes, and two more lines are only partly true. A recap that's mostly right can still point you to exactly the wrong decision."),
+                  why="<b>Three</b> are wrong: bucket hats \"approved\", \"send the fan email as planned\", and bobbleheads \"more than 15,000\". But only two can be proved from the transcript alone, because Priya really did say the bobblehead line. In live testing, Copilot flagged the hats and the email and rated the bobblehead line only \"partly supported.\" Grounding gives you an accurate quote of an inaccurate statement."),
         drill=dict(title="Fact, condition or wishful thinking?", intro="Classify each statement from the case file. This is the core skill Copilot needs you to apply to its summaries.",
                    cats=["Confirmed", "Conditional", "Proposal", "Assumption", "Unsupported claim"],
                    items=[

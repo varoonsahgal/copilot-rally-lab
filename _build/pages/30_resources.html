@@ -151,6 +151,18 @@ Label it clearly as a prototype for planning, not a system of record.</prompt>
     <li><input type="checkbox" class="track" data-key="fac:5"><div>Pre-upload both lab kits to a shared OneDrive or SharePoint folder; test Copilot in Excel on the workbooks.</div></li>
     <li><input type="checkbox" class="track" data-key="fac:6"><div>Run every prompt once in the tenant the day before. Outputs vary, so note anything that differs from the answer keys.</div></li>
   </ul>
+  <h3 style="margin-top:28px">Field-tested in Microsoft 365 Copilot (November 2026)</h3>
+  <div class="table-wrap"><table class="data"><thead><tr><th>Inning</th><th>What Copilot actually did</th><th>Time</th></tr></thead><tbody>
+    <tr><td>G1 · 2 Timeline</td><td>About 20-row timeline; correctly concluded "PENDING, not approved"; caught the conditional approval and the scope redline</td><td>~30 s</td></tr>
+    <tr><td>G1 · 2 Recap audit</td><td>Flagged hats, email and "expedite"; rated the bobblehead line only "partly supported" (the transcript repeats the error), which is a great teaching hook</td><td>~40 s</td></tr>
+    <tr><td>G1 · 3 Researcher</td><td>Clarifying questions + report length → editable plan → cited report; "insufficient evidence" for usable quantities; found the 15-staff rule</td><td>~5 min</td></tr>
+    <tr><td>G1 · 4 Analyst</td><td>Workbook + Python + audit trail; every planted issue except the cancelled request (no rule covered it), which is the R10 teaching moment; naive-total table matched exactly</td><td>~40 s each</td></tr>
+    <tr><td>G1 · 4 Part C</td><td>Caught all 3 data-quality issues and asked before fixing; fair-comparison lift used the no-promo baseline unless told otherwise</td><td>~30 s</td></tr>
+    <tr><td>G2 · 1 Compare</td><td>Accurate before/after table; honored "not stated"; accepted the memo's 9 staff (playbook not attached)</td><td>~20 s</td></tr>
+    <tr><td>G2 · 4 Simulator</td><td>Working interactive app rendered inline in chat; all numbers matched the key</td><td>~60 s</td></tr>
+    <tr><td>G2 · 3 / 2 / 6</td><td>UI confirmed: Agents → New agent (Skip → Configure), Notebooks → New notebook, and "… → Schedule this prompt" on a response</td><td>n/a</td></tr>
+  </tbody></table></div>
+  <div class="callout ump"><b class="t">Two gotchas to brief at the start</b><ul><li><b>Paste, don't type.</b> Typing <kbd>/</kbd> opens Copilot's file picker and can attach a random file.</li><li><b>Attach before you reference.</b> Pasted <code>/FileName</code> text is just a label, so attach the files with <b>+</b> first.</li></ul></div>
   <div class="callout good"><b class="t">Run the Gold Glove</b><p>The scoreboard's <b>E</b> column counts AI and evidence errors each learner catches. At the end of each game, have tables report their E totals. The top table wins the Gold Glove (bragging rights, or a real bobblehead).</p></div>
   <div class="callout scout"><b class="t">Regenerating the data</b><p>All files are produced by scripts in <code>_build/</code> (<code>gen_excel.py</code>, <code>gen_docs.py</code>, <code>build_site.py</code>). Change the story in <code>story.py</code> and rebuild to adapt the labs for another team or event.</p></div>
 </section>
