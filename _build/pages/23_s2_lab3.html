@@ -55,7 +55,7 @@
   <div class="agent-card">
     <div class="k">Name</div><div><b>Promotional Readiness Coach</b></div>
     <div class="k">Description</div><div>Assesses whether a sponsored promotion is ready to proceed, using the club's readiness checklist, event standards, sponsor terms and ops rules. It separates confirmed facts from assumptions and flags missing approvals for human review. Advisory only.</div>
-    <div class="k">Knowledge</div><div>07 Readiness Checklist · 08 Event Standards · 04 Sponsor Requirements · 05 Ops Playbook · 03 Event Plan v3. If offered, limit answers to these sources only.</div>
+    <div class="k">Knowledge</div><div>07 Readiness Checklist · 08 Event Standards · 04 Sponsor Requirements · 05 Ops Playbook · 03 Event Plan v3, uploaded under <b>Attachments</b>. In <b>Knowledge settings</b> (the gear icon), turn on <b>Discourage model knowledge</b> so it prefers these sources over general AI knowledge.</div>
     <div class="k">Web search</div><div>Off. Readiness must come from approved internal sources.</div>
   </div>
   <prompt where="Agent Builder · Instructions">ROLE
@@ -100,24 +100,25 @@ Pre-send check: Review this fan email draft against the readiness checklist: [[p
       <p>In the Microsoft 365 Copilot app, open <b>Agents → New agent</b> in the left pane. <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> Agent Builder opens with two ways to build:</p>
       <ul><li><b>Describe:</b> type into <b>Message Agent Builder</b> in plain language, and it drafts the configuration (templates are offered below).</li>
         <li><b>Configure:</b> select <b>Skip</b> to open the form: name, <b>Describe your agent</b>, <b>Instructions</b> (with a <i>Suggest improvements</i> button), Skills, knowledge sources and <b>Suggested prompts</b>. You'll use this one, so you control every word.</li></ul>
-      <div class="callout warn"><b class="t">Rain delay · agents now see everything by default</b><p>Agent Builder now tells you that new agents can, by default, access everything Copilot can: your OneDrive and SharePoint files, Outlook mailbox, Teams, and the web. In the knowledge section you'll see <b>Cloud files · Outlook · Teams · Copilot connectors · Web search · Attachments</b>, with most switched <b>on</b>. For a trustworthy Readiness Coach, <b>turn off Outlook, Teams and Web search</b>, narrow <b>Cloud files</b> from "Search all" to the Task Force files or folder (or use <b>Attachments</b>), and keep the "use only approved sources" rule in the instructions.</p></div>
+      <div class="callout warn"><b class="t">Rain delay · agents now see everything by default</b><p>Agent Builder may show a notice that new agents can, by default, access everything Copilot can: your OneDrive and SharePoint files, Outlook mailbox, Teams, and the web. In the knowledge section you'll see <b>Cloud files · Outlook · Teams · Copilot connectors · Web search · Attachments</b>, with most switched <b>on</b>. For a trustworthy Readiness Coach, upload the five files with the <b>+</b> on the <b>Attachments</b> row, then <b>turn off Cloud files, Outlook, Teams and Web search</b>. If your files live in SharePoint instead, keep Cloud files on, hover its row, select <b>+</b> and pick just those files or that site instead of "Search all". Keep the "use only approved sources" rule in the instructions too. <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> With Cloud files left on "Search all", the agent cited 50+ mostly unrelated OneDrive files and never read the Event Plan or Event Standards.</p></div>
       <div class="callout scout"><b class="t">Scouting report · try Describe first, for 60 seconds</b>
         <p>Type <i>"An agent that checks if a ballpark promotion is ready using our checklist"</i> into Describe and look at what it drafts. Compare it with the blueprint above. The difference (citations, conflict rules, uncertainty rules) is the craft.</p></div>
     </li>
     <li class="step"><h3>Configure it from the blueprint</h3>
-      <ul><li>Paste the <b>name</b>, <b>description</b> and <b>instructions</b>.</li>
-        <li>Add the five <b>knowledge</b> files under Cloud files or Attachments, and switch off the sources you don't want (see the Rain delay above).</li>
-        <li>Add the four starter prompts under <b>Suggested prompts</b> (a title plus a message each).</li>
-        <li>Click <b>Suggest improvements</b> on your instructions and decide which suggestions to accept. It's a good discussion moment.</li></ul>
+      <ul><li>Paste the <b>name</b>, <b>description</b> and <b>instructions</b>. Agent names and suggested-prompt titles are capped at 30 characters (the blueprint's fit).</li>
+        <li>Upload the five <b>knowledge</b> files with the <b>+</b> on the <b>Attachments</b> row (you can select all five at once), then switch off Cloud files, Outlook, Teams and Web search (see the Rain delay above).</li>
+        <li>Add the four starter prompts under <b>Suggested prompts</b> (a title plus a message each). The form shows three rows, so select <b>Add a suggested prompt</b> for the fourth.</li>
+        <li>Click <b>Suggest improvements</b> above the Instructions box. It puts "Suggest instruction improvements" into the <b>Message Agent Builder</b> box on the left. Send it, and Agent Builder lists its ideas with buttons such as <b>Apply both improvements</b>. Nothing changes until you choose, so decide together which to accept. It's a good discussion moment.</li></ul>
     </li>
     <li class="step"><h3>Test in the preview pane</h3>
-      <p>Use the test panel beside the configuration before you create or share anything.</p>
+      <p>Switch the dropdown at the top of the form from <b>Configure</b> to <b>Preview</b> and test there before you select <b>Create</b>. Use <b>New chat</b> between tests. Clicking a starter card fills the message box without sending, so you can replace any [placeholder] first. You don't lose work by testing: the <b>…</b> menu shows "Draft auto-saved".</p>
       <prompt where="Agent preview">Assess the readiness of the Riverfront Rally Weekend promotions (June 18-20) and rate each element.</prompt>
       <div class="expect"><b class="t">What a good answer looks like</b>
-        <ul><li>"Overall: YELLOW" or "RED", with a table covering towels, fireworks, bobbleheads, mini bats and the BRE bucket hat.</li>
+        <ul><li>"Overall: YELLOW" or "RED" (RED in our live test), with a table covering towels, fireworks (may be folded into the Friday towel row), bobbleheads, mini bats and the BRE bucket hat.</li>
           <li>The bucket hat shown with missing approvals (needs human review).</li>
           <li>A conflict found: mini bats at <b>gate entry</b> (Event Plan) vs. bat-style items at <b>exit</b> (Event Standards).</li>
-          <li>Inventory checks marked <b>UNVERIFIED</b>, because delivery data isn't in its knowledge. That's honest, and correct.</li></ul></div>
+          <li>Inventory checks marked <b>UNVERIFIED</b>, because delivery data isn't in its knowledge. That's honest, and correct.</li>
+          <li>Every Source cell names one of your five files. If 03 or 08 never appears, or the references list shows unrelated files, Cloud files is probably still on "Search all". Turn it off and test again.</li></ul></div>
     </li>
     <li class="step"><h3>Refine the instructions</h3>
       <p>Notice something inconsistent (format drift, a missing citation, an overconfident rating)? Fix the <em>instructions</em>, not just the chat. Common refinements:</p>
@@ -132,7 +133,7 @@ Pre-send check: Review this fan email draft against the readiness checklist: [[p
         <li>People you share with also need access to the knowledge files. Otherwise the agent answers with less than you expect.</li>
         <li>Mention in the description that the agent is <b>advisory</b>: it reads and reasons, it does not approve, send or update anything.</li></ul>
       <div class="callout scout"><b class="t">Advisory agent vs. automated workflow</b>
-        <p>This coach <b>recommends</b>, and a human decides. An <b>automated workflow</b> (for example one built with Copilot Studio or Power Automate) can <em>take actions</em>: send the fan email, update a ticketing record, notify a sponsor. Those need governance, testing and an owner. Start advisory, and earn automation.</p></div>
+        <p>This coach <b>recommends</b>, and a human decides. An <b>automated workflow</b> (for example one built with Copilot Studio or Power Automate) can <em>take actions</em>: send the fan email, update a ticketing record, notify a sponsor. Those need governance, testing and an owner. Start advisory, and earn automation. The builder's <b>…</b> menu has <b>Copy to Copilot Studio</b>, one path to that next step.</p></div>
     </li>
   </ol>
 </section>
@@ -195,9 +196,9 @@ Pre-send check: Review this fan email draft against the readiness checklist: [[p
   <h2><span class="base"></span>Dugout notes</h2>
   <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
     <p><b>Timing (30 min):</b> 4 min why agents + saved prompt vs agent · 3 min Describe demo · 7 min configure · 5 min preview test and refine · 8 min Break the Agent · 3 min sharing and advisory vs automation.</p>
-    <p><b>Expected assessment (from knowledge only):</b> Towels YELLOW (approvals and plan in place, but inventory is UNVERIFIED from knowledge alone; a strict agent that says YELLOW is applying its own GREEN rule correctly) · Fireworks GREEN (vendor service) · Bobbleheads YELLOW (contract and plan fine; fulfillment UNVERIFIED without the delivery file) · Mini bats YELLOW (distribution conflict) · BRE bucket hat RED (not in the locked plan, amendment unsigned per sponsor summary, no Ops sign-off). Note that the agent's knowledge predates the plot twist memo, which is another good teaching point.</p>
+    <p><b>Expected assessment (from knowledge only):</b> Towels YELLOW (approvals and plan in place, but inventory is UNVERIFIED from knowledge alone; a strict agent that says YELLOW is applying its own GREEN rule correctly) · Fireworks GREEN (vendor service; agents may fold it into the Friday towel row) · Bobbleheads YELLOW (contract and plan fine; fulfillment UNVERIFIED without the delivery file) · Mini bats YELLOW or RED (distribution conflict; a strict agent rates it RED because the Event Standards check fails, which section F allows) · BRE bucket hat RED (not in the locked plan, amendment unsigned per sponsor summary, no Ops sign-off). Note that the agent's knowledge predates the plot twist memo, which is another good teaching point.</p>
     <p><b>Staffing catch:</b> if a tester mentions the memo's "9 extra staff," a great agent applies the playbook rule (+3 per dual-item gate) and flags that the redlined scope implies 15.</p>
-    <p><b>Most common failure:</b> test 2. Agents tend to answer from the Event Plan because it's more specific. The fix is the explicit "compare documents" step plus "report conflicts, never choose silently".</p>
+    <p><b>Most common failure:</b> test 2. Agents tend to answer from the Event Plan because it's more specific. The fix is the explicit "compare documents" step plus "report conflicts, never choose silently". In our live test the bigger cause was knowledge scope: with Cloud files left on "Search all", the agent cited dozens of unrelated OneDrive files, never read 03 or 08, and missed the conflict. With only the five Attachments, it caught the conflict in every run we tried.</p>
     <p><b>Most common instruction fix:</b> adding "A conditional approval counts as NOT MET" and "A signed contract is not an approval" (both already in the blueprint; remove them for a live before/after demo).</p>
   </div></details>
 </section>

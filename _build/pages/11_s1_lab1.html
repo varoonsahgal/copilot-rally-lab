@@ -29,8 +29,8 @@
     <file href="{{root}}data/session-1/03_Event_Plan_v3_Riverfront_Rally_Weekend.docx" ext="docx" title="Event Plan v3" desc="Locked June 4 - Marketing's view"/>
     <file href="{{root}}data/session-1/01_Email_Thread_Export.docx" ext="docx" title="Email thread export" desc="16 emails - everyone else's view"/>
   </div>
-  <div class="callout warn"><b class="t">Rain delay · Work vs. Web</b>
-    <p>In Microsoft 365 Copilot Chat you may see a <b>Work / Web</b> toggle at the top of the chat. <b>Work</b> grounds answers in your Microsoft 365 content (mail, chats, files you can access). <b>Web</b> answers from the public internet. Some tenants hide the toggle or turn off web grounding. If you don't see it, attach the files directly and you're grounded either way.</p></div>
+  <div class="callout warn"><b class="t">Rain delay · Work IQ on or off</b>
+    <p>In Microsoft 365 Copilot Chat, look for the <b>Work IQ</b> switch at the top left of the chat, next to the model picker (<b>Auto</b>). When it's on, Copilot can use your Microsoft 365 content (mail, chats, files you can access). Click it to turn it off: the label gets a strikethrough and Copilot answers without your work data. It stays off in new chats until you turn it back on. Some tenants show a <b>Work / Web</b> toggle instead, and some hide both. If you see neither, attach the files directly and you're grounded either way.</p></div>
 </section>
 
 <section id="play" data-toc="Play-by-play">
@@ -38,22 +38,23 @@
   <ol class="steps">
     <li class="step">
       <h3>Swing #1: the ungrounded question</h3>
-      <p>Open <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Microsoft 365 Copilot Chat</a>. Switch to <b>Web</b> if you have the toggle. Don't attach anything. Ask:</p>
-      <prompt where="Copilot Chat · Web · no files">Is the Riverfront Rally Weekend promotion ready to go? What should we check before the weekend?</prompt>
+      <p>Open <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Microsoft 365 Copilot Chat</a>. Turn <b>Work IQ</b> off (click it so the label is struck through), or switch to <b>Web</b> if your tenant shows that toggle instead. Don't attach anything. Ask:</p>
+      <prompt where="Copilot Chat · Work IQ off · no files">Is the Riverfront Rally Weekend promotion ready to go? What should we check before the weekend?</prompt>
       <div class="expect"><b class="t">What you should see</b>
         <ul><li>A polite, generic checklist ("confirm inventory, train staff, communicate with fans…").</li>
           <li>No mention of bucket hats, Big River Energy, Jordan or Marcus. Copilot has no idea what <em>your</em> weekend is.</li>
-          <li>Possibly confident-sounding filler. That's the danger: it <em>sounds</em> like an answer.</li></ul></div>
+          <li>Possibly confident-sounding filler. That's the danger: it <em>sounds</em> like an answer.</li>
+          <li>It may even admit it needs your project files and offer a <b>Turn on Work IQ</b> suggestion, then hand you a full generic checklist anyway.</li></ul></div>
     </li>
     <li class="step">
       <h3>Swing #2: the same question, grounded</h3>
-      <p>Switch to <b>Work</b>. Attach <code>03_Event_Plan_v3…docx</code> and <code>01_Email_Thread_Export.docx</code>. Use the paperclip / <b>+</b> button, or type <kbd>/</kbd> and pick the files from OneDrive. Ask the same question, with one added sentence:</p>
-      <prompt where="Copilot Chat · Work · 2 files attached">Is the Riverfront Rally Weekend promotion ready to go? What should we check before the weekend?
+      <p>Start a <b>New chat</b> and turn <b>Work IQ</b> back on (or switch to <b>Work</b>). Attach <code>03_Event_Plan_v3…docx</code> and <code>01_Email_Thread_Export.docx</code> with the <b>+</b> button, or type <kbd>/</kbd> and pick the files from OneDrive. If you upload from your computer, Copilot tells you it saves a copy to OneDrive. Ask the same question, with one added sentence:</p>
+      <prompt where="Copilot Chat · Work IQ on · 2 files attached">Is the Riverfront Rally Weekend promotion ready to go? What should we check before the weekend?
 Answer only from the attached event plan and email export. For each point, cite the document or email ID (E01-E16) it comes from.</prompt>
       <div class="expect"><b class="t">What you should see</b>
         <ul><li>Specifics: the June 4 lock date, the three-part approval rule (E01), the bucket hat dispute (E03-E10), magnets delivered despite cancellation (E13/E14).</li>
           <li>Citations you can click to open the source.</li>
-          <li>Probably <em>some</em> gaps. It hasn't seen the spreadsheets yet, so it can't know the bobblehead count is short.</li></ul></div>
+          <li>Probably <em>some</em> gaps. It may flag bobblehead damage from Priya's E12 email (25 cases) and the $8 make-good (E16), but it hasn't seen the spreadsheets, so it can't give you the real usable count or spot the duplicated delivery row.</li></ul></div>
       <div class="callout scout"><b class="t">Scouting report · Why grounding matters</b>
         <p>Copilot only knows what it can reach. A grounded answer is only as complete as the evidence you point it at. Part of every investigation is asking, "What hasn't it seen?"</p></div>
     </li>
@@ -105,8 +106,8 @@ OUTPUT:
 2. A short list of the conflicting claims you already see, with sources.
 3. The three questions to answer first, given the Thursday 10:00 AM fan email.</prompt>
       <div class="expect"><b class="t">What you should see</b>
-        <ul><li>8-12 investigation questions covering approvals, contracts, inventory/deliveries, staffing, fan comms and finance.</li>
-          <li>Conflicts already visible: E04 (conditional approval) vs E05/E10 ("approved"); E08 (Marcus: not signed off); E02 cancellation vs E13 delivery.</li>
+        <ul><li>8-15 investigation questions covering approvals, contracts, inventory/deliveries, staffing, fan comms, finance and the fireworks.</li>
+          <li>Conflicts already visible: E04 (conditional approval) vs E05/E06/E10 ("approved"; Copilot may cite any of them); E08 (Marcus: not signed off); E02 cancellation vs E13 delivery.</li>
           <li>A "confirmed" definition that matches the three-part rule in E01: signed amendment + VP Marketing approval + Ops sign-off.</li></ul></div>
       <div class="callout ump"><b class="t">Umpire review</b>
         <p>Open at least two cited emails and confirm they say what Copilot claims. Did it notice that Elena's approval says <em>"pending"</em>? Did it list the Excel workbooks as a needed source, even though you didn't attach them? A good plan names the evidence it hasn't seen yet.</p></div>
@@ -115,8 +116,10 @@ OUTPUT:
       <h3>Tighten it and save it</h3>
       <p>Iterate once, then keep the plan. You'll use it to steer Innings 2-5.</p>
       <prompt where="Copilot Chat · Work">Good. Now map each question in your plan to the Copilot tool best suited to answer it (Copilot Chat, Copilot in Outlook/Teams, Researcher, Analyst, or Copilot in Excel) and add that as a new column. Then add a final column "Deadline" using these real deadlines from the files: staffing confirmation Wed 6/16 noon, fan email content final Wed 6/16 5:00 PM, fan email sends Thu 6/17 10:00 AM.</prompt>
+      <div class="callout ump"><b class="t">Umpire review · Did Researcher get benched?</b>
+        <p>Copilot may assign no question to Researcher at all, saying this isn't an external research problem. That's a misread: as the tool table above says, Researcher can work across your work files and build a cited, multi-source report. Ask it: "Which of these questions would a cited Researcher report answer better than Chat?" Also check that Analyst isn't assigned to a simple contract lookup.</p></div>
       <div class="callout scout"><b class="t">Scouting report · Keep your plan</b>
-        <p>Copy the table into a Word doc or a Copilot Page (if available, use the option to edit the response in Pages). Name it <code>Rally Weekend - Investigation Plan</code> and save it to your Task Force folder.</p></div>
+        <p>Under the response, select <b>…</b> (More options) &gt; <b>Export to</b> &gt; <b>Word</b>, or use <b>Copy Response</b> and paste into a Word doc. If your tenant offers a Pages option, that works too. Name it <code>Rally Weekend - Investigation Plan</code> and save it to your Task Force folder.</p></div>
     </li>
   </ol>
 </section>

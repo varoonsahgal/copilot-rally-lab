@@ -35,7 +35,7 @@
     <file href="{{root}}data/session-2/Rally_Weekend_Budget_Model.xlsx" ext="xlsx" title="Budget Model" desc="Scenarios & costs"/>
   </div>
   <div class="callout warn"><b class="t">Rain delay · availability</b>
-    <p>Copilot Notebooks appear in the Microsoft 365 Copilot app (and in OneNote) for licensed users, subject to admin settings. The kinds of references you can add (files, pages, links, meeting notes) vary by release. <b>No Notebooks?</b> Start one long Copilot Chat, attach all seven files in the first message, paste the notebook instructions from step 2 as your opening prompt, then run the same questions. You lose persistence, but you keep the lesson.</p></div>
+    <p>Copilot Notebooks appear in the Microsoft 365 Copilot app (and in OneNote) for licensed users, subject to admin settings. The kinds of references you can add (files, pages, links, meeting notes) vary by release. <b>No Notebooks, or "Notebook setup did not complete"?</b> If <b>New notebook</b> ends with that message, your account probably lacks the SharePoint storage that notebooks need, and <b>Try again</b> fails the same way. Start one long Copilot Chat, attach all seven files in the first message, paste the notebook instructions from step 2 as your opening prompt, then run the same questions. You lose persistence, but you keep the lesson.</p></div>
 </section>
 
 <section id="play" data-toc="Play-by-play">
@@ -43,14 +43,14 @@
   <ol class="steps">
     <li class="step"><h3>Create the notebook and add references</h3>
       <ul><li>In the Microsoft 365 Copilot app, select <b>Notebooks → New notebook</b> in the left pane <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> and name it <code>Rally Weekend Command Center</code>.</li>
-        <li>Add the seven files above as <b>references</b>. Add only approved, current sources. Anything you add becomes part of what Copilot treats as true.</li>
+        <li>Select <b>Next</b>. In the <b>Add to Rally Weekend Command Center</b> dialog, stay on the <b>References</b> tab, search for each file by name and select it. If a file doesn't show up (it may not be in OneDrive yet), use the <b>Upload files</b> icon (Word, Excel, PowerPoint, PDF, text). Then select <b>Create</b> (scroll down if you can't see it). You can add more later from <b>Add references</b> in the notebook's <b>Content</b> pane. Add only approved, current sources. Anything you add becomes part of what Copilot treats as true.</li>
         <li>Leave the Session 1 email export <em>out</em> on purpose. You'll see why in the challenge.</li></ul>
       <div class="callout scout"><b class="t">Scouting report · curation is the skill</b>
         <p>A notebook is only as trustworthy as its reference list. Ten carefully chosen sources beat fifty "just in case" files: fewer contradictions, sharper answers, easier citations.</p></div>
     </li>
 
     <li class="step"><h3>Write the notebook instructions</h3>
-      <p>Instructions set the purpose and format for every answer in this notebook. Paste these into the notebook's instructions or description field. If your version has no such field, send them as the first message.</p>
+      <p>Instructions set the purpose and format for every answer in this notebook. Open the <b>…</b> menu in the notebook header and select <b>Instructions</b>. Paste these into <b>Tell Copilot how to respond</b> and select <b>Save</b>. They apply to everyone in the notebook. If your version has no Instructions item, send them as the first message.</p>
       <prompt where="Copilot Notebook · instructions">You are the knowledge hub for the Riverfront Rally Weekend Task Force (fictional, June 18-20, 2027).
 Purpose: help the team answer readiness, sponsor, operations and budget questions using ONLY the references in this notebook.
 Rules:
@@ -69,7 +69,8 @@ Use the Readiness Checklist rating definitions.</prompt>
       <div class="expect"><b class="t">What you should see</b>
         <ul><li>Friday GREEN with a cost note (+$6,500 fireworks surcharge).</li>
           <li>Saturday YELLOW or RED: 600-bobblehead gap, now with a priced fix, and attendance pacing to 41,000.</li>
-          <li>Sunday YELLOW: weather (28,500 expected), plus the BRE scope decision and the Right Field pallet.</li>
+          <li>Sunday YELLOW or RED: weather (28,500 expected), the BRE scope decision and the Right Field pallet. RED is fair if it cites the failed approval check on the signed 10,000-hat scope.</li>
+          <li>Net: $2,408,000 on the plot-twist base ($8,000 over the $2.4M objective), or $2,377,100 if it counts the signed hat deal ($25,000 fee against $53,500 hats and $2,400 staff).</li>
           <li>Citations to the memo, findings, sponsor summary and budget model.</li></ul></div>
     </li>
 
@@ -78,6 +79,11 @@ Use the Readiness Checklist rating definitions.</prompt>
       <prompt where="Copilot Notebook">List every outstanding risk for the weekend. For each: risk | likelihood (H/M/L) | business impact in dollars or fans | owner role | the reference that supports it. Sort by impact.</prompt>
       <prompt where="Copilot Notebook">Compare the latest information with our earlier assumptions. Table: Assumption | Earlier value and source | Latest value and source | Change | Does it alter a recommendation? Include Sunday and Saturday attendance, bucket hat quantity and fee, bobblehead shortfall and fix cost, and promo cost total.</prompt>
       <prompt where="Copilot Notebook">Under the Ops Playbook approval rule, is the Big River Energy bucket hat now approved? Walk through each of the three requirements and label each MET, NOT MET, or UNKNOWN with a citation.</prompt>
+      <div class="expect"><b class="t">What you should see in the then-vs-now table</b>
+        <ul><li>Sunday 33,000 (budget model) to 28,500 (memo). Saturday 39,800 to 41,000.</li>
+          <li>Bucket hats: 5,000 in our draft to 10,000 signed, same $25,000 fee.</li>
+          <li>Bobbleheads: still 600 short; new $8,100 air-freight fix vs the $4,800 make-good.</li>
+          <li>Promo cost: $257,500 to $319,900 if the hat deal goes ahead ($53,500 hats + $2,400 staff + $6,500 fireworks surcharge), $328,000 with air freight.</li></ul></div>
       <div class="expect"><b class="t">What you should see in the approval answer</b>
         <ul><li>Signed amendment: <b>MET</b> (memo), but the scope changed to 10,000 hats.</li>
           <li>VP Marketing approval: <b>UNKNOWN / NOT MET</b>. The 5/24 approval was conditional and covered 5,000 hats.</li>
@@ -85,7 +91,7 @@ Use the Readiness Checklist rating definitions.</prompt>
     </li>
 
     <li class="step"><h3>Add new information as the project moves</h3>
-      <p>Projects change. Simulate a new update: create a short Word doc or notebook page called <code>Update - Ops 11AM</code> with the text below and add it as a reference.</p>
+      <p>Projects change. Simulate a new update: create a notebook page (<b>New Page</b> in the <b>Content</b> pane, if you have it) or a short Word doc called <code>Update - Ops 11AM</code> with the text below and add it as a reference.</p>
       <prompt where="New reference note">Update - Thursday June 17, 11:00 AM (Marcus Bell, Ballpark Operations)
 Staffing agency confirmed 6 additional gate staff for Sunday, not 9.
 Right Field mini bat pallet DLV-2234 has been rescheduled from 6/21 to 6/18.
@@ -95,7 +101,7 @@ Magnet schedules have been pulled back to the Central Warehouse.</prompt>
     </li>
 
     <li class="step"><h3>Optional: audio overview</h3>
-      <p>If your notebook offers an <b>audio overview</b>, generate one for the briefing. It's a podcast-style summary for executives listening between meetings. Listen to the first minute: does it keep the CONFIRMED / ESTIMATE distinction?</p>
+      <p>If the notebook's <b>Content</b> pane shows an <b>Audio overview</b> tile, select it to generate one for the briefing. It's a podcast-style summary for executives listening between meetings. Listen to the first minute: does it keep the CONFIRMED / ESTIMATE distinction?</p>
     </li>
   </ol>
 </section>
@@ -162,6 +168,7 @@ Magnet schedules have been pulled back to the Central Warehouse.</prompt>
       <li>Fan email (180,000 recipients) mentions an item that isn't fully approved: reputational risk.</li>
       <li>Sunday weather: 4,500 fewer fans than plan, about $121,500 of net contribution.</li>
     </ol>
+    <p><b>Risk register gap:</b> in our live test, Copilot left out the fan email risk and gave Sunday weather in fans only, so weather sorted below the $30,900 BRE drag. Follow up with: "Add any risks missing from this list, and convert fan impact to dollars at $27 net per fan." (4,500 fans × $27 = $121,500.)</p>
     <p><b>Common miss:</b> participants add the email export "for completeness." Then the notebook happily repeats Jordan's "it's approved" claims. Use that as a teaching moment on curation.</p>
     <p><b>Staffing catch:</b> the 11 AM update says the agency confirmed 6 staff, "not 9." But the Ops Playbook rule (+3 per dual-item gate × 5 gates) implies 15 for the redlined scope. Ask the notebook to check the memo against the playbook. A good answer flags the gap.</p>
     <p><b>Mini bat conflict preview:</b> if anyone asks how mini bats are distributed, the Event Plan says <em>gate entry</em> but Event Standards (not a notebook reference) says bat-style items go out at <em>exit</em>. Save the reveal for Inning 3.</p>

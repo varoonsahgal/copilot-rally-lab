@@ -185,9 +185,11 @@ Rank by business impact. Keep it to one table plus three bullet takeaways. Flag 
   <ol class="steps">
     <li class="step"><h3>Open the starter workbook</h3>
       <p>Copilot in Excel works inside one workbook, so the kit includes <b>Rally_Reconciliation_start.xlsx</b>: the allocations workbook with the warehouse
-        Deliveries table already added as <code>tblDeliveries</code>. Open it from OneDrive in Excel (AutoSave on) and open Copilot from the ribbon.</p>
+        Deliveries table already added as <code>tblDeliveries</code>. Open it from OneDrive in Excel (AutoSave on) and open Copilot. In Excel for the web, if there's no Copilot button on the ribbon, use the round <b>Copilot</b> button at the bottom-right of the grid; the pane opens as <b>Let's edit your workbook</b>. Leave the mode dropdown above the chat box on <b>Allow editing</b> (the other choices are <b>Plan</b> and <b>Chat only</b>).</p>
+      <p>Not in OneDrive yet? Attach the file to a Copilot Chat message (uploads are saved to OneDrive in <b>Microsoft Copilot Chat Files</b>), click the file card, then choose <b>Open in Excel</b>.</p>
+      <p>If a yellow <b>Clean Data with Copilot</b> banner offers suggestions for the Deliveries sheet, dismiss it for now. Accepting its suggestions would change the raw data, and you want the messy Request Refs and SKUs left as they are so your helper columns show what was normalized.</p>
       <details class="reveal"><summary>Doing this with your own data? How to build the combined workbook yourself</summary><div class="inner">
-        <p><b>First</b> save a copy of the allocations workbook (File → Save a copy) so Analyst's original stays untouched. Open the copy, add a sheet named <code>Deliveries</code>, and paste the warehouse table into it.
+        <p><b>First</b> save a copy of the allocations workbook (File → Save a copy; in Excel for the web, File → Create a Copy → Create a copy online) so Analyst's original stays untouched. Open the copy, add a sheet named <code>Deliveries</code>, and paste the warehouse table into it.
           If the pasted data isn't already a table, press <kbd>Ctrl</kbd>+<kbd>T</kbd>. Then rename it <code>tblDeliveries</code> in <b>Table Design</b>.</p></div></details>
       <div class="callout scout"><b class="t">Scouting report</b><p>Named tables (<code>tblRequests</code>, <code>tblGateAllocations</code>, <code>tblItems</code>, <code>tblDeliveries</code>) give Copilot and your formulas
         unambiguous references like <code>tblItems[Case Pack (units per case)]</code>, and they grow automatically when new rows arrive.</p></div>
@@ -225,6 +227,7 @@ Then highlight LATE and Duplicate rows in light red.</prompt></div>
             <tr><td>On Time?</td><td><code>=IF([@[Game Date]]="","n/a",IF([@[Delivery Date]]&lt;=[@[Game Date]],"On time","LATE"))</code></td></tr>
             <tr><td>Distributable EA</td><td><code>=IF(OR([@[Duplicate?]]="Duplicate",[@[On Time?]]="LATE"),0,[@[Qty EA]]-[@[Damaged Qty]])</code></td></tr>
           </tbody></table></div></div></div>
+      <div class="expect"><b class="t">Check it <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span></b><p>Exactly two rows turn light red: the second DLV-2222 (Duplicate) and DLV-2234 (delivered 6/21 for the 6/20 game, LATE). Both show Distributable EA = <b>0</b>. Select the Distributable EA column: the status bar <b>Sum</b> should read <b>63,400</b>. Check how the highlight was applied (Home → Conditional Formatting → Manage Rules): a rule picks up new rows, a fixed fill doesn't.</p></div>
     </li>
     <li class="step"><h3>Build the exception report on the allocations table</h3>
       <div class="tabs"><div class="tab-list"><button type="button" aria-selected="true">Copilot prompt</button><button type="button" aria-selected="false">Formula fallback</button></div>
@@ -253,14 +256,15 @@ Color Recon Status: green for Match, red for EXCEPTION, amber for DELIVERED VS C
 - A PivotTable by Item showing total Allocated Qty, total Distributable Delivered and total Variance, for Approved requests only.
 - A clustered bar chart comparing Allocated vs Distributable Delivered by Item.
 - Below it, a list of every row where Recon Status is not "Match", sorted by Variance (most negative first).</prompt>
+      <div class="expect"><b class="t">What you should see</b><p>Approved requests only: <b>62,000</b> allocated vs <b>43,400</b> distributable delivered (variance <b>−18,600</b>). The list underneath has <b>12</b> non-Match rows, with the PR-1060 keychains (−12,000) first. A formula list (for example <code>SORT(FILTER(…))</code>) updates on its own; a PivotTable doesn't, so refresh it after the data changes.</p></div>
       <div class="callout scout"><b class="t">Scouting report · ask for insight, not just a chart</b><p>Follow up with: <i>"What are the three most important insights from this summary for a VP who has 60 seconds?"</i>
-        Then compare Copilot's answer with your Part A findings. Where do they disagree?</p></div>
+        Then compare Copilot's answer with your Part A findings. Where do they disagree? Watch the keychains: Copilot may treat the July keychains as a label mismatch to fix and count them in the weekend shortfall, when they're a July promo outside this weekend's scope.</p></div>
     </li>
     <li class="step"><h3>Review every change Copilot made</h3>
       <p>Before trusting the workbook, audit it like a scorer reviewing the book after the game:</p>
       <ul><li>Click a cell in each new column and <b>read the formula</b> in the formula bar. Does it match the rule you intended?</li>
         <li>Check that each formula filled the <b>whole table column</b>, not just the first few rows.</li>
-        <li>Use <b>Undo</b> or <b>Version History</b> (File → Info) if Copilot changed something you didn't ask for.</li>
+        <li>In <b>Allow editing</b> mode Copilot writes straight into the grid, with no preview, and shows <b>Done</b> and <b>Undo</b> under each reply. Use that <b>Undo</b>, or <b>Version History</b> (File → Version History in Excel for the web; File → Info in desktop Excel), if Copilot changed something you didn't ask for.</li>
         <li>Spot-check three rows by hand: DLV-2212 (CS), DLV-2222 (duplicate), DLV-2234 (late).</li></ul>
     </li>
     <li class="step"><h3>Prove it with control totals</h3>
@@ -275,7 +279,7 @@ Color Recon Status: green for Match, red for EXCEPTION, amber for DELIVERED VS C
       </div>
       <div class="callout ump"><b class="t">Umpire review · the 12,000-unit gap</b>
         <p>Now compare <code>SUM(tblDeliveries[Distributable EA])</code> = <b>63,400</b> with <code>SUM(tblGateAllocations[Distributable Delivered])</code>. The second total is
-          <b>51,400</b>. Where did 12,000 units go? <i>Find it before you open the answer key.</i></p>
+          <b>51,400</b>. Where did 12,000 units go? <i>Find it before you open the answer key.</i> Copilot may already have named a cause in its reply to the exception-report prompt. If it did, don't take its word for it: point to the allocation row and the two delivery rows that prove it, and decide whether it is a real shortage.</p>
         <label><input type="checkbox" class="track" data-key="catch:s1-l4-gap"> I found the 12,000-unit gap</label></div>
     </li>
   </ol>

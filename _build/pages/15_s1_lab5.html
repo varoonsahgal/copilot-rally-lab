@@ -47,7 +47,7 @@
   <h2><span class="base"></span>Before you start</h2>
   <p>Gather your outputs from Innings 2-4: the timeline and commitments report, the readiness brief, and the exception workbook or Analyst findings. Either attach them to a new Copilot Chat, or <b>continue in the conversation where you did Inning 4</b>.</p>
   <div class="callout scout"><b class="t">Scouting report · Missed an inning?</b>
-    <p>Paste the scouting summary below into Copilot Chat as your evidence. It's the reference result from Innings 2-4.</p></div>
+    <p>Paste the scouting summary below into a new Copilot Chat as your first message. It's the reference result from Innings 2-4. Copilot may reply with its own quick readout of the risks. Skim it, then run step 1 in the same chat.</p></div>
   <details class="reveal"><summary>Reference evidence summary from Innings 2-4 (paste-ready)</summary><div class="inner">
     <prompt where="Paste as evidence">EVIDENCE SUMMARY - Riverfront Rally Weekend (as of Wed 6/16/2027 11:00 AM)
 Communications (Inning 2):
@@ -59,12 +59,14 @@ Communications (Inning 2):
 Spreadsheets (Inning 4):
 - Rally Towels (PR-1041): 20,050 distributable vs 20,000 allocated after converting DLV-2212 (40 CS = 4,000 EA). Home Plate +50 (0.8%, within tolerance). OK.
 - Retro Bobbleheads (PR-1043): system shows 16,200 because DLV-2222 (1,200) is duplicated. True delivered 15,000; damaged 600; distributable 14,400 vs 15,000 guaranteed to Riverbend. Make-good: $8 x 600 = $4,800 or a replacement night. Warehouse stock: 0.
-- Kids Mini Bats (PR-1048): Right Field second pallet DLV-2234 (1,000) scheduled 6/21 - after the 6/20 game - but 1,000 units are in the warehouse. Club Entrance short 50 (vendor backorder, ETA 6/24). Game-day distributable today: 8,950 vs 10,000.
-- Bucket hats (PR-1057): 0 delivered, 0 inventory, no PO.
+- Kids Mini Bats (PR-1048): Right Field second pallet DLV-2234 (1,000) scheduled 6/21 - after the 6/20 game - but 1,000 units are in the warehouse. Club Entrance short 50 (vendor backorder, ETA 6/24). Game-day distributable today: 8,950 vs 10,000 guaranteed to Lakeside Fresh Market (make-good $2 per unit short).
+- Bucket hats (PR-1057): 0 delivered, 0 inventory, no PO. Seventh Inning Headwear needs 21 days from PO (E07); Priya will ask about expedited shipping, "no promises" (huddle 00:03:49).
 - Fireworks (PR-1052): vendor service; no delivery expected - not an exception.
 Other:
 - Ticketing says Sunday is pacing about 31,200 vs 33,000 planned; Saturday pacing ahead (verbal, huddle 00:04:16).
-- Ops rule: pallets must be at gates 48 hours before gates open. Sunday gates open 12:10 PM.</prompt>
+- Ops rule: pallets must be at gates 48 hours before gates open. Sunday gates open 12:10 PM.
+- Game days: Fri 6/18 Rally Towels + Fireworks; Sat 6/19 Retro Bobbleheads; Sun 6/20 Kids Mini Bats (Bucket Hats proposed).
+- Owners: Elena Ortiz (VP Marketing, decision owner); Dana Whitfield (Promotions, owns the event plan); Marcus Bell (Ops; staffing agency answer on 6 extra Sunday gate staff due Wed noon, huddle 00:02:58); Priya Raman (Warehouse); Jordan Pierce (Sponsorship); Sam Kowalski (fan email); Chris Ahn (Finance); Tasha Greene (Ticketing).</prompt>
   </div></details>
 </section>
 
@@ -121,7 +123,8 @@ B. NEEDS MORE INFORMATION: the decision, the missing information, who provides i
 Keep it to the 8 most important decisions.</prompt>
       <div class="expect"><b class="t">What you should see</b>
         <ul><li><b>Now:</b> pull the hat line from the fan email; move the $25K to pending; reschedule DLV-2234 from warehouse stock; return the magnets; correct the duplicate and status errors in the source files.</li>
-          <li><b>Later:</b> the bobblehead remedy (credit vs replacement night vs sourcing units); whether the hats return on a future date; the Club Entrance 50-bat gap.</li></ul></div>
+          <li><b>Later:</b> the bobblehead remedy (credit vs replacement night vs sourcing units); whether the hats return on a future date; the Club Entrance 50-bat gap.</li>
+          <li><b>Watch for:</b> Copilot may park the hat line, the DLV-2234 move and the $25K under "needs more information" with a 5:00 PM or Fri 12:10 PM deadline. Push back: "With no PO, zero stock and a 21-day lead time, what new fact could change the hat answer?" If nothing could, it belongs in Decide now.</li></ul></div>
     </li>
 
     <li class="step">
@@ -161,6 +164,7 @@ Use only the evidence in this conversation. If a rating depends on an unresolved
 <section id="scorecard" data-toc="Reference scorecard">
   <h2><span class="base"></span>Reference scorecard</h2>
   <p class="lead">Compare your Copilot-built scorecard with this one. Differences are fine if you can defend them with evidence.</p>
+  <p class="muted"><span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> Copilot rated Mini Bats, Magnets and the Finance forecast RED because a check has failed today. The reference rates them YELLOW because a named owner can fix each one before gates open. Ask Copilot which reading it used.</p>
   <div class="table-wrap"><table class="data scorecard">
     <thead><tr><th>Element</th><th>Rating</th><th>Key evidence</th><th>Recommendation</th></tr></thead>
     <tbody>

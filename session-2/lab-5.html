@@ -80,7 +80,7 @@
   <h2><span class="base"></span>Play-by-play</h2>
   <ol class="steps">
     <li class="step"><h3>Draft the decision brief in Word</h3>
-      <p>Open a blank document in Word and start a Copilot draft. Reference the source files by name (type <code>/</code> to pick files, where supported). If Copilot in Word can't reference the Excel budget model, paste your scenario table from Inning 4 into the prompt instead.</p>
+      <p>Open a blank document in Word (<b>Create blank document</b>), rename it in the title bar, and open the Copilot pane. Attach the three source files before you paste the prompt: select <b>+</b> (Add sources, skills, and more) &gt; <b>Add content</b>, search for each file name and pick it. Each file appears as a chip above the prompt box. Keep <b>Allow editing</b> selected so Copilot writes into the document. In our test, Copilot in Word opened and used the Excel budget model; if yours can't, paste your scenario table from Inning 4 into the prompt instead.</p>
       <div class="prompt"><div class="p-head"><span class="where">Copilot in Word</span><button class="copy-btn" type="button">Copy</button></div><pre>Draft a one-page executive decision brief titled &quot;Riverfront Rally Weekend - Revised Promotion Plan (June 17, 2027)&quot;.
 Use /09_Task_Force_Findings_Session1, /06_Plot_Twist_Memo_June17 and /Rally_Weekend_Budget_Model.
 Structure:
@@ -91,13 +91,14 @@ Structure:
 5. Risks and how we mitigate them
 6. Decisions needed today, with an owner and time for each
 Label forecasts as estimates. Do not include any number that is not in the source files or derived from them, and show the derivation for any number you calculate.</pre><div class="p-hint">📎 <b>Attach the files first.</b> Pasted, the <code>/FileName</code> text is just a label. To link a file, type <kbd>/</kbd> and pick it, or attach it with <b>+</b>.</div></div>
-      <div class="expect"><b class="t">What you should see</b><p>A structured one-pager with a recommendation up top. Expect to correct some numbers. That's what step 4 is for.</p></div>
+      <div class="expect"><b class="t">What you should see</b><p>Copilot works for 2 to 3 minutes and shows its steps, then a <b>Done</b> / <b>Undo</b> bar so you can keep or undo its edits. Expect a structured brief with the recommendation up top and a derivation line under the numbers table. It may run past one page, and Copilot may say it can't confirm the length. Expect to correct some numbers and some owners. That's what step 4 is for.</p><p class="mb0"><b>Whose recommendation is it?</b> Copilot can only recommend from what it can see. In our test it chose the make-good plan ($2,408,000 − $4,800 = <b>$2,403,200</b>), because ideas from your Inning 4 dugout, such as the Father's Day bundle, aren't in any source file. If your plan differs, add one line to the prompt ("Our recommended plan is …, from our Inning 4 scenario") or paste your scenario table. The recommendation is yours; Copilot drafts it.</p></div>
     </li>
     <li class="step"><h3>Sharpen it</h3>
       <div class="prompt"><div class="p-head"><span class="where">Copilot in Word</span><button class="copy-btn" type="button">Copy</button></div><pre>Rewrite the Recommendation so a busy executive can approve it in 15 seconds: one sentence of decision, one sentence of why, one sentence of cost. Then cut the whole brief by 20% without losing a number.</pre></div>
+      <div class="expect"><b class="t">What you should see</b><p>A three-part Recommendation (decision, why, cost). Copilot may also list what it cut: read that list. In our test it cut about 10%, not 20%, and dropped the caveat that Riverbend, not us, chooses between the credit and a replacement night. Put back any caveat you need.</p></div>
     </li>
     <li class="step"><h3>Build the three-slide deck in PowerPoint</h3>
-      <p>In PowerPoint, use Copilot to create a presentation <b>from your decision brief</b> (save the Word file to OneDrive first).</p>
+      <p>In PowerPoint, create a blank presentation and use Copilot to build it <b>from your decision brief</b>. Save the brief to OneDrive first (Word for the web does this automatically), then attach it with <b>+</b> &gt; <b>Add content</b>. Copilot may first ask you to <b>Choose a design style for your deck</b>. Pick one, then check that it goes on to build your three slides. In our test it lost the original request after the style question, and the prompt had to be sent again.</p>
       <div class="prompt"><div class="p-head"><span class="where">Copilot in PowerPoint</span><button class="copy-btn" type="button">Copy</button></div><pre>Create a 3-slide executive presentation from /<span class="ph">[Your decision brief file]</span>.
 Slide 1 &quot;What we discovered&quot;: the 3 exceptions that matter, each with its evidence.
 Slide 2 &quot;What the numbers mean&quot;: net contribution by scenario vs the $2.4M objective, as a simple chart or table.
@@ -114,6 +115,8 @@ Use action titles (the title states the conclusion, not the topic). Maximum 4 bu
           <tr><td>Plot Twist net contribution</td><td>106,000 × $27 + $215,000 − $264,000 − $405,000</td><td>$2,408,000</td><td><label><input type="checkbox" class="track" data-key="catch:s2-l5-c2"> Fixed an error</label></td></tr>
           <tr><td>BRE deal as signed, net impact</td><td>+$25,000 − $53,500 − $2,400</td><td>−$30,900</td><td><label><input type="checkbox" class="track" data-key="catch:s2-l5-c3"> Fixed an error</label></td></tr>
           <tr><td>Sunday attendance</td><td>Memo (ESTIMATE)</td><td>28,500 expected</td><td><label><input type="checkbox" class="track" data-key="catch:s2-l5-c4"> Fixed an error</label></td></tr>
+          <tr><td>Rainy Sunday impact</td><td>Memo · 28,500 − 25,000 = 3,500 fans × $27</td><td>−$94,500 (Sunday only, not the all-conservative weekend)</td><td><label><input type="checkbox" class="track" data-key="catch:s2-l5-c6"> Fixed an error</label></td></tr>
+          <tr><td>Owners in "Decisions needed today"</td><td>Cast list</td><td>BRE counter: Jordan Pierce (Ryan Castellano works for BRE). Fan email: Sam Kowalski</td><td><label><input type="checkbox" class="track" data-key="catch:s2-l5-c7"> Fixed an error</label></td></tr>
           <tr><td>"Bucket hats approved"</td><td>Ops Playbook approval rule</td><td><b>Not approved</b> (no Ops sign-off)</td><td><label><input type="checkbox" class="track" data-key="catch:s2-l5-c5"> Fixed an error</label></td></tr>
         </tbody></table></div>
     </li>
@@ -138,7 +141,8 @@ Be direct. Do not soften the critique.</pre></div>
     <ul><li>"Your plan clears $2.4M by a few thousand dollars on a forecast. What happens if Sunday rains?" (Answer: −$94,500 at 25,000 fans. Show the gap-closing levers.)</li>
       <li>"Why spend $8,100 when the make-good credit is $4,800?" (Answer: the guarantee and the relationship with our biggest sponsor, and Riverbend chooses the remedy, not us.)</li>
       <li>"BRE signed. Aren't we breaking our word?" (Answer: the signed version changed the scope. Our approval rule requires Ops sign-off, and we can't staff it.)</li>
-      <li>"Who owns the fan email change, and has it already gone out?"</li></ul></div></details>
+      <li>"Who owns the fan email change, and has it already gone out?"</li></ul>
+    <p class="mb0">If you paste only the Recommendation, the skeptic sees only what is in it. In our test it called Saturday's 41,000 forecast "unexplained" (the Plot Twist memo attributes it to Saturday pacing ahead of plan) and picked it as the weakest number. Attach the brief or the memo so the critique reflects your sources, not gaps in what you pasted.</p></div></details>
 </section>
 
 <section id="ump" data-toc="Umpire review">
@@ -176,7 +180,7 @@ Then play my most skeptical stakeholder and ask me 5 hard questions.</pre></div>
   <h2><span class="base"></span>Dugout notes</h2>
   <details class="dugout"><summary>Dugout notes · instructor answer key</summary><div class="inner">
     <p><b>Timing (20 min):</b> 2 min storyline · 5 min Word brief · 5 min PowerPoint · 3 min review table · 5 min skeptic challenge.</p>
-    <p><b>Typical Copilot errors to watch for:</b> quoting the BRE fee as profit (ignoring the $53,500 hat cost); stating "15,000 bobbleheads ready" (from the plan, not the findings); counting fixed cost once; calling the bucket hats "approved" because the memo says "signed".</p>
+    <p><b>Typical Copilot errors to watch for:</b> quoting the BRE fee as profit (ignoring the $53,500 hat cost); stating "15,000 bobbleheads ready" (from the plan, not the findings); counting fixed cost once; calling the bucket hats "approved" because the memo says "signed"; labeling the all-conservative weekend (−$293,800 with the make-good) as "a storm Sunday" when Sunday alone is −$94,500; naming Ryan Castellano (BRE's contact) as an internal owner; a slide title that says "only" one plan clears $2.4M while its own chart shows other scenarios above the line.</p>
     <p><b>Facilitation tip:</b> have one volunteer read their slide titles aloud, titles only. If the room gets the story, the deck works.</p>
     <p><b>If Copilot in PowerPoint isn't available:</b> ask Copilot Chat for the 3-slide outline with titles, bullets and speaker notes, then paste it into PowerPoint manually. The storytelling lesson is the same.</p>
   </div></details>

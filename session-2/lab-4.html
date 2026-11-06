@@ -105,7 +105,7 @@ Style: clean, readable, navy and gold. Format money as $#,### and attendance wit
       <div class="expect"><b class="t">What you should see</b>
         <ul><li>A working calculator. With the defaults: <b>109,300</b> fans, net <b>$2,503,600</b>, <b>+$103,600</b> vs. objective.</li>
           <li>Break-even attendance <b>16,575</b>. Attendance needed for the objective <b>105,463</b>.</li>
-          <li><b>Where it appears:</b> in our live test, Copilot Chat rendered the working app <b>right inside the chat response</b>: sliders, preset buttons, tiles, the chart and the formulas, all interactive, with every number matching this answer key. <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> Keep refining it in the same chat. If your tenant offers a Pages option for the response, use it to co-edit and share; otherwise use <b>… → Share response</b>.</li></ul></div>
+          <li><b>Where it appears:</b> in our live test, Copilot Chat rendered the working app <b>right inside the chat response</b>: sliders, preset buttons, tiles, the chart and the formulas, all interactive, with every number matching this answer key. <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span> Keep refining it in the same chat. Each follow-up returns a <b>new copy</b> of the app in a new response, so always test the newest one: earlier copies stay above it, and your slider and toggle settings don't carry over. In our test the response's <b>…</b> menu offered Share response, Export to → Word, Read aloud and Schedule this prompt, with no Pages option. If your tenant offers a Pages option, use it to co-edit and share; otherwise use <b>… → Share response</b>.</li></ul></div>
     </li>
 
     <li class="step"><h3>Verify the math before you trust a single slider</h3>
@@ -122,7 +122,8 @@ Style: clean, readable, navy and gold. Format money as $#,### and attendance wit
         <ul><li>Fixed cost counted once instead of × 3 games (net off by $270,000).</li>
           <li>Variable cost subtracted per game instead of per attendee.</li>
           <li>Sponsorship subtracted instead of added.</li>
-          <li>Break-even rounded down (16,574 fans doesn't quite break even).</li></ul>
+          <li>Break-even rounded down (16,574 fans doesn't quite break even).</li>
+          <li>A wrong headline. In our live test the step-by-step answer opened with <b>$2,498,600</b>, worked the math to <b>$2,503,600</b>, then corrected itself in its last line. Read the whole answer, not just the first sentence.</li></ul>
         <p class="mb0"><label><input type="checkbox" class="track" data-key="catch:s2-l4-math"> I caught a math bug in my generated simulator</label></p></div>
     </li>
 
@@ -134,7 +135,9 @@ Add three optional toggles, off by default, each shown as its own line in the re
 2. Bobblehead fix: choose &quot;None&quot;, &quot;Air-freight 600 replacements (+$8,100 promo cost)&quot; or &quot;Riverbend make-good credit (-$4,800 sponsorship)&quot;.
 3. Big River Energy bucket hats as signed: +$25,000 sponsorship, +$53,500 hat cost, +$2,400 extra staffing.
 Add the Plot Twist to the scenario comparison chart.</pre></div>
-      <div class="prompt"><div class="p-head"><span class="where">Copilot Chat → Pages</span><button class="copy-btn" type="button">Copy</button></div><pre>Add a &quot;What it takes&quot; panel: how many more fans, OR how much more margin per attendee, would close the gap to $2,400,000 for the current inputs. If we already meet the objective, show the cushion instead.</pre></div>
+      <div class="prompt"><div class="p-head"><span class="where">Copilot Chat → Pages</span><button class="copy-btn" type="button">Copy</button></div><pre>Add a &quot;What it takes&quot; panel inside the existing simulator, driven by its live inputs and toggles: how many more fans, OR how much more margin per attendee, would close the gap to $2,400,000. If we already meet the objective, show the cushion instead.</pre></div>
+      <div class="callout ump"><b class="t">Umpire review · is it wired in?</b>
+        <p class="mb0">Move a slider and watch the panel. In our live test, Copilot first built "What it takes" as a separate mini-calculator with its own input boxes, so it ignored the simulator's settings. If yours does the same, say so and ask Copilot to connect it to the simulator's inputs.</p></div>
     </li>
 
     <li class="step"><h3>Break it on purpose: edge cases</h3>
@@ -148,6 +151,10 @@ Add the Plot Twist to the scenario comparison chart.</pre></div>
           <tr><td>All three toggles on, Plot Twist</td><td>Net <b>$2,369,000</b> with air freight (see the challenge key)</td></tr>
         </tbody></table></div>
       <div class="prompt"><div class="p-head"><span class="where">Copilot Chat → Pages</span><button class="copy-btn" type="button">Copy</button></div><pre>Write 6 test cases for this simulator (inputs and the exact expected outputs), including the edge cases above. Then tell me which ones the current app fails, and fix them.</pre></div>
+      <div class="expect"><b class="t">What you should see <span class="tag blue">Tested live in M365 Copilot · Nov 2026</span></b>
+        <ul><li>Six cases with exact outputs. For the Plot Twist with all three toggles on (air freight for the bobbleheads): net <b>$2,369,000</b>, gap <b>−$31,000</b>, break-even <b>18,260</b>, attendance needed for the objective <b>107,149</b>, and <b>1,149</b> more fans or about <b>+$0.29</b> margin per attendee.</li>
+          <li>Margin $7 with variable cost $7 shows "Break-even undefined". A negative game or a blank box shows an error, not a number.</li>
+          <li>A list of failing cases and a rebuilt app. In our test, Copilot caught that its own "What it takes" panel wasn't connected to the simulator, and fixed it.</li></ul></div>
     </li>
 
     <li class="step"><h3>Prototype vs. production</h3>
@@ -162,7 +169,7 @@ Add the Plot Twist to the scenario comparison chart.</pre></div>
   <div class="challenge">
     <span class="kick">Audience challenge · 6 minutes</span>
     <h3>The Budget Surprise</h3>
-    <p>Load the <b>Plot Twist</b> scenario and turn on the fireworks surcharge. You clear $2.4M by a hair. Now Sponsorship wants the bobbleheads air-freighted,
+    <p>Load the <b>Plot Twist</b> scenario (net $2,414,500 with every toggle off) and turn on the fireworks surcharge ($2,408,000). You clear $2.4M by a hair. Now Sponsorship wants the bobbleheads air-freighted,
       and Jordan wants the BRE deal as signed. <b>Find a revised plan that meets the $2.4M objective</b>, and be ready to say what risk you're accepting.</p>
     <div class="count"><span>Pairs</span><span>One plan each</span><span>Show the net</span></div>
   </div>
@@ -229,7 +236,7 @@ Label it clearly as a prototype.</pre></div></div></div></section>
       <li><b>Counter BRE</b> with hats on a later date at standard lead time (10,000 × $4.10 = $41,000), so the fee must be at least about $45,000 to break even.</li>
     </ul>
     <p><b>The big insight:</b> −$100 is well inside forecast error. A Sunday at the conservative 25,000 costs $94,500. The decision should rest on <em>risk and sponsor relationships</em>, not a rounding-error pass or fail. The strongest recommendation is <b>decline or counter BRE + air-freight + the Father's Day bundle ($2,426,400)</b>. It keeps the contractual promise <em>and</em> meets the objective. Air-freight + decline alone ($2,399,900) misses by $100. Make the room say why that matters, or doesn't.</p>
-    <p><b>Break-even / objective attendance (Plot Twist + surcharge + air-freight):</b> 17,115 and 106,004. Ask the room: "We need four more fans. Is that a plan?"</p>
+    <p><b>Break-even / objective attendance (Plot Twist + surcharge + air-freight):</b> 17,115 and 106,004. Ask the room: "We need four more fans. Is that a plan?" In our live test the generated "What it takes" panel showed <b>+4</b> fans or <b>+$0.00</b> margin ("raise margin from $34.00 to $34.00"). The real figure is about a tenth of a cent, so it rounds to zero: another reason to read the outputs, not just the tiles.</p>
   </div></details>
 </section>
 
